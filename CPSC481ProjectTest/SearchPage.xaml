@@ -1,0 +1,360 @@
+﻿<Page x:Class="CPSC481ProjectTest.SearchPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CPSC481ProjectTest"
+      mc:Ignorable="d" 
+      d:DesignHeight="890" d:DesignWidth="1215"
+      Title="SearchPage">
+
+    <Page.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style x:Key="FocusVisual1">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background1" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border1" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background1" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border1" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background1" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border1" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background1" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border1" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground1" Color="#FF838383"/>
+        <Style x:Key="StackPanelStyle1" TargetType="{x:Type StackPanel}"/>
+        <Style x:Key="FocusVisual2">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background2" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border2" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background2" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border2" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background2" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border2" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background2" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border2" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground2" Color="#FF838383"/>
+        <Style x:Key="BorderStyle1" TargetType="{x:Type Border}"/>
+    </Page.Resources>
+    <Grid Background="#E64848">
+        <TextBlock HorizontalAlignment="Left" Margin="27,10,0,0" TextWrapping="Wrap" Text="BIBLIOTECH" VerticalAlignment="Top" Height="49" Width="192" FontSize="30"/>
+        <Button Content="Logout" FontWeight="Bold" HorizontalAlignment="Left" Margin="1016,16,0,0" VerticalAlignment="Top" Height="36" Width="167" Background="#FAEDCD"/>
+        <Button Content="My Account" Click="MyAccount" FontWeight="Bold" HorizontalAlignment="Left" Margin="849,16,0,0" VerticalAlignment="Top" Height="36" Width="167" Background="#FAEDCD"/>
+
+        <Button x:Name = "BasicButton" Content="Basic search" FontSize="15"  HorizontalAlignment="Left" VerticalAlignment="Top" Click="BasicButton_Click" Margin="250,104,0,0" Background="#E4DCCF" Height="40" Width="350"/>
+        <Button x:Name ="AdvancedButton" Content="Advanced search" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top" Click="AdvancedButton_Click" Margin="600,104,0,0" Background="#FAEDCD" Height="40" Width="351"/>
+
+        <StackPanel x:Name="BasicStack" Margin="250,144,250,124" Background="#FAEDCD" Visibility="Collapsed">
+            <TextBox TextWrapping="Wrap" Text="Search by title or author..." Background="White" Foreground="Gray" TextAlignment ="Center" VerticalContentAlignment="Center" Width="500" Height="50" Margin="20,100,0,0"/>
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Background="White" Margin="0,20,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="C:\Users\thao3\source\repos\481\481\searchbutton.jpg" Width="75" Height="16"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+
+        <StackPanel x:Name="AdvancedStack" Margin="250,144,250,60" Background="#FAEDCD" Visibility="Visible">
+            <Button HorizontalAlignment="Left" Margin="525,10,0,0" Width="150" Height="22" Background="#E21818">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="C:\Users\thao3\source\repos\481\481\cancelicon" Width="20" Height="20" HorizontalAlignment="Left" Margin="-20"/>
+                    <TextBlock Text="Remove all filters" Foreground="White" Margin="5,0,0,0"/>
+                </StackPanel>
+            </Button>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Item type:" Margin="20,20" Width="61"/>
+            <CheckBox HorizontalAlignment="Left" Content="Books" Margin="120,-45,0,0" Width="66" Height="22"/>
+            <CheckBox HorizontalAlignment="Left" Content="Journals" Margin="260,-45,0,0" Height="22" Width="66"/>
+            <CheckBox HorizontalAlignment="Left" Content="Papers" Margin="400,-45,0,0" Height="22" Width="66"/>
+            <CheckBox HorizontalAlignment="Left" Content="Articles" Margin="550,-47,0,0" Height="22" Width="66"/>
+            <TextBlock HorizontalAlignment="Left" Margin="20,5,0,0" TextWrapping="Wrap" Text="Availability:" VerticalAlignment="Center"/>
+            <RadioButton HorizontalAlignment="Left" IsChecked="True" Content="All items" Margin="120,-14,0,0"/>
+            <RadioButton HorizontalAlignment="Left" Content="Only available items" Margin="260,-16,0,0"/>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Publication year:" Margin="20,25,0,0" Width="120" />
+            <TextBox HorizontalAlignment="Left" Text="Start year" GotFocus="StartYearGotFocus" Foreground="Gray" TextWrapping="Wrap" Margin="170,-15,0,0" Height="20" Width="120"/>
+            <TextBlock  HorizontalAlignment="Left" TextWrapping="Wrap" Text="to" Margin="320,-18,0,0" Width="120"/>
+            <TextBox HorizontalAlignment="Left" Text="End year" GotFocus="EndYearGotFocus" Foreground="Gray" TextWrapping="Wrap" Margin="360,-18.5,0,0" Height="20" Width="120"/>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Search Terms:" Margin="20,20,0,0" Width="120" />
+            <Button HorizontalAlignment="Left" Margin="100,-13,0,0" VerticalAlignment="Top" Background="White" MouseEnter="SearchTerm_MouseEnter" MouseLeave="SearchTerm_MouseLeave">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Ellipse Fill="{TemplateBinding Background}" Stroke="{TemplateBinding BorderBrush}" StrokeThickness="{TemplateBinding BorderThickness}"/>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/images/questionicon.png" Width="12" Height="12"/>
+                </StackPanel>
+            </Button>
+            <TextBox x:Name="SearchTermQuestion" TextWrapping="Wrap" Background="#749F82" Text="Use search terms to narrow down search results" Visibility="Hidden" HorizontalAlignment="Left" TextAlignment="Center" Height="40" Width="160" Margin="120,-50,0,0"/>
+            <Grid x:Name="FilterGrid">
+                <StackPanel x:Name="ThreeFilters">
+                    <ComboBox x:Name="AndOr1" SelectedIndex="0" HorizontalAlignment="Left" SelectionChanged="AndOr_SelectionChanged" Width="84" Height="22" Margin="145,10,0,0">
+                        <ComboBoxItem Content="And"/>
+                        <ComboBoxItem Content="Or"/>
+                        <ComboBoxItem Content="Not"/>
+                    </ComboBox>
+                    <ComboBox x:Name="Field1" SelectedIndex="0" HorizontalAlignment="Left" SelectionChanged="Field_SelectionChanged" Width="100" Height="22" Margin="235,-22,0,0">
+                        <ComboBoxItem Content="Any field"/>
+                        <ComboBoxItem Content="Subject"/>
+                        <ComboBoxItem Content="Title"/>
+                        <ComboBoxItem Content="Author"/>
+                        <ComboBoxItem Content="Publisher"/>
+                        <ComboBoxItem Content="Tag"/>
+                    </ComboBox>
+                    <ComboBox x:Name="Contain1" SelectedIndex="0" HorizontalAlignment="Left" SelectionChanged="Contain_SelectionChanged" Width="100" Height="22" Margin="340,-22,0,0">
+                        <ComboBoxItem Content="Contains"/>
+                        <ComboBoxItem Content="Is exactly"/>
+                        <ComboBoxItem Content="Starts with"/>
+                        <ComboBoxItem Content="Ends with"/>
+                    </ComboBox>
+                    <TextBox x:Name="Input1" Text="Your search term" GotFocus="SearchTermGotFocus" HorizontalAlignment="Left" Foreground="Gray" TextWrapping="Wrap" Margin="445,-22,0,0" Width="120" Height="22"/>
+
+                    <StackPanel x:Name="FilterTwo">
+                        <ComboBox x:Name="AndOr2" HorizontalAlignment="Left" SelectedIndex="0" SelectionChanged="AndOr_SelectionChanged" Width="84" Height="22" Margin="145,10,0,0">
+                            <ComboBoxItem Content="And"/>
+                            <ComboBoxItem Content="Or"/>
+                            <ComboBoxItem Content="Not"/>
+                        </ComboBox>
+                        <ComboBox x:Name="Field2" SelectedIndex="0" HorizontalAlignment="Left" SelectionChanged="Field_SelectionChanged" Width="100" Height="22" Margin="235,-22,0,0">
+                            <ComboBoxItem Content="Any field"/>
+                            <ComboBoxItem Content="Subject"/>
+                            <ComboBoxItem Content="Title"/>
+                            <ComboBoxItem Content="Author"/>
+                            <ComboBoxItem Content="Publisher"/>
+                            <ComboBoxItem Content="Tag"/>
+                        </ComboBox>
+                        <ComboBox x:Name="Contain2" SelectedIndex="0" HorizontalAlignment="Left" SelectionChanged="Contain_SelectionChanged" Width="100" Height="22" Margin="340,-22,0,0">
+                            <ComboBoxItem Content="Contains"/>
+                            <ComboBoxItem Content="Is exactly"/>
+                            <ComboBoxItem Content="Starts with"/>
+                            <ComboBoxItem Content="Ends with"/>
+                        </ComboBox>
+                        <TextBox x:Name="Input2" Text="Your search term" GotFocus="SearchTermGotFocus" HorizontalAlignment="Left" Foreground="Gray" TextWrapping="Wrap" Margin="445,-22,0,0" Width="120" Height="22"/>
+                        <Button x:Name="Cancel2" HorizontalAlignment="Left" Margin="120,-18,0,0" VerticalAlignment="Top" Background="White" Click="Cancel21Clicked">
+                            <Button.Template>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Grid>
+                                        <Ellipse Fill="{TemplateBinding Background}" Stroke="{TemplateBinding BorderBrush}" StrokeThickness="{TemplateBinding BorderThickness}"/>
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Button.Template>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/images/cancelicon.png" Width="12" Height="12"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+
+                    <StackPanel x:Name="FilterThree" Visibility="Visible">
+                        <ComboBox x:Name="AndOr3" SelectedIndex="0" HorizontalAlignment="Left" SelectionChanged="AndOr_SelectionChanged" Width="84" Height="22" Margin="145,10,0,0">
+                            <ComboBoxItem Content="And"/>
+                            <ComboBoxItem Content="Or"/>
+                            <ComboBoxItem Content="Not"/>
+                        </ComboBox>
+                        <ComboBox x:Name="Field3" SelectedIndex="0" HorizontalAlignment="Left" SelectionChanged="Field_SelectionChanged" Width="100" Height="22" Margin="235,-22,0,0">
+                            <ComboBoxItem Content="Any field"/>
+                            <ComboBoxItem Content="Subject"/>
+                            <ComboBoxItem Content="Title"/>
+                            <ComboBoxItem Content="Author"/>
+                            <ComboBoxItem Content="Publisher"/>
+                            <ComboBoxItem Content="Tag"/>
+                        </ComboBox>
+                        <ComboBox x:Name="Contain3" SelectedIndex="0" HorizontalAlignment="Left" SelectionChanged="Contain_SelectionChanged" Width="100" Height="22" Margin="340,-22,0,0">
+                            <ComboBoxItem Content="Contains"/>
+                            <ComboBoxItem Content="Is exactly"/>
+                            <ComboBoxItem Content="Starts with"/>
+                            <ComboBoxItem Content="Ends with"/>
+                        </ComboBox>
+                        <TextBox x:Name="Input3" Text="Your search term" GotFocus="SearchTermGotFocus" HorizontalAlignment="Left" Foreground="Gray" TextWrapping="Wrap" Margin="445,-22,0,0" Width="120" Height="22"/>
+                        <Button x:Name="Cancel3" HorizontalAlignment="Left" Margin="120,-15,0,0" VerticalAlignment="Top" Background="White" Click="Cancel31Clicked">
+                            <Button.Template>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Grid>
+                                        <Ellipse Fill="{TemplateBinding Background}" Stroke="{TemplateBinding BorderBrush}" StrokeThickness="{TemplateBinding BorderThickness}"/>
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Button.Template>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/images/cancelicon.png" Width="12" Height="12"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+                <Grid x:Name="AddedFilters" Visibility="Collapsed">
+                    <StackPanel x:Name="ThreeFilters2" Margin="0,-500">
+                        <StackPanel x:Name="FilterOne2" Visibility="Visible">
+                            <ComboBox x:Name="AndOr12" SelectedIndex="0" HorizontalAlignment="Left" SelectionChanged="AndOr_SelectionChanged" Width="84" Height="22" Margin="145,10,0,0">
+                                <ComboBoxItem Content="And"/>
+                                <ComboBoxItem Content="Or"/>
+                                <ComboBoxItem Content="Not"/>
+                            </ComboBox>
+                            <ComboBox x:Name="Field12" SelectedIndex="0" HorizontalAlignment="Left" SelectionChanged="Field_SelectionChanged" Width="100" Height="22" Margin="235,-22,0,0">
+                                <ComboBoxItem Content="Any field"/>
+                                <ComboBoxItem Content="Subject"/>
+                                <ComboBoxItem Content="Title"/>
+                                <ComboBoxItem Content="Author"/>
+                                <ComboBoxItem Content="Publisher"/>
+                                <ComboBoxItem Content="Tag"/>
+                            </ComboBox>
+                            <ComboBox x:Name="Contain12" SelectedIndex="0" HorizontalAlignment="Left" SelectionChanged="Contain_SelectionChanged" Width="100" Height="22" Margin="340,-22,0,0">
+                                <ComboBoxItem Content="Contains"/>
+                                <ComboBoxItem Content="Is exactly"/>
+                                <ComboBoxItem Content="Starts with"/>
+                                <ComboBoxItem Content="Ends with"/>
+                            </ComboBox>
+                            <TextBox x:Name="Input12" Text="Your search term" GotFocus="SearchTermGotFocus" HorizontalAlignment="Left" Foreground="Gray" TextWrapping="Wrap" Margin="445,-22,0,0" Width="120" Height="22"/>
+                            <Button x:Name="Cancel21" HorizontalAlignment="Left" Margin="120,-18,0,0" VerticalAlignment="Top" Background="White" Click="Cancel12Clicked">
+                                <Button.Template>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Grid>
+                                            <Ellipse Fill="{TemplateBinding Background}" Stroke="{TemplateBinding BorderBrush}" StrokeThickness="{TemplateBinding BorderThickness}"/>
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </Button.Template>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="C:\Users\thao3\source\repos\481\481\cancelicon" Width="12" Height="12"/>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+
+                        <StackPanel x:Name="FilterTwo2">
+                            <ComboBox x:Name="AndOr22" HorizontalAlignment="Left" SelectedIndex="0" SelectionChanged="AndOr_SelectionChanged" Width="84" Height="22" Margin="145,10,0,0">
+                                <ComboBoxItem Content="And"/>
+                                <ComboBoxItem Content="Or"/>
+                                <ComboBoxItem Content="Not"/>
+                            </ComboBox>
+                            <ComboBox x:Name="Field22" SelectedIndex="0" HorizontalAlignment="Left" SelectionChanged="Field_SelectionChanged" Width="100" Height="22" Margin="235,-22,0,0">
+                                <ComboBoxItem Content="Any field"/>
+                                <ComboBoxItem Content="Subject"/>
+                                <ComboBoxItem Content="Title"/>
+                                <ComboBoxItem Content="Author"/>
+                                <ComboBoxItem Content="Publisher"/>
+                                <ComboBoxItem Content="Tag"/>
+                            </ComboBox>
+                            <ComboBox x:Name="Contain22" SelectedIndex="0" HorizontalAlignment="Left" SelectionChanged="Contain_SelectionChanged" Width="100" Height="22" Margin="340,-22,0,0">
+                                <ComboBoxItem Content="Contains"/>
+                                <ComboBoxItem Content="Is exactly"/>
+                                <ComboBoxItem Content="Starts with"/>
+                                <ComboBoxItem Content="Ends with"/>
+                            </ComboBox>
+                            <TextBox x:Name="Input22" Text="Your search term" GotFocus="SearchTermGotFocus" HorizontalAlignment="Left" Foreground="Gray" TextWrapping="Wrap" Margin="445,-22,0,0" Width="120" Height="22"/>
+                            <Button x:Name="Cancel22" HorizontalAlignment="Left" Margin="120,-18,0,0" VerticalAlignment="Top" Background="White" Click="Cancel22Clicked">
+                                <Button.Template>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Grid>
+                                            <Ellipse Fill="{TemplateBinding Background}" Stroke="{TemplateBinding BorderBrush}" StrokeThickness="{TemplateBinding BorderThickness}"/>
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </Button.Template>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="C:\Users\thao3\source\repos\481\481\cancelicon" Width="12" Height="12"/>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                        <StackPanel x:Name="FilterThree2">
+                            <ComboBox x:Name="AndOr32" SelectedIndex="0" HorizontalAlignment="Left" SelectionChanged="AndOr_SelectionChanged" Width="84" Height="22" Margin="145,10,0,0">
+                                <ComboBoxItem Content="And"/>
+                                <ComboBoxItem Content="Or"/>
+                                <ComboBoxItem Content="Not"/>
+                            </ComboBox>
+                            <ComboBox x:Name="Field32" SelectedIndex="0" HorizontalAlignment="Left" SelectionChanged="Field_SelectionChanged" Width="100" Height="22" Margin="235,-22,0,0">
+                                <ComboBoxItem Content="Any field"/>
+                                <ComboBoxItem Content="Subject"/>
+                                <ComboBoxItem Content="Title"/>
+                                <ComboBoxItem Content="Author"/>
+                                <ComboBoxItem Content="Publisher"/>
+                                <ComboBoxItem Content="Tag"/>
+                            </ComboBox>
+                            <ComboBox x:Name="Contain32" SelectedIndex="0" HorizontalAlignment="Left" SelectionChanged="Contain_SelectionChanged" Width="100" Height="22" Margin="340,-22,0,0">
+                                <ComboBoxItem Content="Contains"/>
+                                <ComboBoxItem Content="Is exactly"/>
+                                <ComboBoxItem Content="Starts with"/>
+                                <ComboBoxItem Content="Ends with"/>
+                            </ComboBox>
+                            <TextBox x:Name="Input32" Text="Your search term" GotFocus="SearchTermGotFocus" HorizontalAlignment="Left" Foreground="Gray" TextWrapping="Wrap" Margin="445,-22,0,0" Width="120" Height="22"/>
+                            <Button x:Name="Cancel32" HorizontalAlignment="Left" Margin="120,-15,0,0" VerticalAlignment="Top" Background="White" Click="Cancel32Clicked">
+                                <Button.Template>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Grid>
+                                            <Ellipse Fill="{TemplateBinding Background}" Stroke="{TemplateBinding BorderBrush}" StrokeThickness="{TemplateBinding BorderThickness}"/>
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </Button.Template>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="C:\Users\thao3\source\repos\481\481\cancelicon" Width="12" Height="12"/>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+            <Button HorizontalAlignment="Left" Margin="150,15,0,0" Width="150" Height="23" Click="AddFilterClicked">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="plusicon.png" Width="13" Height="13"/>
+                    <TextBlock Text="Add more search terms"/>
+                </StackPanel>
+            </Button>
+            <Button HorizontalAlignment="Left" Margin="410,-23,0,0" Width="150" Height="23" Click="DeleteSearchTerms">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="C:\Users\thao3\OneDrive\Documents\GitHub\481Project\images\minusicon.png" Width="10" Height="13"/>
+                    <TextBlock Text="Delete all search terms"/>
+                </StackPanel>
+            </Button>
+
+            <Button HorizontalAlignment="Center" Margin="0,30,0,0" Content="Enhance your search" VerticalAlignment="Top" Width="160" Height="22"/>
+            <Button HorizontalAlignment="Left" Margin="440,-19,0,0" VerticalAlignment="Top" Background="White" MouseEnter="EnhanceQuestion_MouseEnter" MouseLeave="EnhanceQuestion_MouseLeave">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Ellipse Fill="{TemplateBinding Background}" Stroke="{TemplateBinding BorderBrush}" StrokeThickness="{TemplateBinding BorderThickness}"/>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/images/questionicon.png" Width="12" Height="12"/>
+                </StackPanel>
+            </Button>
+            <TextBox x:Name="EnhanceQuestion" HorizontalAlignment="Left" TextWrapping="Wrap" Background="#749F82" Text="Automatically add the synonyms of your keywords to improve your search" Margin="460,-75,0,0" Height="50" Width="170" Visibility="Collapsed" TextAlignment="Center"/>
+            <Button VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="-125,50,0,0" Content="Save search" Width="100" Height="22"/>
+            <Button VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="125,-25,0,0" Content="Search" Width="100" Height="22"/>
+        </StackPanel>
+    </Grid>
+    
+
+</Page>
