@@ -68,8 +68,8 @@
     </Page.Resources>
     <Grid Background="#E64848">
         <TextBlock HorizontalAlignment="Left" Margin="27,10,0,0" TextWrapping="Wrap" Text="BIBLIOTECH" VerticalAlignment="Top" Height="49" Width="192" FontSize="30"/>
-        <Button Content="Logout" Click="Logout" FontWeight="Bold" HorizontalAlignment="Left" Margin="1016,16,0,0" VerticalAlignment="Top" Height="36" Width="167" Background="#FAEDCD"/>
-        <Button Content="My Account" Click="MyAccount" FontWeight="Bold" HorizontalAlignment="Left" Margin="849,16,0,0" VerticalAlignment="Top" Height="36" Width="167" Background="#FAEDCD"/>
+        <Button Content="Logout" Click="GoToLogIn_Click" FontWeight="Bold" HorizontalAlignment="Left" Margin="1016,16,0,0" VerticalAlignment="Top" Height="36" Width="167" Background="#FAEDCD"/>
+        <Button Content="My Account" Click="GoToAccount_Click" FontWeight="Bold" HorizontalAlignment="Left" Margin="849,16,0,0" VerticalAlignment="Top" Height="36" Width="167" Background="#FAEDCD"/>
 
             <Button x:Name = "BasicButton" Content="Basic search" FontSize="15"  HorizontalAlignment="Left" VerticalAlignment="Top" Click="BasicButton_Click" Margin="250,104,0,0" Background="#E4DCCF" Height="40" Width="335"/>
             <Button x:Name ="AdvancedButton" Content="Advanced search" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top" Click="AdvancedButton_Click" Margin="585,104,0,0" Background="#FAEDCD" Height="40" Width="340"/>
@@ -782,39 +782,40 @@
                     </StackPanel>
                 </Button>
 
-                <Button x:Name="EnhanceButton" HorizontalAlignment="Center" Margin="0,30,0,0" Content="Enhance your search" VerticalAlignment="Top" Width="160" Height="22" Click="EnhanceSearch"/>
-                <Button x:Name="EnhanceQuestion" HorizontalAlignment="Left" Margin="440,-19,0,0" VerticalAlignment="Top" Background="White" MouseEnter="EnhanceQuestion_MouseEnter" MouseLeave="EnhanceQuestion_MouseLeave">
-                    <Button.Template>
-                        <ControlTemplate TargetType="{x:Type Button}">
-                            <Grid>
-                                <Ellipse Fill="{TemplateBinding Background}" Stroke="{TemplateBinding BorderBrush}" StrokeThickness="{TemplateBinding BorderThickness}"/>
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            </Grid>
-                        </ControlTemplate>
-                    </Button.Template>
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="C:\Users\thao3\source\repos\481\481\questionicon.png" Width="12" Height="12"/>
-                    </StackPanel>
-                </Button>
-                <TextBox x:Name="EnhanceText" HorizontalAlignment="Left" TextWrapping="Wrap" Background="#749F82" Text="Automatically add the synonyms of your keywords to improve your search" Margin="460,-75,0,0" Height="50" Width="170" Visibility="Collapsed" TextAlignment="Center"/>
+				<Button x:Name="EnhanceButton" HorizontalAlignment="Center" Margin="0,30,0,0" Content="Enhance your search" VerticalAlignment="Top" Width="160" Height="22" Click="EnhanceSearch"/>
+				<Button x:Name="EnhanceQuestion" HorizontalAlignment="Left" Margin="440,-19,0,0" VerticalAlignment="Top" Background="White" MouseEnter="EnhanceQuestion_MouseEnter" MouseLeave="EnhanceQuestion_MouseLeave">
+					<Button.Template>
+						<ControlTemplate TargetType="{x:Type Button}">
+							<Grid>
+								<Ellipse Fill="{TemplateBinding Background}" Stroke="{TemplateBinding BorderBrush}" StrokeThickness="{TemplateBinding BorderThickness}"/>
+								<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+							</Grid>
+						</ControlTemplate>
+					</Button.Template>
+					<StackPanel Orientation="Horizontal">
+						<Image Source="C:\Users\thao3\source\repos\481\481\questionicon.png" Width="12" Height="12"/>
+					</StackPanel>
+				</Button>
+				<TextBox x:Name="EnhanceText" HorizontalAlignment="Left" TextWrapping="Wrap" Background="#749F82" Text="Automatically add the synonyms of your keywords to improve your search" Margin="460,-75,0,0" Height="50" Width="170" Visibility="Collapsed" TextAlignment="Center"/>
 
-            <Button HorizontalAlignment="Center" Margin="0,30,0,0" Content="Enhance your search" VerticalAlignment="Top" Width="160" Height="22"/>
-            <Button HorizontalAlignment="Left" Margin="440,-19,0,0" VerticalAlignment="Top" Background="White" MouseEnter="EnhanceQuestion_MouseEnter" MouseLeave="EnhanceQuestion_MouseLeave">
-                <Button.Template>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Grid>
-                            <Ellipse Fill="{TemplateBinding Background}" Stroke="{TemplateBinding BorderBrush}" StrokeThickness="{TemplateBinding BorderThickness}"/>
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Grid>
-                    </ControlTemplate>
-                </Button.Template>
-                <StackPanel Orientation="Horizontal">
-                    <Image Source="/images/questionicon.png" Width="12" Height="12"/>
-                </StackPanel>
-            </Button>
-            <TextBox x:Name="EnhanceQuestion" HorizontalAlignment="Left" TextWrapping="Wrap" Background="#749F82" Text="Automatically add the synonyms of your keywords to improve your search" Margin="460,-75,0,0" Height="50" Width="170" Visibility="Collapsed" TextAlignment="Center"/>
-            <Button VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="-125,50,0,0" Content="Save search" Width="100" Height="22"/>
-            <Button VerticalAlignment="Bottom" Click="Search" HorizontalAlignment="Center" Margin="125,-25,0,0" Content="Search" Width="100" Height="22"/>
+				<Button x:Name="UnenhanceButton" Visibility="Collapsed" HorizontalAlignment="Center" Margin="0,30,0,0" Content="Undo enhance search" VerticalAlignment="Top" Width="160" Height="22" Click="UnenhanceSearch"/>
+				<Button x:Name="UnenhanceQuestion" Visibility="Collapsed" HorizontalAlignment="Left" Margin="440,-19,0,0" VerticalAlignment="Top" Background="White" MouseEnter="UnenhanceQuestion_MouseEnter" MouseLeave="UnenhanceQuestion_MouseLeave">
+					<Button.Template>
+						<ControlTemplate TargetType="{x:Type Button}">
+							<Grid>
+								<Ellipse Fill="{TemplateBinding Background}" Stroke="{TemplateBinding BorderBrush}" StrokeThickness="{TemplateBinding BorderThickness}"/>
+								<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+							</Grid>
+						</ControlTemplate>
+					</Button.Template>
+					<StackPanel Orientation="Horizontal">
+						<Image Source="C:\Users\thao3\source\repos\481\481\questionicon.png" Width="12" Height="12"/>
+					</StackPanel>
+				</Button>
+				<TextBox x:Name="UnenhanceText" HorizontalAlignment="Left" TextWrapping="Wrap" Background="#749F82" Text="Remove all the automatically added search terms" Margin="460,-75,0,0" Height="50" Width="170" Visibility="Collapsed" TextAlignment="Center"/>
+
+				<Button VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="-125,50,0,0" Content="Save search" Width="100" Height="22"/>
+                <Button VerticalAlignment="Bottom" Click="GoToPage3_Click" HorizontalAlignment="Center" Margin="125,-25,0,0" Content="Search" Width="100" Height="22"/>
         </StackPanel>
     </Grid>
     

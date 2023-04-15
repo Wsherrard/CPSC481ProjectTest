@@ -744,7 +744,7 @@ namespace CPSC481ProjectTest
 
         private void GoToPage3_Click(object sender, RoutedEventArgs e)
         {
-            ResultsPage RP = new ResultsPage();
+            ResultPage RP = new ResultPage();
             this.NavigationService.Navigate(RP);
         }
 
@@ -757,16 +757,6 @@ namespace CPSC481ProjectTest
         private void GoToAccount_Click(object sender, RoutedEventArgs e)
         {
             AccountPage AP = new AccountPage();
-            this.NavigationService.Navigate(AP);
-        }
-        private void Logout(object sender, RoutedEventArgs e)
-        {
-            LogInPage AP = new LogInPage();
-            this.NavigationService.Navigate(AP);
-        }
-        private void Search(object sender, RoutedEventArgs e)
-        {
-            ResultPage AP = new ResultPage();
             this.NavigationService.Navigate(AP);
         }
     }
