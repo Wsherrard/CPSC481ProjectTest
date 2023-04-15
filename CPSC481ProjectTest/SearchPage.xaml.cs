@@ -741,6 +741,18 @@ namespace CPSC481ProjectTest
         {
             SearchTermQuestion.Visibility = Visibility.Hidden;
         }
+
+        private void GoToPage3_Click(object sender, RoutedEventArgs e)
+        {
+            // Create an instance of the Page2 window
+            //SearchPage window1 = new SearchPage();
+
+            // Navigate to the Page2 window
+            //mainFrame.NavigationService.Navigate(window1);
+            ResultsPage RP = new ResultsPage();
+            this.NavigationService.Navigate(RP);
+        }
+
     }
 
 }

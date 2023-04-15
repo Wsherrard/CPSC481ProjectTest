@@ -772,7 +772,7 @@
 
                 <Button VerticalAlignment ="Top" HorizontalAlignment="Left" Margin="150,15,0,0" Width="150" Height="23" Click="AddFilterClicked">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="plusicon.png" Width="13" Height="13"/>
+                        <Image Source="C:\Users\thao3\OneDrive\Documents\GitHub\CPSC481ProjectTest\CPSC481ProjectTest\plusicon.png" Width="13" Height="13"/>
                         <TextBlock Text="Add more search terms"/>
                     </StackPanel>
                 </Button>
@@ -816,7 +816,7 @@
                 <TextBox x:Name="UnenhanceText" HorizontalAlignment="Left" TextWrapping="Wrap" Background="#749F82" Text="Remove all the automatically added search terms" Margin="460,-75,0,0" Height="50" Width="170" Visibility="Collapsed" TextAlignment="Center"/>
 
                 <Button VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="-125,50,0,0" Content="Save search" Width="100" Height="22"/>
-                <Button VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="125,-25,0,0" Content="Search" Width="100" Height="22"/>
+                <Button VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="125,-25,0,0" Content="Search" Width="100" Height="22" Click ="GoToPage3_Click"/>
             </StackPanel>
         </Grid>
     </ScrollViewer>
