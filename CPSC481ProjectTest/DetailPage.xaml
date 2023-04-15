@@ -5,10 +5,253 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:CPSC481ProjectTest"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="800" d:DesignWidth="1000"
       Title="DetailPage">
+    <Grid x:Name= "LayoutRoot">
+        <!--Zoomed map image and buttons overlay-->
+        <Grid x:Name="Overlay" Panel.ZIndex="1000" Visibility="Collapsed">
+            <Grid.Background>
+                <SolidColorBrush Color="Black" Opacity="0.5"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=" 50"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width=" 50"/>
+            </Grid.ColumnDefinitions>
 
-    <Grid>
-        
+            <Image x:Name="zoomedMap" Height=" 550" Source="/databaseImages/BookMap.png" Grid.Row="1" Grid.Column="1"/>
+
+            <Grid Grid.Column="1" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="67"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="1" Margin="0,0,12,0">
+                    <Button Content="Print Map" Padding="10,0,10,0" Click="PrintMapButtonClick"/>
+                    <Button Content="Email Map" Padding=" 10, 0, 10, 0" Click="EmailMapButtonClick"/>
+                    <Button Content="Close" Padding="10,0,10,0" Click="closeZoomedMapButtonClick"/>
+                </StackPanel>
+
+            </Grid>
+
+
+
+        </Grid>
+        <ContentControl>
+            <ScrollViewer>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="4*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!--BACKGROUND COLORS-->
+                    <Border Grid.Row="0" Grid.Column="0" Background="#E64848"></Border>
+                    <Border Grid.Row="0" Grid.Column="1" Background="#E64848"></Border>
+                    <Border Grid.Row="1" Grid.Column="0" Background="#FF9A3737"></Border>
+                    <Border Grid.Row="1" Grid.Column="1" Background="#FFFAEDCD"></Border>
+
+                    <!--PLACEHOLDER TEXT-->
+                    <TextBlock Grid.Row="0" Grid.Column="1" Text="Nav Buttons, Search Bar" Visibility="Hidden" HorizontalAlignment="Right" Width="800" />
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Row 1, Column 0" Margin="0,17,0,0" Visibility="Hidden"/>
+
+                    <!--LOGO-->
+                    <TextBlock HorizontalAlignment="Left" Margin="15,15,0,0" TextWrapping="Wrap" Text="BIBLIOTECH" VerticalAlignment="Top" Height="49" Width="192" FontSize="30" Grid.ColumnSpan="2"/>
+
+                    <!--TOP BUTTONS AND SEARCH BAR-->
+                    <StackPanel Grid.Row="0" Grid.Column="1">
+                        <WrapPanel Margin="0,10,0,0"  FlowDirection="RightToLeft">
+                            <Button Content="Log Out" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="28" Width="114" Background="#FAEDCD"/>
+                            <Button Content="My Account" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Height="28" Width="109" Background="#FAEDCD" Click="MyAccountButton_Click"/>
+                            <Button Content="Home" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Height="28" Width="109" Background="#FAEDCD"/>
+                        </WrapPanel>
+                        <WrapPanel Margin="0,10,0,0" Width="758" Visibility="Hidden">
+                            <TextBox x:Name="SearchBox" Margin="20,20,0,5" Width="498" FontStyle="Italic" Height="24" TextWrapping="Wrap" TextAlignment="Justify" HorizontalAlignment="Left"/>
+                            <Button x:Name="SearchButton" Margin="10,15,0,0" Background="White" Height="24" Click="SearchButtonClick">
+                                <Image Source="\images/searchbutton.jpg" Height="18" Width="51" OpacityMask="White"></Image>
+                            </Button>
+                        </WrapPanel>
+                    </StackPanel>
+
+                    <!--NAVIGATION SECTION-->
+                    <StackPanel Grid.Row="1" Grid.Column="0">
+                        <StackPanel DockPanel.Dock="Left" Margin="0,82,0,0" Width="auto">
+                            <TextBlock x:Name="itemCounter" HorizontalAlignment="Center" Foreground="#FFE6E6E6">
+                Item 1 of 10
+                            </TextBlock>
+                            <Button x:Name="prevItemButton" Content="^" Margin="25, 10, 25, 0" Padding="10" Click="PrevItemButtonClick"/>
+                            <Button x:Name="returnToResultsButton" Content="X" Margin="25, 0, 25, 0" Padding="10" Click="ReturnToResultsButtonClick"/>
+                            <Button x:Name="nextItemButton" Content="v" Margin="25, 0, 25, 10" Padding="10" Click="NextItemButtonClick"/>
+                        </StackPanel>
+
+                    </StackPanel>
+
+                    <!--ITEM DETAILS-->
+                    <Grid Grid.Row="1" Grid.Column="1" Margin="10,17,10,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="500*" />
+                            <ColumnDefinition Width="6*" />
+                            <ColumnDefinition Width="322*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Row="0" Grid.Column="0"  Orientation="Horizontal" Margin="0,0,10,0">
+                            <Image x:Name="coverImage" Height="200" Width="150" Source="/databaseImages/HCI_Maurtua.jpg"/>
+                            <StackPanel MinWidth="155" Width="237">
+                                <TextBlock x:Name="coverTitle" Text="Human-Computer Interaction"  TextWrapping="WrapWithOverflow" Padding="5,10,0,0"/>
+                                <TextBlock x:Name="coverAuthor" Text=" Maurtua, Inaki" TextWrapping="WrapWithOverflow" Padding="5,10,0,0"/>
+                                <TextBlock x:Name="coverDate" Text="2009"  TextWrapping="WrapWithOverflow" Padding="5,10,0,0"/>
+                                <TextBlock x:Name="coverPeerReviewed" Text="Peer Reviewed"  TextWrapping="WrapWithOverflow" Padding="5,10,0,0"/>
+                                <TextBlock Text="" TextWrapping="WrapWithOverflow" Padding="5,10,0,0"/>
+                                <TextBlock x:Name="coverTags" Text= "#HCI #Design"  TextWrapping="WrapWithOverflow" Padding="5,10,0,0"/>
+                            </StackPanel>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2">
+                            <Separator Background="Gray" Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal">
+                            <StackPanel Margin="10, 0, 10, 0">
+                                <Label x:Name="itemLocation" Content="Location: A101" />
+                                <Label x:Name="itemAvailability" Content="Available" Foreground="Green"/>
+                                <Grid Height="120" Width="160">
+                                    <Image Source="/databaseImages/BookMap.png"/>
+                                    <Button Click="MapClick">
+                                        <Button.BorderBrush>
+                                            <SolidColorBrush Color="#FFFAEDCD" Opacity="0"/>
+                                        </Button.BorderBrush>
+                                        <Button.Background>
+                                            <SolidColorBrush Color="#FFFAEDCD" Opacity="0"/>
+                                        </Button.Background>
+                                        <Image Height="80" Width="80" Source="/images/ExpandImage.PNG" />
+                                    </Button>
+
+
+
+                                </Grid>
+
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Button Content="Print Map" Grid.Column="0" HorizontalAlignment="Stretch" Click="PrintMapButtonClick"/>
+                                    <Button Margin="0,0,0,10" Height ="19" Width="16" Background="#FFFAEDCD" BorderBrush="#FFFAEDCD" HorizontalAlignment="Stretch" Grid.Column="1">
+                                        <Image Source="/images/questionicon.png"></Image>
+                                    </Button>
+                                    <Button Content="Email Map" Margin="5,0,0,0"  Grid.Column="2" HorizontalAlignment="Stretch" Click="EmailMapButtonClick"/>
+                                    <Button Margin="0,0,0,10" HorizontalAlignment="Stretch" Height ="19" Width="16" Background="#FFFAEDCD" BorderBrush="#FFFAEDCD" Grid.Column="3">
+                                        <Image Source="/images/questionicon.png"></Image>
+                                    </Button>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel VerticalAlignment="Top">
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+
+                                    <Button x:Name="holdItemButton" Content="Hold Item" HorizontalAlignment="Stretch" Margin="0,0,0,10" Grid.Column="0" Grid.Row="0" Click="HoldItemButtonClick"/>
+                                    <Button x:Name="saveItemButton" Content="Save for Later" HorizontalAlignment="Stretch" Margin="0,0,0,10" Grid.Column="0" Grid.Row="1" Click="SaveItemButtonClick"/>
+                                    <Button x:Name="citedSearchButton" Content="Search Cited Works" Margin="0,0,0,10" Grid.Column="0" Grid.Row="2" Click="SearchCitedButtonClick"/>
+                                    <Button x:Name="citingSearchButton" Content="Search Citing Works" Margin="0,0,0,10" Grid.Column="0" Grid.Row="3" Click ="SearchCitingButtonClick"/>
+                                    <Button Height="19" Width="16" Background="#FFFAEDCD" BorderBrush="#FFFAEDCD" Margin="0,0,0,10" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="0">
+                                        <Image Source="/images/questionicon.png"></Image>
+                                    </Button>
+                                    <Button Height="19" Width="16" Background="#FFFAEDCD" BorderBrush="#FFFAEDCD" Margin="0,0,0,10" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="1">
+                                        <Image Source="/images/questionicon.png"></Image>
+                                    </Button>
+                                    <Button Height="19" Width="16" Background="#FFFAEDCD" BorderBrush="#FFFAEDCD" Margin="0,0,0,10" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="2">
+                                        <Image Source="/images/questionicon.png"></Image>
+                                    </Button>
+                                    <Button Height="19" Width="16" Background="#FFFAEDCD" BorderBrush="#FFFAEDCD" Margin="0,0,0,10" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="3">
+                                        <Image Source="/images/questionicon.png"></Image>
+                                    </Button>
+                                </Grid>
+                            </StackPanel>
+
+                        </StackPanel>
+
+                        <Separator Grid.Row="1" VerticalAlignment="Top" Margin="0,5,10,0" Height="1"/>
+
+                        <Grid Grid.Row="1" Grid.Column="0" Margin="0,17,10,17" Grid.RowSpan="3" >
+                            <Grid.ColumnDefinitions>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+                            <Label Grid.Row="0" Content="Summary" FontWeight="Bold"/>
+                            <TextBlock x:Name="itemSummary" Grid.Row="1" TextWrapping="WrapWithOverflow" >
+                         In this book the reader will find a collection of 31 papers presenting different facets of Human Computer Interaction, the result of research projects and experiments as well as new approaches to design user interfaces. The book is organized according to the following main topics in a sequential order: new interaction paradigms, multimodality, usability studies on several interaction mechanisms, human factors, universal design and development methodologies and tools.
+                            </TextBlock>
+
+
+                        </Grid>
+                        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Margin="0,17,0,17" Grid.RowSpan="3">
+                            <Separator Background="Gray" Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}"/>
+                        </StackPanel>
+                        <Separator Grid.Row="1" Grid.Column="2" VerticalAlignment="Top" Margin="0,5,0,0" Height="1"/>
+                        <Grid Grid.Row="1" Grid.Column="2" Margin="0,17,0,17" Grid.RowSpan="3">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="77"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Item Details" Grid.Column="0" FontWeight="Bold"/>
+                            <TextBlock Text="Title:" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" Padding="0,10,0,0"/>
+                            <TextBlock Text="Author:" Grid.Column="0" Grid.Row="2" VerticalAlignment="Top" Padding="0,10,0,0"/>
+                            <TextBlock Text="Date:" Grid.Column="0" Grid.Row="3" VerticalAlignment="Top" Padding="0,10,0,0"/>
+                            <TextBlock Text="Publisher:" Grid.Column="0" Grid.Row="4" VerticalAlignment="Top" Padding="0,10,0,0"/>
+                            <TextBlock Text="Item type:" Grid.Column="0" Grid.Row="5" VerticalAlignment="Top" Padding="0,10,0,0"/>
+                            <TextBlock Text="Subject:" Grid.Column="0" Grid.Row="6" VerticalAlignment="Top" Padding="0,10,0,0"/>
+                            <TextBlock x:Name="detailsTitle" Text="Human-Computer Interaction" Grid.Column="1" Grid.Row="1" VerticalAlignment='Top' TextWrapping="WrapWithOverflow" Padding="0,10,0,0"/>
+                            <TextBlock x:Name="detailsAuthor" Text=" Maurtua, Inaki" Grid.Column="1" Grid.Row="2" VerticalAlignment='Top' TextWrapping="WrapWithOverflow" Padding="0,10,0,0"/>
+                            <TextBlock x:Name="detailsDate" Text="2009" Grid.Column="1" Grid.Row="3" VerticalAlignment='Top' TextWrapping="WrapWithOverflow" Padding="0,10,0,0"/>
+                            <TextBlock x:Name="detailsPublisher" Text="IntechOpen" Grid.Column="1" Grid.Row="4" VerticalAlignment='Top' TextWrapping="WrapWithOverflow" Padding="0,10,0,0"/>
+                            <TextBlock x:Name ="detailsItemType" Text="Book" Grid.Column="1" Grid.Row="5" VerticalAlignment='Top' TextWrapping="WrapWithOverflow" Padding="0,10,0,0"/>
+                            <TextBlock x:Name="detailsSubject" Text="Artificial Intelligence" Grid.Column="1" Grid.Row="6" VerticalAlignment="Top" TextWrapping="WrapWithOverflow" Padding="0,10,0,0"/>
+                        </Grid>
+                    </Grid>
+
+                </Grid>
+            </ScrollViewer>
+        </ContentControl>
     </Grid>
 </Page>

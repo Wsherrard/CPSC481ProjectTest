@@ -17,23 +17,27 @@ using System.Windows.Shapes;
 namespace CPSC481ProjectTest
 {
     /// <summary>
-    /// Interaction logic for ResultsPage.xaml
+    /// Interaction logic for ResultPage.xaml
     /// </summary>
-    public partial class ResultsPage : Page
+    public partial class ResultPage : Page
     {
-        public HashSet<string> appliedFilters = new HashSet<string>();
-     
-        public ResultsPage()
+        Hashtable itemQuantities = new Hashtable();
+
+        public ResultPage()
         {
             InitializeComponent();
+
             // CHANGE LATER
             // Display the results. This currently displays everything in the database.
-            DisplayResults(Database.items);
+            //DisplayResults(Database.items);
+
+            SearchBox.Text = "CRyptoGrAPhy";
+            DisplaySearchQueryResults();
 
             // Auto check 'All Items' under availability
             AllItemsRadio.IsChecked = true;
-
         }
+
         // This is looping through the database and displaying everything
         private void DisplayResults(Item[] items)
         {
@@ -115,11 +119,11 @@ namespace CPSC481ProjectTest
                     allAuthors.Add(authorTextBlock);
                 }
 
-                // ADDING UI ELEMENTS TO STACK PANEL
                 // Year of Publication of item
                 TextBlock yearTextBlock = new TextBlock();
                 yearTextBlock.Text = item.yearOfPublication;
 
+                // ADDING UI ELEMENTS TO STACK PANEL
                 // First add the type of item
                 stackPanel.Children.Add(itemTypeTextBlock);
 
@@ -140,6 +144,19 @@ namespace CPSC481ProjectTest
 
                 // Then add the publication year
                 stackPanel.Children.Add(yearTextBlock);
+
+                // Finally, display 'Peer Reviewed' if necessary
+                // Peer Reviewed
+                if (item.isPeerReviewed)
+                {
+                    TextBlock empty = new TextBlock();
+                    TextBlock peerReviewedTextBlock = new TextBlock();
+                    peerReviewedTextBlock.Text = "Peer Reviewed";
+                    peerReviewedTextBlock.Foreground = Brushes.Purple;
+                    peerReviewedTextBlock.FontStyle = FontStyles.Italic;
+                    stackPanel.Children.Add(empty);
+                    stackPanel.Children.Add(peerReviewedTextBlock);
+                }
 
                 Grid.SetRow(stackPanel, ResultGrid.RowDefinitions.Count - 1);
                 Grid.SetColumn(stackPanel, 1);
@@ -272,7 +289,10 @@ namespace CPSC481ProjectTest
         // It mimics live updates without the need to hit an "Apply' button to apply filters
         private void FilterApplied(object sender, RoutedEventArgs e)
         {
+            // This will keep track of all filtered items
             List<Item> filteredItems = new List<Item>();
+
+            // We start from a broad filter such as 'Item Availability' and narrow our items down from there
 
             // Check if the user filtered by 'All Items'
             if (AllItemsRadio.IsChecked == true)
@@ -357,6 +377,11 @@ namespace CPSC481ProjectTest
                         // Remove all items whose publication year is less than the enter Start Year
                         filteredItems.RemoveAll(item => int.Parse(item.yearOfPublication.Substring(0, 4)) < parsedResult);
                     }
+
+                    else
+                    {
+                        // Display a message indicating to the user to only enter numbers
+                    }
                 }
 
                 if (EndYear.Text.Length == 4)
@@ -368,6 +393,99 @@ namespace CPSC481ProjectTest
                         // Remove all items whose publication year is greater than the entered End Year
                         filteredItems.RemoveAll(item => int.Parse(item.yearOfPublication.Substring(0, 4)) > parsedResult);
                     }
+
+                    else
+                    {
+                        // Display a message indicating to the user to only enter numbers
+                    }
+                }
+            }
+
+            // FILTER BY SEARCH TERMS
+            // First get all the StackPanels consisting of the search term parts
+            List<StackPanel> terms = new List<StackPanel>();
+            int numSearchTerms = SearchTerms.Children.Count;
+            string temp = "";
+            for (int i = 0; i < numSearchTerms; i++)
+            {
+                terms.Add((StackPanel)SearchTerms.Children[i]);
+            }
+
+            // Then get the selected dropdown options and keyword input from each search term
+            // For now, we're storing them in separate lists. Might change this to be a single 2D structure.
+            List<string> logicalOperators = new List<string>();
+            List<string> fields = new List<string>();
+            List<string> patterns = new List<string>();
+            List<string> keywords = new List<string>();
+            string str = ""; // FOR DEBUGGING (REMOVE LATER)
+            for (int i = 0; i < terms.Count; i++)
+            {
+                // Only grab the search terms from the visible search terms (ignoring any collapsed StackPanels)
+                if (terms[i].Visibility == Visibility.Visible)
+                {
+                    // The TextBox is the last element of the StackPanel
+                    TextBox keywordTextBox = (TextBox)terms[i].Children[terms[i].Children.Count - 1];
+                    keywords.Add(keywordTextBox.Text);
+
+                    // The wrap panel consists of the ComboBox elements
+                    WrapPanel wp = (WrapPanel)terms[i].Children[0];
+
+                    // The first search term doesn't have a logical operator dropdown
+                    if (i == 0)
+                    {
+                        // Get the combo boxes, which are children of the WrapPanel we retrieved above
+                        ComboBox fieldComboBox = (ComboBox)wp.Children[wp.Children.Count - 2];
+                        ComboBox patternComboBox = (ComboBox)wp.Children[wp.Children.Count - 1];
+
+                        // Get the selected combo box items
+                        ComboBoxItem fieldOption = fieldComboBox.SelectedItem as ComboBoxItem;
+                        ComboBoxItem patternOption = patternComboBox.SelectedItem as ComboBoxItem;
+
+                        // Extract the selected ComboBoxItems as a string
+                        string selectedField = fieldOption.Content.ToString();
+                        fields.Add(selectedField);
+                        string selectedPattern = patternOption.Content.ToString();
+                        patterns.Add(selectedPattern);
+
+                        // DEBUG LINE (REMOVE LATER)
+                        str += "(" + selectedField + ", " + selectedPattern + ", " + keywordTextBox.Text + ")\n";
+                    }
+                    else
+                    {
+                        // Get the combo boxes, which are children of the WrapPanel we retrieved above
+                        ComboBox logicalOperatorComboBox = (ComboBox)wp.Children[wp.Children.Count - 3];
+                        ComboBox fieldComboBox = (ComboBox)wp.Children[wp.Children.Count - 2];
+                        ComboBox patternComboBox = (ComboBox)wp.Children[wp.Children.Count - 1];
+
+                        // Get the selected combo box items
+                        ComboBoxItem logicalOperatorOption = logicalOperatorComboBox.SelectedItem as ComboBoxItem;
+                        ComboBoxItem fieldOption = fieldComboBox.SelectedItem as ComboBoxItem;
+                        ComboBoxItem patternOption = patternComboBox.SelectedItem as ComboBoxItem;
+
+                        // Extract the selected ComboBoxItems as a string
+                        string selectedLogicalOperator = logicalOperatorOption.Content.ToString();
+                        logicalOperators.Add(selectedLogicalOperator);
+                        string selectedField = fieldOption.Content.ToString();
+                        fields.Add(selectedField);
+                        string selectedPattern = patternOption.Content.ToString();
+                        patterns.Add(selectedPattern);
+
+                        // DEBUG LINE (REMOVE LATER)
+                        str += "(" + selectedLogicalOperator + ", " + selectedField + ", " + selectedPattern + ", " + keywordTextBox.Text + ")\n";
+                    }
+                }
+            }
+            // DEBUG LINE (REMOVE LATER)
+            MessageBox.Show($"Search Terms:\n{str}");
+
+            // Now base all these filters on what's in the search box
+            string searchQuery = SearchBox.Text.ToLower().Trim();
+            for (int i = 0; i < filteredItems.Count; i++)
+            {
+                if (!filteredItems[i].title.ToLower().Contains(searchQuery))
+                {
+                    filteredItems.RemoveAt(i);
+                    i--;
                 }
             }
 
@@ -377,17 +495,21 @@ namespace CPSC481ProjectTest
 
         private void Keyword_GotFocus(object sender, RoutedEventArgs e)
         {
-            if (KeywordBox1.Text != "")
+            TextBox keywordBox = sender as TextBox;
+
+            if (keywordBox.Text == "Your keyword")
             {
-                KeywordBox1.Text = "";
+                keywordBox.Text = "";
             }
         }
 
         private void Keyword_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(KeywordBox1.Text))
+            TextBox keywordBox = sender as TextBox;
+
+            if (string.IsNullOrWhiteSpace(keywordBox.Text))
             {
-                KeywordBox1.Text = "Your keyword";
+                keywordBox.Text = "Your keyword";
             }
         }
 
@@ -422,144 +544,46 @@ namespace CPSC481ProjectTest
 
         private void AddNewFilterButton_Click(object sender, RoutedEventArgs e)
         {
-            // create a new WrapPanel
-            WrapPanel wrapPanel = new WrapPanel();
-
-            // create the RemoveFilterButton
-            Button removeFilterButton = new Button();
-            removeFilterButton.Margin = new Thickness(10, 0, 0, 0);
-            removeFilterButton.Height = 19;
-            removeFilterButton.Width = 16;
-            removeFilterButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFAEDCD"));
-            removeFilterButton.BorderBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFAEDCD"));
-            removeFilterButton.Click += RemoveFilterButton_Click;
-
-            // create the Image for the RemoveFilterButton
-            Image image = new Image();
-            image.Source = new BitmapImage(new Uri("/images/cancelicon.png", UriKind.Relative));
-            removeFilterButton.Content = image;
-
-            // add the RemoveFilterButton to the WrapPanel
-            wrapPanel.Children.Add(removeFilterButton);
-
-            // create the first TextBox
-            TextBox textBox1 = new TextBox();
-            textBox1.Margin = new Thickness(0, 10, 0, 10);
-            textBox1.FontStyle = FontStyles.Italic;
-            textBox1.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFB8B4B4"));
-            textBox1.Text = "And";
-
-            // add the first TextBox to the WrapPanel
-            wrapPanel.Children.Add(textBox1);
-
-            // create the first ComboBox
-            ComboBox comboBox1 = new ComboBox();
-            comboBox1.Width = 14;
-            comboBox1.Height = 19;
-
-            // create the ComboBoxItems for the first ComboBox
-            ComboBoxItem comboBoxItem1 = new ComboBoxItem();
-            comboBoxItem1.Content = "And";
-            ComboBoxItem comboBoxItem2 = new ComboBoxItem();
-            comboBoxItem2.Content = "Or";
-            ComboBoxItem comboBoxItem3 = new ComboBoxItem();
-            comboBoxItem3.Content = "Not";
-
-            // add the ComboBoxItems to the first ComboBox
-            comboBox1.Items.Add(comboBoxItem1);
-            comboBox1.Items.Add(comboBoxItem2);
-            comboBox1.Items.Add(comboBoxItem3);
-
-            // add the first ComboBox to the WrapPanel
-            wrapPanel.Children.Add(comboBox1);
-
-            // create the second TextBox
-            TextBox textBox2 = new TextBox();
-            textBox2.Margin = new Thickness(5, 10, 0, 10);
-            textBox2.FontStyle = FontStyles.Italic;
-            textBox2.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFB8B4B4"));
-            textBox2.Text = "Field";
-
-            // add the second TextBox to the WrapPanel
-            wrapPanel.Children.Add(textBox2);
-
-            // create the second ComboBox
-            ComboBox comboBox2 = new ComboBox();
-            comboBox2.Width = 14;
-            comboBox2.Height = 19;
-
-            // create the ComboBoxItems for the second ComboBox
-            ComboBoxItem comboBoxItem4 = new ComboBoxItem();
-            comboBoxItem4.Content = "Title";
-            ComboBoxItem comboBoxItem5 = new ComboBoxItem();
-            comboBoxItem5.Content = "Author";
-            ComboBoxItem comboBoxItem6 = new ComboBoxItem();
-            comboBoxItem6.Content = "Subject";
-
-            // add the ComboBoxItems to the second ComboBox
-            comboBox2.Items.Add(comboBoxItem4);
-            comboBox2.Items.Add(comboBoxItem5);
-            comboBox2.Items.Add(comboBoxItem6);
-
-            // add the second ComboBox to the WrapPanel
-            wrapPanel.Children.Add(comboBox2);
-
-            // create the third TextBox
-            TextBox textBox3 = new TextBox();
-            textBox3.Margin = new Thickness(5, 10, 0, 10);
-            textBox3.FontStyle = FontStyles.Italic;
-            textBox3.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFB8B4B4"));
-            textBox3.Text = "Contains";
-
-            // add the third TextBox to the WrapPanel
-            wrapPanel.Children.Add(textBox3);
-
-            // create the third ComboBox
-            ComboBox comboBox3 = new ComboBox();
-            comboBox3.Width = 14;
-            comboBox3.Height = 19;
-            comboBox3.Items.Add("Contains");
-            comboBox3.Items.Add("Is exactly");
-            comboBox3.Items.Add("Starts with");
-            //WrapPanel.SetMargin(comboBox3, new Thickness(0, 10, 0, 10));
-            comboBox3.ItemContainerStyle = new Style(typeof(ComboBoxItem));
-            comboBox3.ItemContainerStyle.Setters.Add(new Setter(MinWidthProperty, 100d));
-            wrapPanel.Children.Add(comboBox3);
-
-            TextBox keywordBox = new TextBox();
-            keywordBox.Margin = new Thickness(0, 0, 0, 10);
-            keywordBox.FontStyle = FontStyles.Italic;
-            keywordBox.Foreground = new SolidColorBrush(Color.FromArgb(0xFF, 0xB5, 0xAE, 0xAE));
-            keywordBox.Width = 147;
-            keywordBox.Text = "Your keyword";
-
-            SearchTerms.Children.Add(wrapPanel);
-            SearchTerms.Children.Add(keywordBox);
+            for (int i = 0; i < SearchTerms.Children.Count; i++)
+            {
+                UIElement currentSearchTerm = SearchTerms.Children[i];
+                if (currentSearchTerm.Visibility == Visibility.Collapsed)
+                {
+                    currentSearchTerm.Visibility = Visibility.Visible;
+                    break;
+                }
+            }
         }
 
         private void RemoveFilterButton_Click(object sender, RoutedEventArgs e)
         {
-            // Get the last added child element of the StackPanel
-            UIElement lastChild = SearchTerms.Children[SearchTerms.Children.Count - 1];
-            UIElement secondLastChild = SearchTerms.Children[SearchTerms.Children.Count - 2];
-
-            // Check if the last child element is a WrapPanel
-            if (lastChild is TextBox && secondLastChild is WrapPanel)
+            for (int i = SearchTerms.Children.Count - 1; i >= 0; i--)
             {
-                // Remove the last child element from the StackPanel
-                SearchTerms.Children.Remove(lastChild);
-                SearchTerms.Children.Remove(secondLastChild);
+                UIElement currentSearchTerm = SearchTerms.Children[i];
+                if (currentSearchTerm.Visibility == Visibility.Visible)
+                {
+                    currentSearchTerm.Visibility = Visibility.Collapsed;
+                    break;
+                }
             }
         }
 
         private void MyAccountButton_Click(object sender, RoutedEventArgs e)
         {
+            // Create a new instance of account page
+         //   AccountPage accountPage = new AccountPage();
+            // Get the transform coordinates of the current window
+           // accountPage.Left = this.Left;
+            //accountPage.Top = this.Top;
+            // Show the Account Page
+           // accountPage.Show();
 
+          //  this.Hide();
         }
 
         private void SearchButtonClick(object sender, RoutedEventArgs e)
         {
-            // Reset the filter when searching by a new search term
+            // Reset the filters when searching by a new search term
             ResetFilterButton_Click(null, null);
             DisplaySearchQueryResults();
         }
@@ -567,7 +591,7 @@ namespace CPSC481ProjectTest
         private void DisplaySearchQueryResults()
         {
             // Convert the search query to all lower case
-            string searchQuery = SearchBox.Text.ToLower();
+            string searchQuery = SearchBox.Text.ToLower().Trim().Replace(" ", "");
             //MessageBox.Show($"Search query: {searchQuery}");
 
             if (string.IsNullOrWhiteSpace(searchQuery))
@@ -579,7 +603,12 @@ namespace CPSC481ProjectTest
             List<Item> results = new List<Item>();
             foreach (Item item in Database.items)
             {
-                if (item.title.ToLower().Contains(searchQuery))
+                string itemTitle = item.title.ToLower();
+                itemTitle = itemTitle.Replace("-", "");
+                itemTitle = itemTitle.Replace("--", "");
+                itemTitle = itemTitle.Replace(":", "");
+                itemTitle = itemTitle.Replace(" ", "");
+                if (itemTitle.Contains(searchQuery))
                 {
                     results.Add(item);
                 }
@@ -599,7 +628,40 @@ namespace CPSC481ProjectTest
         {
 
         }
+
+        private void SearchTermsQuestionIcon_MouseEnter(object sender, MouseEventArgs e)
+        {
+            SearchTermsHelp.Visibility = Visibility.Visible;
+        }
+
+        private void SearchTermsQuestionIcon_MouseLeave(object sender, MouseEventArgs e)
+        {
+            SearchTermsHelp.Visibility = Visibility.Collapsed;
+        }
+
+        private void EnhanceSearchQuestionIcon_MouseEnter(object sender, MouseEventArgs e)
+        {
+            EnhanceSearchHelp.Visibility = Visibility.Visible;
+        }
+
+        private void EnhanceSearchQuestionIcon_MouseLeave(object sender, MouseEventArgs e)
+        {
+            EnhanceSearchHelp.Visibility = Visibility.Collapsed;
+        }
+        private void MyAccountButton(object sender, RoutedEventArgs e)
+        {
+            AccountPage AP = new AccountPage();
+            this.NavigationService.Navigate(AP);
+        }
+        private void HomeButton(object sender, RoutedEventArgs e)
+        {
+            SearchPage AP = new SearchPage();
+            this.NavigationService.Navigate(AP);
+        }
+        private void LogoutButton(object sender, RoutedEventArgs e)
+        {
+            LogInPage AP = new LogInPage();
+            this.NavigationService.Navigate(AP);
+        }
     }
-
 }
-

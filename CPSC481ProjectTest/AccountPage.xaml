@@ -37,10 +37,10 @@
         <Label Content="BIBLIOTECH" HorizontalAlignment="Left" Margin="50,25,0,25" FontSize="30" Width="198" Grid.ColumnSpan="2"/>
         <Label Content="Jeremy Adam" HorizontalAlignment="Center" Margin="0,165,0,141"  Height="28" Width="90" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="1" FontWeight="Bold"/>
         <Label Content="UCID: 123456" HorizontalAlignment="Center" VerticalAlignment="Top" Height="28" Width="90" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="2" Margin="0,129,0,0"/>
-        <Button Content="Home"  Click="Button_Click_1" Height="32" Width="95" Margin="123,34,215,34" RenderTransformOrigin="0.5,0.5" Background="#FAEDCD" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <Button Content="Home"  Click="HomeButton" Height="32" Width="95" Margin="123,34,215,34" RenderTransformOrigin="0.5,0.5" Background="#FAEDCD" Grid.Column="2" Grid.ColumnSpan="2"/>
         <Image HorizontalAlignment="Center" Height="119" Margin="0,9,0,0" Grid.Row="2" VerticalAlignment="Top" Width="88" Source="/images/JeremyAdam.jpeg"/>
-        <Button Content="Log Out"  Click="LogOut" Height="32" Width="95" Margin="110,34,10,34" RenderTransformOrigin="0.5,0.5" Background="#FAEDCD" Grid.Column="3"/>
-        <Button Content="My Account" Margin="10,34,110,34"  Grid.Column="3" Height="32" Width="100" Background="#FAEDCD"/>
+        <Button Content="Log Out"  Click="LogoutButton" Height="32" Width="95" Margin="110,34,10,34" RenderTransformOrigin="0.5,0.5" Background="#FAEDCD" Grid.Column="3"/>
+        <Button Content="My Account" Click="MyAccountButton" Margin="10,34,110,34"  Grid.Column="3" Height="32" Width="100" Background="#FAEDCD"/>
 
         <Grid Grid.ColumnSpan="4" Margin="149,0,0,0" Grid.Row="1">
             <TabControl>

@@ -210,6 +210,16 @@ namespace CPSC481ProjectTest
             AccountPage AP = new AccountPage();
             this.NavigationService.Navigate(AP);
         }
+        private void Logout(object sender, RoutedEventArgs e)
+        {
+            LogInPage AP = new LogInPage();
+            this.NavigationService.Navigate(AP);
+        }
+        private void Search(object sender, RoutedEventArgs e)
+        {
+            ResultPage AP = new ResultPage();
+            this.NavigationService.Navigate(AP);
+        }
     }
 
 }

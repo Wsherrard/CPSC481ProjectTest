@@ -39,9 +39,20 @@ namespace CPSC481ProjectTest
 
         }
 
-        private void LogOut(object sender, RoutedEventArgs e)
+        private void MyAccountButton(object sender, RoutedEventArgs e)
         {
-
+            AccountPage AP = new AccountPage();
+            this.NavigationService.Navigate(AP);
+        }
+        private void HomeButton(object sender, RoutedEventArgs e)
+        {
+            SearchPage AP = new SearchPage();
+            this.NavigationService.Navigate(AP);
+        }
+        private void LogoutButton(object sender, RoutedEventArgs e)
+        {
+            LogInPage AP = new LogInPage();
+            this.NavigationService.Navigate(AP);
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
