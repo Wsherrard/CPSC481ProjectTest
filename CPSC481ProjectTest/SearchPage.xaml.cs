@@ -744,15 +744,21 @@ namespace CPSC481ProjectTest
 
         private void GoToPage3_Click(object sender, RoutedEventArgs e)
         {
-            // Create an instance of the Page2 window
-            //SearchPage window1 = new SearchPage();
-
-            // Navigate to the Page2 window
-            //mainFrame.NavigationService.Navigate(window1);
             ResultsPage RP = new ResultsPage();
             this.NavigationService.Navigate(RP);
         }
 
+        private void GoToLogIn_Click(object sender, RoutedEventArgs e)
+        {
+            LogInPage LI = new LogInPage();
+            this.NavigationService.Navigate(LI);
+        }
+
+        private void GoToAccount_Click(object sender, RoutedEventArgs e)
+        {
+            AccountPage AP = new AccountPage();
+            this.NavigationService.Navigate(AP);
+        }
     }
 
 }

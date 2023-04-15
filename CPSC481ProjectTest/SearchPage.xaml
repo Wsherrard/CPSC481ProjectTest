@@ -69,15 +69,15 @@
       <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Height="Auto">
         <Grid Background="#E64848">
             <TextBlock HorizontalAlignment="Left" Margin="27,10,0,0" TextWrapping="Wrap" Text="BIBLIOTECH" VerticalAlignment="Top" Height="49" Width="192" FontSize="30"/>
-            <Button Content="Log Out" FontWeight="Bold" HorizontalAlignment="Left" Margin="1016,16,0,0" VerticalAlignment="Top" Height="36" Width="167" Background="#FAEDCD"/>
-            <Button Content="My Account" FontWeight="Bold" HorizontalAlignment="Left" Margin="849,16,0,0" VerticalAlignment="Top" Height="36" Width="167" Background="#FAEDCD"/>
+            <Button Content="Log Out" FontWeight="Bold" HorizontalAlignment="Left" Margin="1016,16,0,0" VerticalAlignment="Top" Height="36" Width="167" Background="#FAEDCD" Click="GoToLogIn_Click"/>
+            <Button Content="My Account" FontWeight="Bold" HorizontalAlignment="Left" Margin="849,16,0,0" VerticalAlignment="Top" Height="36" Width="167" Background="#FAEDCD" Click="GoToAccount_Click"/>
 
             <Button x:Name = "BasicButton" Content="Basic search" FontSize="15"  HorizontalAlignment="Left" VerticalAlignment="Top" Click="BasicButton_Click" Margin="250,104,0,0" Background="#E4DCCF" Height="40" Width="335"/>
             <Button x:Name ="AdvancedButton" Content="Advanced search" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top" Click="AdvancedButton_Click" Margin="585,104,0,0" Background="#FAEDCD" Height="40" Width="340"/>
 
             <StackPanel x:Name="BasicStack" Margin="250,144,277,124" Background="#FAEDCD" Visibility="Collapsed">
                 <TextBox TextWrapping="Wrap" Text="Search by title or author..." GotFocus="SearchGotFocus" Background="White" Foreground="Gray" TextAlignment ="Center" VerticalContentAlignment="Center" Width="500" Height="50" Margin="20,100,0,0"/>
-                <Button VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,20,0,0" Content="Search" Width="100" Height="22"/>
+                <Button VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,20,0,0" Content="Search" Width="100" Height="22" Click="GoToPage3_Click"/>
             </StackPanel>
 
             <StackPanel x:Name="AdvancedStack" Margin="250,144,277,0" Background="#FAEDCD" Visibility="Visible">
