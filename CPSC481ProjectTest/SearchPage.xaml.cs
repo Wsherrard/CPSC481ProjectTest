@@ -68,83 +68,141 @@ namespace CPSC481ProjectTest
             }
         }
 
-        private void Cancel21Clicked(object sender, RoutedEventArgs e)
+        public void Cancel1Clicked(object sender, RoutedEventArgs e)
         {
-            FilterTwo.Visibility = Visibility.Collapsed;
+            Filter1.Visibility = Visibility.Collapsed;
         }
 
-        private void Cancel31Clicked(object sender, RoutedEventArgs e)
+        public void Cancel2Clicked(object sender, RoutedEventArgs e)
         {
-            FilterThree.Visibility = Visibility.Collapsed;
+            Filter2.Visibility = Visibility.Collapsed;
         }
 
-        private void Cancel12Clicked(object sender, RoutedEventArgs e)
+        public void Cancel3Clicked(object sender, RoutedEventArgs e)
         {
-            FilterOne2.Visibility = Visibility.Collapsed;
+            Filter3.Visibility = Visibility.Collapsed;
         }
 
-        private void Cancel22Clicked(object sender, RoutedEventArgs e)
+        public void Cancel4Clicked(object sender, RoutedEventArgs e)
         {
-        ///    Panel parent = VisualTreeHelper.GetParent(FilterTwo2) as Panel;
-        ///    parent.Children.Remove(FilterTwo2);
+            Filter4.Visibility = Visibility.Collapsed;
         }
 
-        private void Cancel32Clicked(object sender, RoutedEventArgs e)
+        public void Cancel5Clicked(object sender, RoutedEventArgs e)
         {
-         ///   Panel parent = VisualTreeHelper.GetParent(FilterThree2) as Panel;
-        ///    parent.Children.Remove(FilterThree2);
+            Filter5.Visibility = Visibility.Collapsed;
         }
 
-        private void AndOr_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        public void Cancel6Clicked(object sender, RoutedEventArgs e)
         {
-
+            Filter6.Visibility = Visibility.Collapsed;
         }
-        private void Field_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
 
+        public void Cancel7Clicked(object sender, RoutedEventArgs e)
+        {
+            Filter7.Visibility = Visibility.Collapsed;
         }
-        private void Contain_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
 
+        public void Cancel8Clicked(object sender, RoutedEventArgs e)
+        {
+            Filter8.Visibility = Visibility.Collapsed;
+        }
+
+        public void Cancel9Clicked(object sender, RoutedEventArgs e)
+        {
+            Filter9.Visibility = Visibility.Collapsed;
+        }
+
+        public void Cancel10Clicked(object sender, RoutedEventArgs e)
+        {
+            Filter10.Visibility = Visibility.Collapsed;
+        }
+
+        public void Cancel11Clicked(object sender, RoutedEventArgs e)
+        {
+            Filter11.Visibility = Visibility.Collapsed;
+        }
+
+        public void Cancel12Clicked(object sender, RoutedEventArgs e)
+        {
+            Filter12.Visibility = Visibility.Collapsed;
+        }
+
+        public void Cancel13Clicked(object sender, RoutedEventArgs e)
+        {
+            Filter13.Visibility = Visibility.Collapsed;
+        }
+
+        public void Cancel14Clicked(object sender, RoutedEventArgs e)
+        {
+            Filter14.Visibility = Visibility.Collapsed;
+        }
+
+        public void Cancel15Clicked(object sender, RoutedEventArgs e)
+        {
+            Filter15.Visibility = Visibility.Collapsed;
+        }
+
+        public void Cancel16Clicked(object sender, RoutedEventArgs e)
+        {
+            Filter16.Visibility = Visibility.Collapsed;
+        }
+
+        public void Cancel17Clicked(object sender, RoutedEventArgs e)
+        {
+            Filter17.Visibility = Visibility.Collapsed;
+        }
+
+        public void Cancel18Clicked(object sender, RoutedEventArgs e)
+        {
+            Filter18.Visibility = Visibility.Collapsed;
         }
 
         private void AddFilterClicked(object sender, RoutedEventArgs e)
         {
-            AddedFilters.Visibility = Visibility.Visible;
-            // Get the parent container element
-            var container = (Grid)VisualTreeHelper.GetParent(ThreeFilters2);
-
-            // Clone the stack panel
-            StackPanel newStackPanel = new StackPanel();
-            foreach (UIElement child in ThreeFilters2.Children)
+            if ((Filter4.Visibility == Visibility.Collapsed) && (Filter5.Visibility == Visibility.Collapsed) && (Filter6.Visibility == Visibility.Collapsed))
             {
-                // Clone each child element
-                UIElement newChild = CloneUIElement(child);
-                newStackPanel.Children.Add(newChild);
+                Cancel1.Visibility = Visibility.Visible;
+                Filter4.Visibility = Visibility.Visible;
+                Filter5.Visibility = Visibility.Visible;
+                Filter6.Visibility = Visibility.Visible;
             }
-
-            // Set the top margin of the cloned StackPanel
-            newStackPanel.Margin = new Thickness(0, ThreeFilters.ActualHeight, 0, 0);
-
-            // Add the cloned stack panel to the parent container
-            container.Children.Add(newStackPanel);
+            else if ((Filter7.Visibility == Visibility.Collapsed) && (Filter8.Visibility == Visibility.Collapsed) && (Filter9.Visibility == Visibility.Collapsed))
+            {
+                Filter7.Visibility = Visibility.Visible;
+                Filter8.Visibility = Visibility.Visible;
+                Filter9.Visibility = Visibility.Visible;
+            }
+            else if ((Filter10.Visibility == Visibility.Collapsed) && (Filter11.Visibility == Visibility.Collapsed) && (Filter12.Visibility == Visibility.Collapsed))
+            {
+                Filter10.Visibility = Visibility.Visible;
+                Filter11.Visibility = Visibility.Visible;
+                Filter12.Visibility = Visibility.Visible;
+            }
+            else if ((Filter13.Visibility == Visibility.Collapsed) && (Filter14.Visibility == Visibility.Collapsed) && (Filter15.Visibility == Visibility.Collapsed))
+            {
+                Filter13.Visibility = Visibility.Visible;
+                Filter14.Visibility = Visibility.Visible;
+                Filter15.Visibility = Visibility.Visible;
+            }
+            else if ((Filter16.Visibility == Visibility.Collapsed) && (Filter17.Visibility == Visibility.Collapsed) && (Filter18.Visibility == Visibility.Collapsed))
+            {
+                Filter16.Visibility = Visibility.Visible;
+                Filter17.Visibility = Visibility.Visible;
+                Filter18.Visibility = Visibility.Visible;
+            }
         }
 
-        private UIElement CloneUIElement(UIElement element)
-        {
-            // Create a XAML string from the UI element
-            string xaml = XamlWriter.Save(element);
 
-            // Use a XAML reader to create a new UI element from the XAML string
-            StringReader stringReader = new StringReader(xaml);
-            XmlReader xmlReader = XmlReader.Create(stringReader);
-            UIElement newElement = (UIElement)XamlReader.Load(xmlReader);
-
-            return newElement;
-        }
 
         private void DeleteSearchTerms(object sender, RoutedEventArgs e)
         {
+            EnhanceButton.Visibility = Visibility.Visible;
+            EnhanceQuestion.Visibility = Visibility.Visible;
+            UnenhanceButton.Visibility = Visibility.Collapsed;
+            UnenhanceQuestion.Visibility = Visibility.Collapsed;
+
+            Cancel1.Visibility = Visibility.Collapsed;
             AndOr1.SelectedIndex = 0;
             AndOr2.SelectedIndex = 0;
             AndOr3.SelectedIndex = 0;
@@ -157,11 +215,480 @@ namespace CPSC481ProjectTest
             Input1.Text = "Your search term";
             Input2.Text = "Your search term";
             Input3.Text = "Your search term";
-            if (AddedFilters.Visibility == Visibility.Visible)
+
+            AndOr4.SelectedIndex = 0;
+            AndOr5.SelectedIndex = 0;
+            AndOr6.SelectedIndex = 0;
+            Field4.SelectedIndex = 0;
+            Field5.SelectedIndex = 0;
+            Field6.SelectedIndex = 0;
+            Contain4.SelectedIndex = 0;
+            Contain5.SelectedIndex = 0;
+            Contain6.SelectedIndex = 0;
+            Input4.Text = "Your search term";
+            Input5.Text = "Your search term";
+            Input6.Text = "Your search term";
+
+            AndOr7.SelectedIndex = 0;
+            AndOr8.SelectedIndex = 0;
+            AndOr9.SelectedIndex = 0;
+            Field7.SelectedIndex = 0;
+            Field8.SelectedIndex = 0;
+            Field9.SelectedIndex = 0;
+            Contain7.SelectedIndex = 0;
+            Contain8.SelectedIndex = 0;
+            Contain9.SelectedIndex = 0;
+            Input7.Text = "Your search term";
+            Input8.Text = "Your search term";
+            Input9.Text = "Your search term";
+
+            AndOr10.SelectedIndex = 0;
+            AndOr11.SelectedIndex = 0;
+            AndOr12.SelectedIndex = 0;
+            Field10.SelectedIndex = 0;
+            Field11.SelectedIndex = 0;
+            Field12.SelectedIndex = 0;
+            Contain10.SelectedIndex = 0;
+            Contain11.SelectedIndex = 0;
+            Contain12.SelectedIndex = 0;
+            Input10.Text = "Your search term";
+            Input11.Text = "Your search term";
+            Input12.Text = "Your search term";
+
+            AndOr13.SelectedIndex = 0;
+            AndOr14.SelectedIndex = 0;
+            AndOr15.SelectedIndex = 0;
+            Field13.SelectedIndex = 0;
+            Field14.SelectedIndex = 0;
+            Field15.SelectedIndex = 0;
+            Contain13.SelectedIndex = 0;
+            Contain14.SelectedIndex = 0;
+            Contain15.SelectedIndex = 0;
+            Input13.Text = "Your search term";
+            Input14.Text = "Your search term";
+            Input15.Text = "Your search term";
+
+            AndOr16.SelectedIndex = 0;
+            AndOr17.SelectedIndex = 0;
+            AndOr18.SelectedIndex = 0;
+            Field16.SelectedIndex = 0;
+            Field17.SelectedIndex = 0;
+            Field18.SelectedIndex = 0;
+            Contain16.SelectedIndex = 0;
+            Contain17.SelectedIndex = 0;
+            Contain18.SelectedIndex = 0;
+            Input16.Text = "Your search term";
+            Input17.Text = "Your search term";
+            Input18.Text = "Your search term";
+
+            Filter4.Visibility = Visibility.Collapsed;
+            Filter5.Visibility = Visibility.Collapsed;
+            Filter6.Visibility = Visibility.Collapsed;
+            Filter7.Visibility = Visibility.Collapsed;
+            Filter8.Visibility = Visibility.Collapsed;
+            Filter9.Visibility = Visibility.Collapsed;
+            Filter10.Visibility = Visibility.Collapsed;
+            Filter11.Visibility = Visibility.Collapsed;
+            Filter12.Visibility = Visibility.Collapsed;
+            Filter13.Visibility = Visibility.Collapsed;
+            Filter14.Visibility = Visibility.Collapsed;
+            Filter15.Visibility = Visibility.Collapsed;
+            Filter16.Visibility = Visibility.Collapsed;
+            Filter17.Visibility = Visibility.Collapsed;
+            Filter18.Visibility = Visibility.Collapsed;
+        }
+
+        private void DeleteAll(object sender, RoutedEventArgs e)
+        {
+            EnhanceButton.Visibility = Visibility.Visible;
+            EnhanceQuestion.Visibility = Visibility.Visible;
+            UnenhanceButton.Visibility = Visibility.Collapsed;
+            UnenhanceQuestion.Visibility = Visibility.Collapsed;
+
+            Cancel1.Visibility = Visibility.Collapsed;
+            AndOr1.SelectedIndex = 0;
+            AndOr2.SelectedIndex = 0;
+            AndOr3.SelectedIndex = 0;
+            Field1.SelectedIndex = 0;
+            Field2.SelectedIndex = 0;
+            Field3.SelectedIndex = 0;
+            Contain1.SelectedIndex = 0;
+            Contain2.SelectedIndex = 0;
+            Contain3.SelectedIndex = 0;
+            Input1.Text = "Your search term";
+            Input2.Text = "Your search term";
+            Input3.Text = "Your search term";
+
+            AndOr4.SelectedIndex = 0;
+            AndOr5.SelectedIndex = 0;
+            AndOr6.SelectedIndex = 0;
+            Field4.SelectedIndex = 0;
+            Field5.SelectedIndex = 0;
+            Field6.SelectedIndex = 0;
+            Contain4.SelectedIndex = 0;
+            Contain5.SelectedIndex = 0;
+            Contain6.SelectedIndex = 0;
+            Input4.Text = "Your search term";
+            Input5.Text = "Your search term";
+            Input6.Text = "Your search term";
+
+            AndOr7.SelectedIndex = 0;
+            AndOr8.SelectedIndex = 0;
+            AndOr9.SelectedIndex = 0;
+            Field7.SelectedIndex = 0;
+            Field8.SelectedIndex = 0;
+            Field9.SelectedIndex = 0;
+            Contain7.SelectedIndex = 0;
+            Contain8.SelectedIndex = 0;
+            Contain9.SelectedIndex = 0;
+            Input7.Text = "Your search term";
+            Input8.Text = "Your search term";
+            Input9.Text = "Your search term";
+
+            AndOr10.SelectedIndex = 0;
+            AndOr11.SelectedIndex = 0;
+            AndOr12.SelectedIndex = 0;
+            Field10.SelectedIndex = 0;
+            Field11.SelectedIndex = 0;
+            Field12.SelectedIndex = 0;
+            Contain10.SelectedIndex = 0;
+            Contain11.SelectedIndex = 0;
+            Contain12.SelectedIndex = 0;
+            Input10.Text = "Your search term";
+            Input11.Text = "Your search term";
+            Input12.Text = "Your search term";
+
+            AndOr13.SelectedIndex = 0;
+            AndOr14.SelectedIndex = 0;
+            AndOr15.SelectedIndex = 0;
+            Field13.SelectedIndex = 0;
+            Field14.SelectedIndex = 0;
+            Field15.SelectedIndex = 0;
+            Contain13.SelectedIndex = 0;
+            Contain14.SelectedIndex = 0;
+            Contain15.SelectedIndex = 0;
+            Input13.Text = "Your search term";
+            Input14.Text = "Your search term";
+            Input15.Text = "Your search term";
+
+            AndOr16.SelectedIndex = 0;
+            AndOr17.SelectedIndex = 0;
+            AndOr18.SelectedIndex = 0;
+            Field16.SelectedIndex = 0;
+            Field17.SelectedIndex = 0;
+            Field18.SelectedIndex = 0;
+            Contain16.SelectedIndex = 0;
+            Contain17.SelectedIndex = 0;
+            Contain18.SelectedIndex = 0;
+            Input16.Text = "Your search term";
+            Input17.Text = "Your search term";
+            Input18.Text = "Your search term";
+
+            Books.IsChecked = false;
+            Articles.IsChecked = false;
+            Journals.IsChecked = false;
+            Papers.IsChecked = false;
+            AllItems.IsChecked = true;
+            OnlyAvail.IsChecked = false;
+            StartYear.Text = "Start year";
+            EndYear.Text = "End year";
+
+            Filter4.Visibility = Visibility.Collapsed;
+            Filter5.Visibility = Visibility.Collapsed;
+            Filter6.Visibility = Visibility.Collapsed;
+            Filter7.Visibility = Visibility.Collapsed;
+            Filter8.Visibility = Visibility.Collapsed;
+            Filter9.Visibility = Visibility.Collapsed;
+            Filter10.Visibility = Visibility.Collapsed;
+            Filter11.Visibility = Visibility.Collapsed;
+            Filter12.Visibility = Visibility.Collapsed;
+            Filter13.Visibility = Visibility.Collapsed;
+            Filter14.Visibility = Visibility.Collapsed;
+            Filter15.Visibility = Visibility.Collapsed;
+            Filter16.Visibility = Visibility.Collapsed;
+            Filter17.Visibility = Visibility.Collapsed;
+            Filter18.Visibility = Visibility.Collapsed;
+        }
+
+        private void EnhanceSearch(object sender, RoutedEventArgs e)
+        {
+            EnhanceButton.Visibility = Visibility.Collapsed;
+            EnhanceQuestion.Visibility = Visibility.Collapsed;
+            UnenhanceButton.Visibility = Visibility.Visible;
+            UnenhanceQuestion.Visibility = Visibility.Visible;
+
+            if (Input1.Text == "cryptography")
             {
-                AddedFilters.Visibility = Visibility.Collapsed;
+                Filter2.Visibility = Visibility.Visible;
+                Filter3.Visibility = Visibility.Visible;
+
+                AndOr2.SelectedIndex = 1;
+                AndOr3.SelectedIndex = 1;
+
+                Field2.SelectedIndex = Field1.SelectedIndex;
+                Field3.SelectedIndex = Field1.SelectedIndex;
+
+                Contain2.SelectedIndex = Contain1.SelectedIndex;
+                Contain3.SelectedIndex = Contain1.SelectedIndex;
+
+                Input2.Text = "cryptology";
+                Input3.Text = "cryptanalysis";
+            }
+            else if (Input1.Text == "artificial intelligence" && Input2.Text == "Max Tegmark")
+            {
+                Filter2.Visibility = Visibility.Visible;
+                Filter3.Visibility = Visibility.Visible;
+
+                AndOr3.SelectedIndex = AndOr2.SelectedIndex;
+                AndOr2.SelectedIndex = 1;
+
+                Field3.SelectedIndex = Field2.SelectedIndex;
+                Field2.SelectedIndex = Field1.SelectedIndex;
+
+                Contain3.SelectedIndex = Contain2.SelectedIndex;
+                Contain2.SelectedIndex = Contain1.SelectedIndex;               
+
+                Input2.Text = "AI";
+                Input3.Text = "Max Tegmark"; 
+            }
+            else if (Input1.Text == "men" && Input2.Text == "stereotype" && Input3.Text == "USA" && Input4.Text == "advertisement")
+            {
+                Filter5.Visibility = Visibility.Visible;
+                Filter6.Visibility = Visibility.Visible;
+                Filter7.Visibility = Visibility.Visible;
+                Filter8.Visibility = Visibility.Visible;
+                Filter9.Visibility = Visibility.Visible;
+                Filter10.Visibility = Visibility.Visible;
+                Filter11.Visibility = Visibility.Visible;
+                Filter12.Visibility = Visibility.Visible;
+
+                AndOr4.SelectedIndex = AndOr2.SelectedIndex;
+                AndOr7.SelectedIndex = AndOr3.SelectedIndex;
+                AndOr10.SelectedIndex = AndOr4.SelectedIndex;
+                AndOr2.SelectedIndex = 1;
+                AndOr3.SelectedIndex = 1;
+                AndOr5.SelectedIndex = 1;
+                AndOr6.SelectedIndex = 1;
+                AndOr8.SelectedIndex = 1;
+                AndOr9.SelectedIndex = 1;
+                AndOr11.SelectedIndex = 1;
+                AndOr12.SelectedIndex = 1;
+
+                Field4.SelectedIndex = Field2.SelectedIndex;
+                Field7.SelectedIndex = Field3.SelectedIndex;
+                Field10.SelectedIndex = Field4.SelectedIndex;
+                Field2.SelectedIndex = Field1.SelectedIndex;
+                Field3.SelectedIndex = Field1.SelectedIndex;
+                Field5.SelectedIndex = Field4.SelectedIndex;
+                Field6.SelectedIndex = Field4.SelectedIndex;
+                Field8.SelectedIndex = Field7.SelectedIndex;
+                Field9.SelectedIndex = Field7.SelectedIndex;
+                Field11.SelectedIndex = Field10.SelectedIndex;
+                Field12.SelectedIndex = Field10.SelectedIndex;
+
+                Contain4.SelectedIndex = Contain2.SelectedIndex;
+                Contain7.SelectedIndex = Contain3.SelectedIndex;
+                Contain10.SelectedIndex = Contain4.SelectedIndex;
+                Contain2.SelectedIndex = Contain1.SelectedIndex;
+                Contain3.SelectedIndex = Contain1.SelectedIndex;
+                Contain5.SelectedIndex = Contain4.SelectedIndex;
+                Contain6.SelectedIndex = Contain4.SelectedIndex;
+                Contain8.SelectedIndex = Contain7.SelectedIndex;
+                Contain9.SelectedIndex = Contain7.SelectedIndex;
+                Contain11.SelectedIndex = Contain10.SelectedIndex;
+                Contain12.SelectedIndex = Contain10.SelectedIndex;
+
+                Input2.Text = "male";
+                Input3.Text = "masculin";
+                Input4.Text = "stereotype";
+                Input5.Text = "typecase";
+                Input6.Text = "pigeonhole";
+                Input7.Text = "USA";
+                Input8.Text = "U.S.A.";
+                Input9.Text = "America";
+                Input10.Text = "advertisement";
+                Input11.Text = "commercial";
+                Input12.Text = "endorsement";
             }
 
+            else if (Input1.Text == "machine learning" && Input2.Text == "practical applications" && Input3.Text == "detect" && Input4.Text == "emotion")
+            {
+                Filter5.Visibility = Visibility.Visible;
+                Filter6.Visibility = Visibility.Visible;
+                Filter7.Visibility = Visibility.Visible;
+                Filter8.Visibility = Visibility.Visible;
+                Filter9.Visibility = Visibility.Visible;
+                Filter10.Visibility = Visibility.Visible;
+                Filter11.Visibility = Visibility.Visible;
+
+                AndOr3.SelectedIndex = AndOr2.SelectedIndex;
+                AndOr6.SelectedIndex = AndOr3.SelectedIndex;
+                AndOr9.SelectedIndex = AndOr4.SelectedIndex;
+                AndOr2.SelectedIndex = 1;
+                AndOr4.SelectedIndex = 1;
+                AndOr5.SelectedIndex = 1;
+                AndOr7.SelectedIndex = 1;
+                AndOr8.SelectedIndex = 1;
+                AndOr10.SelectedIndex = 1;
+                AndOr11.SelectedIndex = 1;
+
+                Field3.SelectedIndex = Field2.SelectedIndex;
+                Field6.SelectedIndex = Field3.SelectedIndex;
+                Field9.SelectedIndex = Field4.SelectedIndex;
+                Field2.SelectedIndex = Field1.SelectedIndex;
+                Field4.SelectedIndex = Field3.SelectedIndex;
+                Field5.SelectedIndex = Field3.SelectedIndex;
+                Field7.SelectedIndex = Field6.SelectedIndex;
+                Field8.SelectedIndex = Field6.SelectedIndex;
+                Field10.SelectedIndex = Field9.SelectedIndex;
+                Field11.SelectedIndex = Field9.SelectedIndex;
+
+                Contain3.SelectedIndex = Contain2.SelectedIndex;
+                Contain6.SelectedIndex = Contain3.SelectedIndex;
+                Contain9.SelectedIndex = Contain4.SelectedIndex;
+                Contain2.SelectedIndex = Contain1.SelectedIndex;
+                Contain4.SelectedIndex = Contain3.SelectedIndex;
+                Contain5.SelectedIndex = Contain3.SelectedIndex;
+                Contain7.SelectedIndex = Contain6.SelectedIndex;
+                Contain8.SelectedIndex = Contain6.SelectedIndex;
+                Contain10.SelectedIndex = Contain9.SelectedIndex;
+                Contain11.SelectedIndex = Contain9.SelectedIndex;
+                
+                Input2.Text = "deep learning";
+                Input3.Text = "practical applications";
+                Input4.Text = "practicality";
+                Input5.Text = "utilization";
+                Input6.Text = "detect";
+                Input7.Text = "identify";
+                Input8.Text = "distinguish";
+                Input9.Text = "emotion";
+                Input10.Text = "feeling";
+                Input11.Text = "reaction";
+            }
+        }
+
+        private void UnenhanceSearch(object sender, RoutedEventArgs e)
+        {
+            EnhanceButton.Visibility = Visibility.Visible;
+            EnhanceQuestion.Visibility = Visibility.Visible;
+            UnenhanceButton.Visibility = Visibility.Collapsed;
+            UnenhanceQuestion.Visibility = Visibility.Collapsed;
+
+            if (Input1.Text == "cryptography" && Input2.Text == "cryptology" && Input3.Text == "cryptanalysis")
+            {
+                Filter2.Visibility = Visibility.Visible;
+                Filter3.Visibility = Visibility.Visible;
+
+                AndOr2.SelectedIndex = 0;
+                AndOr3.SelectedIndex = 0;
+
+                Field2.SelectedIndex = 0;
+                Field3.SelectedIndex = 0;
+
+                Contain2.SelectedIndex = 0;
+                Contain3.SelectedIndex = 0;
+
+                Input2.Text = "Your keyword";
+                Input3.Text = "Your keyword";
+            }
+            else if (Input1.Text == "artificial intelligence" && Input2.Text == "AI" && Input3.Text == "Max Tegmark")
+            {
+                Filter2.Visibility = Visibility.Visible;
+                Filter3.Visibility = Visibility.Visible;
+
+                AndOr2.SelectedIndex = AndOr3.SelectedIndex;
+                AndOr3.SelectedIndex = 0;
+
+                Field2.SelectedIndex = Field3.SelectedIndex;
+                Field3.SelectedIndex = 0;
+
+                Contain2.SelectedIndex = Contain3.SelectedIndex;
+                Contain3.SelectedIndex = 0;
+
+                Input2.Text = "Max Tegmark";
+                Input3.Text = "Your keyword";
+            }
+
+            else if (Input1.Text == "men" && Input4.Text == "stereotype" && Input7.Text == "USA" && Input10.Text == "advertisement")
+            {
+                Filter5.Visibility = Visibility.Visible;
+                Filter6.Visibility = Visibility.Visible;
+                Filter7.Visibility = Visibility.Collapsed;
+                Filter8.Visibility = Visibility.Collapsed;
+                Filter9.Visibility = Visibility.Collapsed;
+                Filter10.Visibility = Visibility.Collapsed;
+                Filter11.Visibility = Visibility.Collapsed;
+                Filter12.Visibility = Visibility.Collapsed;
+
+                AndOr2.SelectedIndex = AndOr4.SelectedIndex;
+                AndOr3.SelectedIndex = AndOr7.SelectedIndex;
+                AndOr4.SelectedIndex = AndOr10.SelectedIndex;
+                AndOr5.SelectedIndex = 0;
+                AndOr6.SelectedIndex = 0;
+
+                Field2.SelectedIndex = Field4.SelectedIndex;
+                Field3.SelectedIndex = Field7.SelectedIndex;
+                Field4.SelectedIndex = Field10.SelectedIndex;
+                Field5.SelectedIndex = 0;
+                Field6.SelectedIndex = 0;
+
+                Contain2.SelectedIndex = Contain4.SelectedIndex;
+                Contain3.SelectedIndex = Contain7.SelectedIndex;
+                Contain4.SelectedIndex = Contain10.SelectedIndex;
+                Contain5.SelectedIndex = 0;
+                Contain6.SelectedIndex = 0;
+
+                Input2.Text = "stereotype";
+                Input3.Text = "USA";
+                Input4.Text = "advertisement";
+                Input5.Text = "Your keyword";
+                Input6.Text = "Your keyword";
+            }
+
+            else if (Input1.Text == "machine learning" && Input3.Text == "practical applications" && Input6.Text == "detect" && Input9.Text == "emotion")
+            {
+                Filter5.Visibility = Visibility.Visible;
+                Filter6.Visibility = Visibility.Visible;
+                Filter7.Visibility = Visibility.Collapsed;
+                Filter8.Visibility = Visibility.Collapsed;
+                Filter9.Visibility = Visibility.Collapsed;
+                Filter10.Visibility = Visibility.Collapsed;
+                Filter11.Visibility = Visibility.Collapsed;
+                Filter12.Visibility = Visibility.Collapsed;
+
+                AndOr2.SelectedIndex = AndOr3.SelectedIndex;
+                AndOr3.SelectedIndex = AndOr6.SelectedIndex;
+                AndOr4.SelectedIndex = AndOr9.SelectedIndex;
+                AndOr5.SelectedIndex = 0;
+                AndOr6.SelectedIndex = 0;
+
+                Field2.SelectedIndex = Field3.SelectedIndex;
+                Field3.SelectedIndex = Field6.SelectedIndex;
+                Field4.SelectedIndex = Field9.SelectedIndex;
+                Field5.SelectedIndex = 0;
+                Field6.SelectedIndex = 0;
+
+                Contain2.SelectedIndex = Contain3.SelectedIndex;
+                Contain3.SelectedIndex = Contain6.SelectedIndex;
+                Contain4.SelectedIndex = Contain9.SelectedIndex;
+                Contain5.SelectedIndex = 0;
+                Contain6.SelectedIndex = 0;
+
+                Input2.Text = "practical applications";
+                Input3.Text = "detect";
+                Input4.Text = "emotion";
+                Input5.Text = "Your keyword";
+                Input6.Text = "Your keyword";
+            }
+        }
+
+        private void SearchGotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (textBox != null && textBox.Text == "Search by title or author...")
+            {
+                textBox.Text = "";
+            }
         }
 
         private void SearchTermGotFocus(object sender, RoutedEventArgs e)
@@ -190,11 +717,20 @@ namespace CPSC481ProjectTest
         }
         private void EnhanceQuestion_MouseEnter(object sender, MouseEventArgs e)
         {
-            EnhanceQuestion.Visibility = Visibility.Visible;
+            EnhanceText.Visibility = Visibility.Visible;
         }
         private void EnhanceQuestion_MouseLeave(object sender, MouseEventArgs e)
         {
-            EnhanceQuestion.Visibility = Visibility.Hidden;
+            EnhanceText.Visibility = Visibility.Hidden;
+        }
+
+        private void UnenhanceQuestion_MouseEnter(object sender, MouseEventArgs e)
+        {
+            UnenhanceText.Visibility = Visibility.Visible;
+        }
+        private void UnenhanceQuestion_MouseLeave(object sender, MouseEventArgs e)
+        {
+            UnenhanceText.Visibility = Visibility.Hidden;
         }
 
         private void SearchTerm_MouseEnter(object sender, MouseEventArgs e)
@@ -205,7 +741,20 @@ namespace CPSC481ProjectTest
         {
             SearchTermQuestion.Visibility = Visibility.Hidden;
         }
-        private void MyAccount(object sender, RoutedEventArgs e)
+
+        private void GoToPage3_Click(object sender, RoutedEventArgs e)
+        {
+            ResultsPage RP = new ResultsPage();
+            this.NavigationService.Navigate(RP);
+        }
+
+        private void GoToLogIn_Click(object sender, RoutedEventArgs e)
+        {
+            LogInPage LI = new LogInPage();
+            this.NavigationService.Navigate(LI);
+        }
+
+        private void GoToAccount_Click(object sender, RoutedEventArgs e)
         {
             AccountPage AP = new AccountPage();
             this.NavigationService.Navigate(AP);

@@ -40,6 +40,38 @@ namespace CPSC481ProjectTest
 
         }
 
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Question_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Help.Visibility = Visibility.Visible;
+        }
+        private void Question_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Help.Visibility = Visibility.Hidden;
+        }
+
+        private void EmailGotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (textBox != null && textBox.Text == "UCalgary email")
+            {
+                textBox.Text = "";
+            }
+        }
+
+        private void PasswordGotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (textBox != null && textBox.Text == "Password")
+            {
+                textBox.Text = "";
+            }
+        }
+        
         private void GoToPage2_Click(object sender, RoutedEventArgs e)
         {
             // Create an instance of the Page2 window
@@ -49,20 +81,6 @@ namespace CPSC481ProjectTest
             //mainFrame.NavigationService.Navigate(window1);
             SearchPage SP = new SearchPage();
             this.NavigationService.Navigate(SP);
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Question_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Visibility = Visibility.Visible;
-        }
-        private void Question_MouseLeave(object sender, MouseEventArgs e)
-        {
-            Visibility = Visibility.Hidden;
         }
     }
 }
