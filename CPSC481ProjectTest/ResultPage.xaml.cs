@@ -62,7 +62,7 @@ namespace CPSC481ProjectTest
                 itemPreview.Margin = new Thickness(0, 0, 0, 40);
                 BitmapImage bitmapImage = new BitmapImage();
                 bitmapImage.BeginInit();
-                string imagePath = "..\\..\\" + item.imagePath;
+                string imagePath = item.imagePath;
                 bitmapImage.UriSource = new Uri(imagePath, UriKind.Relative);
                 bitmapImage.EndInit();
                 itemPreview.Source = bitmapImage;
