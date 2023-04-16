@@ -60,4 +60,12 @@ namespace CPSC481ProjectTest
             new Item("databaseImages\\Cryptography_Buchanan.jpg", ItemType.Book, "Cryptography" , new List<string>{ "Buchanan, William" }, "2017", true, "A100", false),
         };
     }
+
+    public static class SavedDatabase
+    {
+        public static Item[] Saved = new Item[]
+        {
+            new Item("databasesImages\\Post_quantum_cryptography.png", ItemType.Journal, "Journal of discrete mathematical sciences & cryptography", new List<string>{""}, "1998-", true, "A103", true),
+        };
+    }
 }
