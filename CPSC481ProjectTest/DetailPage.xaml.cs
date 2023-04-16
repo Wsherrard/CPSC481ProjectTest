@@ -93,7 +93,7 @@ namespace CPSC481ProjectTest
                 itemAvailability.Content = "Not Available";
                 itemAvailability.Foreground = Brushes.Red;
             }
-            itemSummary.Text = "Item Summary not implemented in database";
+            itemSummary.Text = ItemSummaries.summaries[index];
             detailsTitle.Text = item.title;
 
             detailsDate.Text = item.yearOfPublication;
@@ -131,8 +131,23 @@ namespace CPSC481ProjectTest
             }
 
             //check for held/saved items in account and update buttons and flags as necessary
-            isHeld = false;
-            isSaved = false;
+            if (HoldDatabase.hold.Contains(resultsList[currentIndex]))
+            {
+                isHeld = true;
+            }
+            else
+            {
+                isHeld = false;
+            }
+
+            if (SavedDatabase.saved.Contains(resultsList[currentIndex]))
+            {
+                isSaved = true;
+            }
+            else
+            {
+                isSaved = false;
+            }
 
         }
 
@@ -193,6 +208,7 @@ namespace CPSC481ProjectTest
                 MessageBox.Show("Hold removed on item");
                 isHeld = false;
                 holdItemButton.Content = "Hold Item";
+                HoldDatabase.hold.Remove(resultsList[currentIndex]);
             }
             else
             {
@@ -202,6 +218,7 @@ namespace CPSC481ProjectTest
 
                 //save item to account somehow
                 //probably a global list or something
+                HoldDatabase.hold.Add(resultsList[currentIndex]);
 
             }
         }
@@ -271,11 +288,10 @@ namespace CPSC481ProjectTest
             Overlay.Visibility = Visibility.Collapsed;
         }
 
-        private void help_MouseEnter(object sender, MouseEventArgs e)
+        private void help_MouseEnter(Object sender, RoutedEventArgs e)
         {
 
         }
-
 
     }
 }
