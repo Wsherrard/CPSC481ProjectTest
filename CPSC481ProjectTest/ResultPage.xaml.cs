@@ -295,10 +295,11 @@ namespace CPSC481ProjectTest
                 }
             }
 
-            
-
             MessageBox.Show($"You clicked (index {index}): {itemTitle}");
             MessageBox.Show("Navigating to Item Detail page...");
+
+            DetailPage AP = new DetailPage(itemsCopy.ToArray(), index, false);
+            this.NavigationService.Navigate(AP);
         }
 
         private void MapClick(object sender, MouseButtonEventArgs e)
