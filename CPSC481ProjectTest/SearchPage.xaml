@@ -82,7 +82,7 @@
             <StackPanel x:Name="AdvancedStack" Margin="250,144,277,0" Background="#FAEDCD" Visibility="Visible">
                 <Button HorizontalAlignment="Left" Margin="525,10,10,0" Width="140" Height="22" Background="#E21818" Click="DeleteAll">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="C:\Users\thao3\source\repos\481\481\cancelicon" Width="20" Height="20" HorizontalAlignment="Left" Margin="-20"/>
+                        <Image Source="images/cancelicon.png" Width="20" Height="20" HorizontalAlignment="Left" Margin="-20"/>
                         <TextBlock Text="Remove all filters" Foreground="White" Margin="5,0,0,0"/>
                     </StackPanel>
                 </Button>
@@ -109,7 +109,7 @@
                         </ControlTemplate>
                     </Button.Template>
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="C:\Users\thao3\source\repos\481\481\questionicon.png" Width="12" Height="12"/>
+                        <Image Source="images/questionicon.png" Width="12" Height="12"/>
                     </StackPanel>
                 </Button>
                 <TextBox x:Name="SearchTermQuestion" TextWrapping="Wrap" Background="#749F82" Text="Use search terms to narrow down search results" Visibility="Hidden" HorizontalAlignment="Left" TextAlignment="Center" Height="40" Width="160" Margin="120,-50,0,0"/>
@@ -145,7 +145,7 @@
                                 </ControlTemplate>
                             </Button.Template>
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="C:\Users\thao3\source\repos\481\481\cancelicon" Width="12" Height="12"/>
+                                <Image Source="images/cancelicon.png" Width="12" Height="12"/>
                             </StackPanel>
                         </Button>
                     </StackPanel>
@@ -181,7 +181,7 @@
                                 </ControlTemplate>
                             </Button.Template>
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="C:\Users\thao3\source\repos\481\481\cancelicon" Width="12" Height="12"/>
+                                <Image Source="images/cancelicon.png" Width="12" Height="12"/>
                             </StackPanel>
                         </Button>
                     </StackPanel>
@@ -218,7 +218,7 @@
                                 </ControlTemplate>
                             </Button.Template>
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="C:\Users\thao3\source\repos\481\481\cancelicon" Width="12" Height="12"/>
+                                <Image Source="images/cancelicon.png" Width="12" Height="12"/>
                             </StackPanel>
                         </Button>
                     </StackPanel>
@@ -254,7 +254,7 @@
                                 </ControlTemplate>
                             </Button.Template>
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="C:\Users\thao3\source\repos\481\481\cancelicon" Width="12" Height="12"/>
+                                <Image Source="images/cancelicon.png" Width="12" Height="12"/>
                             </StackPanel>
                         </Button>
                     </StackPanel>
@@ -290,7 +290,7 @@
                                 </ControlTemplate>
                             </Button.Template>
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="C:\Users\thao3\source\repos\481\481\cancelicon" Width="12" Height="12"/>
+                                <Image Source="images/cancelicon.png" Width="12" Height="12"/>
                             </StackPanel>
                         </Button>
                     </StackPanel>
@@ -327,7 +327,7 @@
                                 </ControlTemplate>
                             </Button.Template>
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="C:\Users\thao3\source\repos\481\481\cancelicon" Width="12" Height="12"/>
+                                <Image Source="images/cancelicon.png" Width="12" Height="12"/>
                             </StackPanel>
                         </Button>
                     </StackPanel>
@@ -363,7 +363,7 @@
                                 </ControlTemplate>
                             </Button.Template>
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="C:\Users\thao3\source\repos\481\481\cancelicon" Width="12" Height="12"/>
+                                <Image Source="images/cancelicon.png" Width="12" Height="12"/>
                             </StackPanel>
                         </Button>
                     </StackPanel>
@@ -399,7 +399,7 @@
                                 </ControlTemplate>
                             </Button.Template>
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="C:\Users\thao3\source\repos\481\481\cancelicon" Width="12" Height="12"/>
+                                <Image Source="images/cancelicon.png" Width="12" Height="12"/>
                             </StackPanel>
                         </Button>
                     </StackPanel>
@@ -436,7 +436,7 @@
                                 </ControlTemplate>
                             </Button.Template>
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="C:\Users\thao3\source\repos\481\481\cancelicon" Width="12" Height="12"/>
+                                <Image Source="images/cancelicon.png" Width="12" Height="12"/>
                             </StackPanel>
                         </Button>
                     </StackPanel>
@@ -472,7 +472,7 @@
                                 </ControlTemplate>
                             </Button.Template>
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="C:\Users\thao3\source\repos\481\481\cancelicon" Width="12" Height="12"/>
+                                <Image Source="images/cancelicon.png" Width="12" Height="12"/>
                             </StackPanel>
                         </Button>
                     </StackPanel>
@@ -508,7 +508,7 @@
                                 </ControlTemplate>
                             </Button.Template>
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="C:\Users\thao3\source\repos\481\481\cancelicon" Width="12" Height="12"/>
+                                <Image Source="images/cancelicon.png" Width="12" Height="12"/>
                             </StackPanel>
                         </Button>
                     </StackPanel>
@@ -545,7 +545,7 @@
                                 </ControlTemplate>
                             </Button.Template>
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="C:\Users\thao3\source\repos\481\481\cancelicon" Width="12" Height="12"/>
+                                <Image Source="images/cancelicon.png" Width="12" Height="12"/>
                             </StackPanel>
                         </Button>
                     </StackPanel>
@@ -581,7 +581,7 @@
                                 </ControlTemplate>
                             </Button.Template>
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="C:\Users\thao3\source\repos\481\481\cancelicon" Width="12" Height="12"/>
+                                <Image Source="images/cancelicon.png" Width="12" Height="12"/>
                             </StackPanel>
                         </Button>
                     </StackPanel>
@@ -617,7 +617,7 @@
                                 </ControlTemplate>
                             </Button.Template>
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="C:\Users\thao3\source\repos\481\481\cancelicon" Width="12" Height="12"/>
+                                <Image Source="images/cancelicon.png" Width="12" Height="12"/>
                             </StackPanel>
                         </Button>
                     </StackPanel>
@@ -654,7 +654,7 @@
                                 </ControlTemplate>
                             </Button.Template>
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="C:\Users\thao3\source\repos\481\481\cancelicon" Width="12" Height="12"/>
+                                <Image Source="images/cancelicon.png" Width="12" Height="12"/>
                             </StackPanel>
                         </Button>
                     </StackPanel>
@@ -690,7 +690,7 @@
                                 </ControlTemplate>
                             </Button.Template>
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="C:\Users\thao3\source\repos\481\481\cancelicon" Width="12" Height="12"/>
+                                <Image Source="images/cancelicon.png" Width="12" Height="12"/>
                             </StackPanel>
                         </Button>
                     </StackPanel>
@@ -726,7 +726,7 @@
                                 </ControlTemplate>
                             </Button.Template>
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="C:\Users\thao3\source\repos\481\481\cancelicon" Width="12" Height="12"/>
+                                <Image Source="images/cancelicon.png" Width="12" Height="12"/>
                             </StackPanel>
                         </Button>
                     </StackPanel>
@@ -763,7 +763,7 @@
                                 </ControlTemplate>
                             </Button.Template>
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="C:\Users\thao3\source\repos\481\481\cancelicon" Width="12" Height="12"/>
+                                <Image Source="images/cancelicon.png" Width="12" Height="12"/>
                             </StackPanel>
                         </Button>
                     </StackPanel>
@@ -793,7 +793,7 @@
 						</ControlTemplate>
 					</Button.Template>
 					<StackPanel Orientation="Horizontal">
-						<Image Source="C:\Users\thao3\source\repos\481\481\questionicon.png" Width="12" Height="12"/>
+						<Image Source="images/questionicon.png" Width="12" Height="12"/>
 					</StackPanel>
 				</Button>
 				<TextBox x:Name="EnhanceText" HorizontalAlignment="Left" TextWrapping="Wrap" Background="#749F82" Text="Automatically add the synonyms of your keywords to improve your search" Margin="460,-75,0,0" Height="50" Width="170" Visibility="Collapsed" TextAlignment="Center"/>
