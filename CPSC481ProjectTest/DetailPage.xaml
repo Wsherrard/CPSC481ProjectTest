@@ -71,9 +71,9 @@
                     <!--TOP BUTTONS AND SEARCH BAR-->
                     <StackPanel Grid.Row="0" Grid.Column="1">
                         <WrapPanel Margin="0,10,0,0"  FlowDirection="RightToLeft">
-                            <Button Content="Log Out" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="28" Width="114" Background="#FAEDCD"/>
-                            <Button Content="My Account" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Height="28" Width="109" Background="#FAEDCD" Click="MyAccountButton_Click"/>
-                            <Button Content="Home" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Height="28" Width="109" Background="#FAEDCD"/>
+                            <Button Content="Log Out" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="28" Width="114" Background="#FAEDCD" Click="LogoutButton"/>
+                            <Button Content="My Account" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Height="28" Width="109" Background="#FAEDCD" Click="MyAccountButton"/>
+                            <Button Content="Home" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Height="28" Width="109" Background="#FAEDCD" Click="HomeButton"/>
                         </WrapPanel>
                         <WrapPanel Margin="0,10,0,0" Width="758" Visibility="Hidden">
                             <TextBox x:Name="SearchBox" Margin="20,20,0,5" Width="498" FontStyle="Italic" Height="24" TextWrapping="Wrap" TextAlignment="Justify" HorizontalAlignment="Left"/>
