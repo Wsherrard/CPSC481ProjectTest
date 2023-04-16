@@ -5,24 +5,31 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:CPSC481ProjectTest"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="890" d:DesignWidth="1215"
       Title="AccountPage">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width = "150" />
-            <ColumnDefinition Width = "*" />
-            <ColumnDefinition Width = "*" />
-            <ColumnDefinition Width = "*" />
+            <ColumnDefinition Width="220" />
+            <ColumnDefinition Width="4*" />
         </Grid.ColumnDefinitions>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height = "100" />
-            <RowDefinition Height = "350" />
+        <Border BorderBrush="Black" BorderThickness="1,1,1,1" HorizontalAlignment="Left" Height="786" VerticalAlignment="Top" Width="160" RenderTransformOrigin="0.5,0.5" Background="White" Margin="0,0,0,0" Grid.Row="1" Grid.Column="1">
+            <Border.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Border.RenderTransform>
+        </Border>
 
-        </Grid.RowDefinitions>
-
-        <Border BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="5" HorizontalAlignment="Center" Height="113" Margin="0,-13,0,0" VerticalAlignment="Top" Width="800" RenderTransformOrigin="0.5,0.5" Background="#E64848">
+        <Border BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="5" HorizontalAlignment="Center" Height="113" Margin="0,-13,0,0" VerticalAlignment="Top" Width="1214" RenderTransformOrigin="0.5,0.5" Background="#E64848">
             <Border.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="-1"/>
@@ -38,13 +45,13 @@
         <Label Content="Jeremy Adam" HorizontalAlignment="Center" Margin="0,165,0,141"  Height="28" Width="90" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="1" FontWeight="Bold"/>
         <Label Content="UCID: 123456" HorizontalAlignment="Center" VerticalAlignment="Top" Height="28" Width="90" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="2" Margin="0,129,0,0"/>
         <Button Content="Home"  Click="HomeButton" Height="32" Width="95" Margin="123,34,215,34" RenderTransformOrigin="0.5,0.5" Background="#FAEDCD" Grid.Column="2" Grid.ColumnSpan="2"/>
-        <Image HorizontalAlignment="Center" Height="119" Margin="0,9,0,0" Grid.Row="2" VerticalAlignment="Top" Width="88" Source="/images/JeremyAdam.jpeg"/>
+        <Image HorizontalAlignment="Left" Height="119" Margin="-181,62,0,0" Grid.Row="1" VerticalAlignment="Top" Width="88" Source="/images/JeremyAdam.jpeg"/>
         <Button Content="Log Out"  Click="LogoutButton" Height="32" Width="95" Margin="110,34,10,34" RenderTransformOrigin="0.5,0.5" Background="#FAEDCD" Grid.Column="3"/>
         <Button Content="My Account" Click="MyAccountButton" Margin="10,34,110,34"  Grid.Column="3" Height="32" Width="100" Background="#FAEDCD"/>
 
-        <Grid Grid.ColumnSpan="4" Margin="149,0,0,0" Grid.Row="1">
+        <Grid Grid.ColumnSpan="4" Margin="0,0,0,0" Grid.Row="1" Grid.Column="1">
             <TabControl>
-                <TabItem Header="Books on Hold" Margin="0,0,-100,-1">
+                <TabItem Header="Hold Items" Margin="0,0,-100,-1">
                     <Grid Grid.ColumnSpan="4" Margin="0,0,0,0" Grid.Row="1">
                         <Grid.RowDefinitions>
                             <RowDefinition Height = "*" />
@@ -76,7 +83,7 @@
 
                     </Grid>
                 </TabItem>
-                <TabItem Header="Books Saved" Margin="122,0,-223,-1" >
+                <TabItem Header="Saved Items" Margin="266,0,-367,-1" >
                     <Grid Grid.ColumnSpan="4" Margin="0,0,0,0" Grid.Row="1">
                         <Grid.RowDefinitions>
                             <RowDefinition Height = "*" />
@@ -107,7 +114,7 @@
 
                     </Grid>
                 </TabItem>
-                <TabItem Header="Saved Advanced Search" Margin= "244,0,-308,1" >
+                <TabItem Header="Saved Advanced Search" Margin= "592,0,-592,0" >
                     <Grid Grid.ColumnSpan="4" Margin="0,0,0,0" Grid.Row="1">
                         <Grid.RowDefinitions>
                             <RowDefinition Height = "*" />
