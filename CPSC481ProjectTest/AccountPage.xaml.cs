@@ -412,15 +412,76 @@ namespace CPSC481ProjectTest
         }
         private void TitleClick(object sender, MouseButtonEventArgs e)
         {
-            // TODO: implement window switch to item detail page
-            MessageBox.Show("Navigating to Item Detail page...");
+            TextBlock t = sender as TextBlock;
+
+            string itemTitle = t.Text;
+            int index = 0;
+
+            if(HoldGrid.IsVisible) { 
+
+                for (int i =0; i< HoldDatabase.hold.Count-1;i++)
+                {
+                    if (HoldDatabase.hold[i].title.Equals(itemTitle))
+                    {
+                        index = i;
+                        
+                    }
+                }
+                DetailPage AP = new DetailPage(HoldDatabase.hold.ToArray(), index, false);
+                this.NavigationService.Navigate(AP);
+            }
+            else
+            {
+                for (int i = 0; i < SavedDatabase.saved.Count - 1; i++)
+                {
+                    if (SavedDatabase.saved[i].title.Equals(itemTitle))
+                    {
+                        index = i;
+                        
+                    }
+                }
+                DetailPage AP = new DetailPage(SavedDatabase.saved.ToArray(), index, false);
+                this.NavigationService.Navigate(AP);
+            }
         }
+    
 
         private void MapClick(object sender, MouseButtonEventArgs e)
         {
-            // TODO: implement window switch to item detail page
-            MessageBox.Show("Navigating to map on Item Detail page...");
+            TextBlock t = sender as TextBlock;
+
+            string itemTitle = t.Text;
+            int index = 0;
+
+            if (HoldGrid.IsVisible)
+            {
+
+                for (int i = 0; i < HoldDatabase.hold.Count - 1; i++)
+                {
+                    if (HoldDatabase.hold[i].title.Equals(itemTitle))
+                    {
+                        index = i;
+                        
+                    }
+                }
+                DetailPage AP = new DetailPage(HoldDatabase.hold.ToArray(), index, true);
+                this.NavigationService.Navigate(AP);
+            }
+            else
+            {
+                for (int i = 0; i < SavedDatabase.saved.Count - 1; i++)
+                {
+                    if (SavedDatabase.saved[i].title.Equals(itemTitle))
+                    {
+                        index = i;
+                        
+                    }
+                }
+                DetailPage AP = new DetailPage(SavedDatabase.saved.ToArray(), index, true);
+                this.NavigationService.Navigate(AP);
+            }
         }
+
         //      private void DisplayHold()
         //     {
         //    List<Item> results = new List<Item>();
