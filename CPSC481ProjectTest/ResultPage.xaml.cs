@@ -666,7 +666,28 @@ namespace CPSC481ProjectTest
 
         private void SortBy_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            ComboBoxItem selectedItem = SortBy.SelectedItem as ComboBoxItem;
 
+            if (selectedItem.Content.ToString() == "Title")
+            {
+                // Sort by newest first
+                return;
+            }
+
+            if (selectedItem.Content.ToString() == "Author")
+            {
+                return;
+            }
+
+            if (selectedItem.Content.ToString() == "Newest First")
+            {
+                return;
+            }
+
+            if (selectedItem.Content.ToString() == "Oldest First")
+            {
+                return;
+            }
         }
     }
 }

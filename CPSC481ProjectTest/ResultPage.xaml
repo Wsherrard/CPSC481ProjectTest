@@ -294,8 +294,8 @@
             <!--INNER GRID (RESULTS)-->
             <StackPanel Grid.Row="1" Grid.Column="1">
                 <WrapPanel Orientation="Horizontal" x:Name="ResultsButtons" Grid.Row="1" Grid.Column="1" FlowDirection="RightToLeft">
-                    <ComboBox x:Name="SortBy"  Margin="10,5,10,10" SelectedIndex="0" FlowDirection="LeftToRight" Width="70" Height="21.96" SelectionChanged="SortBy_SelectionChanged">
-                        Sort by
+                    <ComboBox x:Name="SortBy"  Margin="10,5,10,10" SelectedIndex="0" FlowDirection="LeftToRight" Width="Auto" Height="21.96" SelectionChanged="SortBy_SelectionChanged">
+                        <ComboBoxItem IsEnabled="False">Sort by</ComboBoxItem>
                         <ComboBoxItem>Title</ComboBoxItem>
                         <ComboBoxItem>Author</ComboBoxItem>
                         <ComboBoxItem>Newest First</ComboBoxItem>
