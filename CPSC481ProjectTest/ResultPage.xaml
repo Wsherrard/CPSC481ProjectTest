@@ -292,16 +292,19 @@
             <TextBox Grid.Row="1" x:Name="EnhanceSearchHelp" HorizontalAlignment="Center" TextWrapping="Wrap" Background="#749F82" Text="Automatically add the synonyms of your keywords to improve your search" Visibility="Collapsed" FontSize="10" Height="40" Margin="0,250,0,0"/>
 
             <!--INNER GRID (RESULTS)-->
-            <WrapPanel Orientation="Horizontal" x:Name="ResultsButtons" Grid.Row="1" Grid.Column="1" FlowDirection="RightToLeft">
-                <ComboBox x:Name="SortBy"  Margin="10,5,10,10" SelectedIndex="0" FlowDirection="LeftToRight">
-                    Sort by
-                    <ComboBoxItem>Title</ComboBoxItem>
-                    <ComboBoxItem>Author</ComboBoxItem>
-                    <ComboBoxItem>Newest First</ComboBoxItem>
-                    <ComboBoxItem>Oldest First</ComboBoxItem>
-                </ComboBox>
-                <Button Content="Save Search" Margin="395,5,10,10" Height="21.96"></Button>
-            </WrapPanel>
+            <StackPanel Grid.Row="1" Grid.Column="1">
+                <WrapPanel Orientation="Horizontal" x:Name="ResultsButtons" Grid.Row="1" Grid.Column="1" FlowDirection="RightToLeft">
+                    <ComboBox x:Name="SortBy"  Margin="10,5,10,10" SelectedIndex="0" FlowDirection="LeftToRight" Width="70" Height="21.96">
+                        Sort by
+                        <ComboBoxItem>Title</ComboBoxItem>
+                        <ComboBoxItem>Author</ComboBoxItem>
+                        <ComboBoxItem>Newest First</ComboBoxItem>
+                        <ComboBoxItem>Oldest First</ComboBoxItem>
+                    </ComboBox>
+                    <Button Content="Save Search" Margin="395,5,10,10" Height="21.96"></Button>
+                </WrapPanel>
+                <Separator Visibility="Hidden"></Separator>
+            </StackPanel>
             <Grid x:Name="ResultGrid" Grid.Row="1" Grid.Column="1" Margin="0,17,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="150" />
