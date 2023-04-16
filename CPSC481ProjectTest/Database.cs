@@ -67,7 +67,7 @@ namespace CPSC481ProjectTest
     {
         public static Item[] hold = new Item[]
         {
-            new Item("databaseImages\\Cryptography_Buchanan.jpg", ItemType.Book, "Cryptography" , new List<string>{ "Buchanan, William" }, "2017", true, "A100", false),
+            //new Item("databaseImages\\Cryptography_Buchanan.jpg", ItemType.Book, "Cryptography" , new List<string>{ "Buchanan, William" }, "2017", true, "A100", false),
         };
     }
 }
