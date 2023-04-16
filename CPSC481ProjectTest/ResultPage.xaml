@@ -305,7 +305,7 @@
                 </WrapPanel>
                 <Separator Visibility="Hidden"></Separator>
             </StackPanel>
-            <Grid x:Name="ResultGrid" Grid.Row="1" Grid.Column="1" Margin="0,17,0,0">
+            <Grid x:Name="ResultGrid" Grid.Row="1" Grid.Column="1" Margin="0,37,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="150" />
                     <ColumnDefinition Width="400"/>
