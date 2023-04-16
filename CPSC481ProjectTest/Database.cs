@@ -58,4 +58,12 @@ namespace CPSC481ProjectTest
             new Item("images\\HCI_INTERACT.jpg", ItemType.Journal, "Human-computer interaction--INTERACT", new List<string>{ "IFIP Conference on Human-Computer Interaction." }, "1984-1987", "Amsterdam; North-Holland", "Human Computer Interaction", new HashSet<string>{"#hci", "#human"}, true, "B202", false)
         };
     }
+
+    public static class HoldDatabase
+    {
+        public static Item[] hold = new Item[]
+        {
+            new Item("databaseImages\\Cryptography_Buchanan.jpg", ItemType.Book, "Cryptography" , new List<string>{ "Buchanan, William" }, "2017", true, "A100", false),
+        };
+    }
 }
