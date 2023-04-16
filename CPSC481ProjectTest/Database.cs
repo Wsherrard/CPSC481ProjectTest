@@ -55,7 +55,9 @@ namespace CPSC481ProjectTest
             new Item("images\\HCI_Maurtua.jpg", ItemType.Book, "Human-Computer Interaction", new List<string>{ "Maurtua, Inaki" }, "2009", "IntechOpen", "Human Computer Interaction, Artificial Intelligence", new HashSet<string>{"#hci", "#human", "$ai"}, true, "B200", false),
             new Item("images\\HCI_Preece.jpg", ItemType.Book, "Human-computer Interaction", new List<string>{ "Preece, Jenny" }, "1994", "Wokingham", "Human Computer Interaction", new HashSet<string>{"#hci", "#human"}, true, "B201", false),
             new Item("images\\icon_book.png", ItemType.Book, "Human Computer Interaction", new List<string>{ "Pavlidis, Ioannis" }, "2008", "IntechOpen", "Human Computer Interaction", new HashSet<string>{"#hci", "#human"}, false, "B201", false),
-            new Item("images\\HCI_INTERACT.jpg", ItemType.Journal, "Human-computer interaction--INTERACT", new List<string>{ "IFIP Conference on Human-Computer Interaction." }, "1984-1987", "Amsterdam; North-Holland", "Human Computer Interaction", new HashSet<string>{"#hci", "#human"}, true, "B202", false)
+            new Item("images\\HCI_INTERACT.jpg", ItemType.Journal, "Human-computer interaction--INTERACT", new List<string>{ "IFIP Conference on Human-Computer Interaction." }, "1984-1987", "Amsterdam; North-Holland", "Human Computer Interaction", new HashSet<string>{"#hci", "#human"}, true, "B202", false),
+            new Item("images\\ML_1986.png", ItemType.Journal, "Machine Learning", new List<String>{ "" }, "1986", "Kluwer Academic Publishers", "Machine Learning", new HashSet<string>{"#machinelearning", "#ai"}, true, "B260", true),
+            new Item("images\\ML_Zhou.jpg", ItemType.Book, "Machine learning", new List<String>{ "Zhou, Zhi-Hua" }, "2021", "Gateway East", "Machine Learning", new HashSet<string>{"#machinelearning", "#ai"}, true, "B261", false)
         };
     }
 }
