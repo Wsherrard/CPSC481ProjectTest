@@ -74,7 +74,6 @@ namespace CPSC481ProjectTest
             "summary 8",
             "summary 9",
             "summary 10"
-
         };
     }
 
