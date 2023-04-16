@@ -13,6 +13,7 @@
     <None Remove="images\Cryptography_Buchanan.jpg" />
     <None Remove="images\Cryptography_Rubinstein.jpg" />
     <None Remove="images\Cryptography_Stinson.jpg" />
+    <None Remove="images\GoogleGlass.png" />
     <None Remove="images\hci book1.jpg" />
     <None Remove="images\hci book2.jpg" />
     <None Remove="images\hci book3.jpg" />
@@ -37,6 +38,7 @@
     <Resource Include="images\Cryptography_Buchanan.jpg" />
     <Resource Include="images\Cryptography_Rubinstein.jpg" />
     <Resource Include="images\Cryptography_Stinson.jpg" />
+    <Resource Include="images\GoogleGlass.png" />
     <Resource Include="images\hci book1.jpg" />
     <Resource Include="images\hci book2.jpg" />
     <Resource Include="images\hci book3.jpg" />
