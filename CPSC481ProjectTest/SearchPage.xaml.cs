@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,6 +24,8 @@ namespace CPSC481ProjectTest
     /// </summary>
     public partial class SearchPage : Page
     {
+        public static string basicSearchQuery;
+
         public SearchPage()
         {
             InitializeComponent();
@@ -718,6 +721,8 @@ namespace CPSC481ProjectTest
 
         private void GoToPage3_Click(object sender, RoutedEventArgs e)
         {
+            basicSearchQuery = BasicSearchBox.Text;
+
             ResultPage RP = new ResultPage();
             this.NavigationService.Navigate(RP);
         }

@@ -23,6 +23,7 @@ namespace CPSC481ProjectTest
     {
         List<Item> itemsCopy; // This will be used for navigating to the item details page
         Hashtable itemQuantities = new Hashtable();
+        string searchQuery = SearchPage.basicSearchQuery;
 
         public ResultPage()
         {
@@ -32,7 +33,7 @@ namespace CPSC481ProjectTest
             // Display the results. This currently displays everything in the database.
             //DisplayResults(Database.items);
 
-            SearchBox.Text = "CRyptoGrAPhy";
+            SearchBox.Text = searchQuery;
             DisplaySearchQueryResults();
 
             // Auto check 'All Items' under availability
@@ -720,6 +721,11 @@ namespace CPSC481ProjectTest
         private void SortBy_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             DisplaySearchQueryResults();
+        }
+
+        public void getBasicSearchQuery()
+        {
+
         }
     }
 }
