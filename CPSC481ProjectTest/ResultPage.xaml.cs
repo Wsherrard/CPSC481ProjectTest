@@ -596,7 +596,6 @@ namespace CPSC481ProjectTest
             // Reset the filters when searching by a new search term
             ResetFilterButton_Click(null, null);
             DisplaySearchQueryResults();
-            DisplaySearchQueryResults();
         }
 
         private void DisplaySearchQueryResults()
