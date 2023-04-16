@@ -270,6 +270,12 @@ namespace CPSC481ProjectTest
         private void TitleClick(object sender, MouseButtonEventArgs e)
         {
             // TODO: implement window switch to item detail page
+
+            TextBlock t = sender as TextBlock;
+
+            string itemTitle = t.Text;
+
+            MessageBox.Show($"You clicked: {itemTitle}");
             MessageBox.Show("Navigating to Item Detail page...");
         }
 

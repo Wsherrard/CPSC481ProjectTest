@@ -6,6 +6,7 @@
       xmlns:local="clr-namespace:CPSC481ProjectTest"
       mc:Ignorable="d" 
       d:DesignHeight="890" d:DesignWidth="1215"
+      WindowHeight="890" WindowWidth="1215"
       Title="AccountPage">
 
     <Grid>
