@@ -131,23 +131,38 @@ namespace CPSC481ProjectTest
             }
 
             //check for held/saved items in account and update buttons and flags as necessary
-            if (HoldDatabase.hold.Contains(resultsList[currentIndex]))
-            {
-                isHeld = true;
-            }
-            else
-            {
-                isHeld = false;
-            }
+           
 
-            if (SavedDatabase.saved.Contains(resultsList[currentIndex]))
-            {
-                isSaved = true;
-            }
-            else
-            {
-                isSaved = false;
-            }
+
+                foreach (Item i in HoldDatabase.hold)
+                {
+                    if (i.location.Equals( resultsList[currentIndex].location))
+                    {
+                        isHeld = true;
+                        holdItemButton.Content = "Remove Hold";
+                    }
+                    else
+                    {
+                        isHeld = false;
+                        holdItemButton.Content = "Hold Item";
+
+                    }
+                }
+
+                foreach (Item i in SavedDatabase.saved)
+                {
+                    if (i.location.Equals(resultsList[currentIndex].location))
+                    {
+                        isSaved = true;
+                        saveItemButton.Content = "Remove Item";
+                    }
+                    else
+                    {
+                        isSaved = false;
+                        saveItemButton.Content = "Save for Later";
+                    }
+                }
+            
 
         }
 

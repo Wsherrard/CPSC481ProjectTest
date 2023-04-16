@@ -113,7 +113,7 @@
                         <StackPanel Grid.Row="0" Grid.Column="0"  Orientation="Horizontal" Margin="0,0,10,0">
                             <Image x:Name="coverImage" Height="200" Width="150" Source="/databaseImages/HCI_Maurtua.jpg"/>
                             <StackPanel MinWidth="155" Width="237">
-                                <TextBlock x:Name="coverTitle" Text="Human-Computer Interaction"  TextWrapping="WrapWithOverflow" Padding="5,10,0,0"/>
+                                <TextBlock x:Name="coverTitle" Text="Human-Computer Interaction" TextWrapping="WrapWithOverflow" Padding="5,10,0,0"/>
                                 <TextBlock x:Name="coverAuthor" Text=" Maurtua, Inaki" TextWrapping="WrapWithOverflow" Padding="5,10,0,0"/>
                                 <TextBlock x:Name="coverDate" Text="2009"  TextWrapping="WrapWithOverflow" Padding="5,10,0,0"/>
                                 <TextBlock x:Name="coverPeerReviewed" Text="Peer Reviewed"  TextWrapping="WrapWithOverflow" Padding="5,10,0,0"/>
