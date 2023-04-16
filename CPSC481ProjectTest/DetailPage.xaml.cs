@@ -223,14 +223,14 @@ namespace CPSC481ProjectTest
                 MessageBox.Show("Hold removed on item");
                 isHeld = false;
                 holdItemButton.Content = "Hold Item";
-       //         HoldDatabase.hold.Remove(resultsList[currentIndex]);
+                HoldDatabase.hold.Remove(resultsList[currentIndex]);
             }
             else
             {
                 MessageBox.Show("Hold placed on item");
                 isHeld = true;
                 holdItemButton.Content = "Remove Hold";
-        //        HoldDatabase.hold.Add(resultsList[currentIndex]);
+                HoldDatabase.hold.Add(resultsList[currentIndex]);
 
             }
         }
@@ -243,14 +243,14 @@ namespace CPSC481ProjectTest
                 MessageBox.Show("Item removed from your account");
                 isSaved = false;
                 saveItemButton.Content = "Save for Later";
-               // SavedDatabase.Saved.Remove(resultsList[currentIndex]);
+                SavedDatabase.Saved.Remove(resultsList[currentIndex]);
             }
             else
             {
                 MessageBox.Show("Item saved to your account");
                 isSaved = true;
                 saveItemButton.Content = "Remove Item";
-            //    SavedDatabase.Saved.Add(resultsList[currentIndex]);
+                SavedDatabase.Saved.Add(resultsList[currentIndex]);
             }
 
         }
