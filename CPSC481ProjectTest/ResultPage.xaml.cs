@@ -34,10 +34,11 @@ namespace CPSC481ProjectTest
             //DisplayResults(Database.items);
 
             SearchBox.Text = searchQuery;
-            SearchButtonClick(null, null);
+            //SearchButtonClick(null, null);
+            DisplaySearchQueryResults();
 
             // Auto check 'All Items' under availability
-            AllItemsRadio.IsChecked = true;
+            //AllItemsRadio.IsChecked = true;
         }
 
         public ResultPage(Item[] items)
@@ -515,9 +516,18 @@ namespace CPSC481ProjectTest
 
             // Now base all these filters on what's in the search box
             string searchQuery = SearchBox.Text.ToLower().Trim();
+            searchQuery = searchQuery.Replace("-", "");
+            searchQuery = searchQuery.Replace("--", "");
+            searchQuery = searchQuery.Replace(":", "");
+            searchQuery = searchQuery.Replace(" ", "");
             for (int i = 0; i < filteredItems.Count; i++)
             {
-                if (!filteredItems[i].title.ToLower().Contains(searchQuery))
+                string s = filteredItems[i].title.ToLower();
+                s = s.Replace("-", "");
+                s = s.Replace("--", "");
+                s = s.Replace(":", "");
+                s = s.Replace(" ", "");
+                if (!s.Contains(searchQuery))
                 {
                     filteredItems.RemoveAt(i);
                     i--;
