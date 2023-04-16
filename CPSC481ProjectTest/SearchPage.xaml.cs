@@ -715,32 +715,6 @@ namespace CPSC481ProjectTest
                 textBox.Text = "";
             }
         }
-        private void EnhanceQuestion_MouseEnter(object sender, MouseEventArgs e)
-        {
-            EnhanceText.Visibility = Visibility.Visible;
-        }
-        private void EnhanceQuestion_MouseLeave(object sender, MouseEventArgs e)
-        {
-            EnhanceText.Visibility = Visibility.Hidden;
-        }
-
-        private void UnenhanceQuestion_MouseEnter(object sender, MouseEventArgs e)
-        {
-            UnenhanceText.Visibility = Visibility.Visible;
-        }
-        private void UnenhanceQuestion_MouseLeave(object sender, MouseEventArgs e)
-        {
-            UnenhanceText.Visibility = Visibility.Hidden;
-        }
-
-        private void SearchTerm_MouseEnter(object sender, MouseEventArgs e)
-        {
-            SearchTermQuestion.Visibility = Visibility.Visible;
-        }
-        private void SearchTerm_MouseLeave(object sender, MouseEventArgs e)
-        {
-            SearchTermQuestion.Visibility = Visibility.Hidden;
-        }
 
         private void GoToPage3_Click(object sender, RoutedEventArgs e)
         {

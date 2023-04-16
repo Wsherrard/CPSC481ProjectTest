@@ -701,25 +701,6 @@ namespace CPSC481ProjectTest
 
         }
 
-        private void SearchTermsQuestionIcon_MouseEnter(object sender, MouseEventArgs e)
-        {
-            SearchTermsHelp.Visibility = Visibility.Visible;
-        }
-
-        private void SearchTermsQuestionIcon_MouseLeave(object sender, MouseEventArgs e)
-        {
-            SearchTermsHelp.Visibility = Visibility.Collapsed;
-        }
-
-        private void EnhanceSearchQuestionIcon_MouseEnter(object sender, MouseEventArgs e)
-        {
-            EnhanceSearchHelp.Visibility = Visibility.Visible;
-        }
-
-        private void EnhanceSearchQuestionIcon_MouseLeave(object sender, MouseEventArgs e)
-        {
-            EnhanceSearchHelp.Visibility = Visibility.Collapsed;
-        }
         private void MyAccountButton(object sender, RoutedEventArgs e)
         {
             AccountPage AP = new AccountPage();

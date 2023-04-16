@@ -96,7 +96,7 @@
                 <StackPanel x:Name="SearchTerms">
                     <StackPanel x:Name="SearchTerm0">
                         <WrapPanel>
-                            <Image Source="/images/questionicon.png" Margin="10,0,5,2" Height="10" Width="10" MouseEnter="SearchTermsQuestionIcon_MouseEnter" MouseLeave="SearchTermsQuestionIcon_MouseLeave"></Image>
+                            <Image Source="/images/questionicon.png" Margin="10,0,5,2" Height="10" Width="10" ToolTip="User search terms to narrow down search results"></Image>
                             <ComboBox SelectedIndex="0" Width="Auto" Height="19">
                                 <ComboBox.ItemContainerStyle>
                                     <Style TargetType="{x:Type ComboBoxItem}">
@@ -283,13 +283,10 @@
                 <Button x:Name="AddNewFilterButton" Width="89" HorizontalAlignment="Left" Margin="50,0,0,10" Click="AddNewFilterButton_Click">Add New Filter</Button>
 
                 <WrapPanel>
-                    <Image Margin="25,0,0,10" Source="/images/questionicon.png" Height="19" Width="16" MouseEnter="EnhanceSearchQuestionIcon_MouseEnter" MouseLeave="EnhanceSearchQuestionIcon_MouseLeave"></Image>
+                    <Image Margin="25,0,0,10" Source="/images/questionicon.png" Height="19" Width="16" ToolTip="Automatically add the synonyms of your keywords to improve your search"></Image>
                     <Button Width="89" HorizontalAlignment="Left" Margin="9,0,0,10">Enhance Search</Button>
                 </WrapPanel>
             </StackPanel>
-
-            <TextBox Grid.Row="1" x:Name="SearchTermsHelp" HorizontalAlignment="Center" TextWrapping="Wrap" Background="#749F82" Text="Use search terms to narrow down search results" Visibility="Collapsed" Margin="0,275,10,353" Height="40" Width="160" FontSize="10"/>
-            <TextBox Grid.Row="1" x:Name="EnhanceSearchHelp" HorizontalAlignment="Center" TextWrapping="Wrap" Background="#749F82" Text="Automatically add the synonyms of your keywords to improve your search" Visibility="Collapsed" FontSize="10" Height="40" Margin="0,250,0,0"/>
 
             <!--INNER GRID (RESULTS)-->
             <StackPanel Grid.Row="1" Grid.Column="1">
