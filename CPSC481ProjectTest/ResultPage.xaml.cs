@@ -633,6 +633,29 @@ namespace CPSC481ProjectTest
             string resultMessage = $"Total results: {resultCount}";
             MessageBox.Show(resultMessage);
 
+            // Sort items based on 'Sort By Drop Down'
+            ComboBoxItem selectedItem = SortBy.SelectedItem as ComboBoxItem;
+
+            if (selectedItem.Content.ToString() == "Title")
+            {
+                results.Sort((r1, r2) => string.Compare(r1.title, r2.title));
+            }
+
+            else if (selectedItem.Content.ToString() == "Author")
+            {
+                results.Sort((r1, r2) => string.Compare(r1.author.ElementAt(0), r2.author.ElementAt(0)));
+            }
+
+            else if (selectedItem.Content.ToString() == "Newest First")
+            {
+                results.Sort((r1, r2) => string.Compare(r2.yearOfPublication, r1.yearOfPublication));
+            }
+
+            else
+            {
+                results.Sort((r1, r2) => string.Compare(r1.yearOfPublication, r2.yearOfPublication));
+            }
+
             // Convert result list to an array in order to display them
             Item[] new_results = results.ToArray();
             DisplayResults(new_results);
@@ -680,28 +703,7 @@ namespace CPSC481ProjectTest
 
         private void SortBy_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ComboBoxItem selectedItem = SortBy.SelectedItem as ComboBoxItem;
-
-            if (selectedItem.Content.ToString() == "Title")
-            {
-                // Sort by newest first
-                return;
-            }
-
-            if (selectedItem.Content.ToString() == "Author")
-            {
-                return;
-            }
-
-            if (selectedItem.Content.ToString() == "Newest First")
-            {
-                return;
-            }
-
-            if (selectedItem.Content.ToString() == "Oldest First")
-            {
-                return;
-            }
+            DisplaySearchQueryResults();
         }
     }
 }
