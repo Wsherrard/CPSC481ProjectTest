@@ -21,6 +21,7 @@ namespace CPSC481ProjectTest
     /// </summary>
     public partial class ResultPage : Page
     {
+        List<Item> itemsCopy; // This will be used for navigating to the item details page
         Hashtable itemQuantities = new Hashtable();
 
         public ResultPage()
@@ -269,13 +270,24 @@ namespace CPSC481ProjectTest
 
         private void TitleClick(object sender, MouseButtonEventArgs e)
         {
-            // TODO: implement window switch to item detail page
-
+            // Get the TextBlock element the user clicked on
             TextBlock t = sender as TextBlock;
 
+            // Grab the text in the TextBlock
             string itemTitle = t.Text;
 
-            MessageBox.Show($"You clicked: {itemTitle}");
+            // Search the global List 'itemsCopy' to get the index of the element
+            int index = -1;
+            for (int i = 0; i < itemsCopy.Count; i++)
+            {
+                if (itemsCopy[i].title == itemTitle)
+                {
+                    index = i;
+                    break;
+                }
+            }
+
+            MessageBox.Show($"You clicked (index {index}): {itemTitle}");
             MessageBox.Show("Navigating to Item Detail page...");
         }
 
@@ -657,13 +669,24 @@ namespace CPSC481ProjectTest
                 results.Sort((r1, r2) => string.Compare(r2.yearOfPublication, r1.yearOfPublication));
             }
 
-            else
+            else if (selectedItem.Content.ToString() == "Oldest First")
             {
                 results.Sort((r1, r2) => string.Compare(r1.yearOfPublication, r2.yearOfPublication));
             }
 
+            // Sort by newest by default
+            else
+            {
+                results.Sort((r1, r2) => string.Compare(r2.yearOfPublication, r1.yearOfPublication));
+            }
+
             // Convert result list to an array in order to display them
             Item[] new_results = results.ToArray();
+
+            // Also copy this to the global variable list (used for item detail page)
+            itemsCopy = new_results.ToList();
+
+            // Display these results
             DisplayResults(new_results);
         }
 
