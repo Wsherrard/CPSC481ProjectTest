@@ -295,6 +295,8 @@ namespace CPSC481ProjectTest
                 }
             }
 
+            
+
             MessageBox.Show($"You clicked (index {index}): {itemTitle}");
             MessageBox.Show("Navigating to Item Detail page...");
         }
