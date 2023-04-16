@@ -721,8 +721,6 @@ namespace CPSC481ProjectTest
 
         private void GoToPage3_Click(object sender, RoutedEventArgs e)
         {
-            basicSearchQuery = BasicSearchBox.Text;
-
             ResultPage RP = new ResultPage();
             this.NavigationService.Navigate(RP);
         }
@@ -737,6 +735,23 @@ namespace CPSC481ProjectTest
         {
             AccountPage AP = new AccountPage();
             this.NavigationService.Navigate(AP);
+        }
+
+        private void BasicSearch_ButtonClick(object sender, RoutedEventArgs e)
+        {
+            basicSearchQuery = BasicSearchBox.Text;
+            if (basicSearchQuery == "Search by title or author..." || string.IsNullOrWhiteSpace(basicSearchQuery))
+            {
+                MessageBox.Show("Invalid search! Please enter a title or author.");
+                return;
+            }
+
+            GoToPage3_Click(null, null);
+        }
+
+        private void AdvancedSearchButtonClick(object sender, RoutedEventArgs e)
+        {
+            GoToPage3_Click(null, null);
         }
     }
 
