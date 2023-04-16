@@ -57,7 +57,9 @@ namespace CPSC481ProjectTest
             new Item("images\\icon_book.png", ItemType.Book, "Human Computer Interaction", new List<string>{ "Pavlidis, Ioannis" }, "2008", "IntechOpen", "Human Computer Interaction", new HashSet<string>{"#hci", "#human"}, false, "B201", false),
             new Item("images\\HCI_INTERACT.jpg", ItemType.Journal, "Human-computer interaction--INTERACT", new List<string>{ "IFIP Conference on Human-Computer Interaction." }, "1984-1987", "Amsterdam; North-Holland", "Human Computer Interaction", new HashSet<string>{"#hci", "#human"}, true, "B202", false),
             new Item("images\\ML_1986.png", ItemType.Journal, "Machine Learning", new List<String>{ "" }, "1986", "Kluwer Academic Publishers", "Machine Learning", new HashSet<string>{"#machinelearning", "#ai"}, true, "B260", true),
-            new Item("images\\ML_Zhou.jpg", ItemType.Book, "Machine learning", new List<String>{ "Zhou, Zhi-Hua" }, "2021", "Gateway East", "Machine Learning", new HashSet<string>{"#machinelearning", "#ai"}, true, "B261", false)
+            new Item("images\\ML_Zhou.jpg", ItemType.Book, "Machine learning", new List<String>{ "Zhou, Zhi-Hua" }, "2021", "Gateway East", "Machine Learning", new HashSet<string>{"#machinelearning", "#ai"}, true, "B261", false),
+            new Item("images\\ML_Mitchell.jpg", ItemType.Book, "Machine Learning", new List<String>{ "Mitchell, Tom M." }, "1997", "McGraw Hill", "Machine Learning", new HashSet<string>{"#machinelearning", "#ai", "#algorithms"}, false, "B262", false),
+            new Item("images\\ML_Kearns.jpg", ItemType.Paper, "The computional complexity of machine learning", new List<String>{ "Kearns, Michael J." }, "1990", "MIT Press", "Machine Learning", new HashSet<string>{"#machinelearning", "#ai", "#algorithms"}, true, "B263", false)
         };
     }
 }

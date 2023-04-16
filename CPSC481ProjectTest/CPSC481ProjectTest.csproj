@@ -25,6 +25,9 @@
     <None Remove="images\Journal_DiscreteMathAndCrypto.png" />
     <None Remove="images\minusicon.png" />
     <None Remove="images\ML_1986.png" />
+    <None Remove="images\ML_Kearns.jpg" />
+    <None Remove="images\ML_Mitchell.jpg" />
+    <None Remove="images\ML_Zhou.jpg" />
     <None Remove="images\Post_quantum_cryptography.png" />
     <None Remove="images\questionicon.png" />
     <None Remove="images\searchbutton.jpg" />
@@ -50,6 +53,9 @@
     <Resource Include="images\Journal_DiscreteMathAndCrypto.png" />
     <Resource Include="images\minusicon.png" />
     <Resource Include="images\ML_1986.png" />
+    <Resource Include="images\ML_Kearns.jpg" />
+    <Resource Include="images\ML_Mitchell.jpg" />
+    <Resource Include="images\ML_Zhou.jpg" />
     <Resource Include="images\Post_quantum_cryptography.png" />
     <Resource Include="images\questionicon.png" />
     <Resource Include="images\searchbutton.jpg" />
