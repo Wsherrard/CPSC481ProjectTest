@@ -74,8 +74,11 @@ namespace CPSC481ProjectTest
                 {
                     citedSearchButton.Visibility = Visibility.Visible;
                 }
-                coverTags.Text = "Tags not implemented in database";
-                itemLocation.Content = "Location N/A";
+
+            
+             
+
+                itemLocation.Content = "Location: "+item.location;
                 if (item.isAvailable == true)
                 {
                     itemAvailability.Content = "Available";
@@ -92,7 +95,7 @@ namespace CPSC481ProjectTest
                 detailsDate.Text = item.yearOfPublication;
                 detailsPublisher.Text = "publisher not implemented in database";
                 detailsItemType.Text = item.type.ToString();
-                detailsSubject.Text = "subject not implemented in database";
+                detailsSubject.Text = item.subject;
 
 
 
@@ -134,19 +137,20 @@ namespace CPSC481ProjectTest
                 //not used on this page
             }
 
-            private void MyAccountButton_Click(object sender, RoutedEventArgs e)
+            private void MyAccountButton(object sender, RoutedEventArgs e)
             {
-
+                 AccountPage AP = new AccountPage();
+                 this.NavigationService.Navigate(AP);
             }
-
-            private void LogOutButtonClick(object sender, RoutedEventArgs e)
+            private void HomeButton(object sender, RoutedEventArgs e)
             {
-
+            SearchPage AP = new SearchPage();
+            this.NavigationService.Navigate(AP);
             }
-
-            private void HomeButtonClick(object sender, RoutedEventArgs e)
+            private void LogoutButton(object sender, RoutedEventArgs e)
             {
-
+            LogInPage AP = new LogInPage();
+            this.NavigationService.Navigate(AP);
             }
 
             private void PrevItemButtonClick(object sender, RoutedEventArgs e)
