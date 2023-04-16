@@ -304,8 +304,37 @@ namespace CPSC481ProjectTest
 
         private void MapClick(object sender, MouseButtonEventArgs e)
         {
+            // First get the 'Location on Map' TextBlock that was clicked on
+            TextBlock t = sender as TextBlock; 
+
+            // Get the parent StackPanel that contains this TextBlock
+            StackPanel sp = (StackPanel)t.Parent;
+
+            // Get the third TextBlock (this contains the textual item location)
+            TextBlock itemLocationTextBlock = (TextBlock)sp.Children[2];
+
+            // Get the item location text
+            string itemLocation = itemLocationTextBlock.Text;
+
+            // Note that itemLocation begins with the string "Location: ". So let's remove that part so we have just the location code
+            itemLocation = itemLocation.Replace("Location: ", "");
+
+            // Search the global List 'itemsCopy' to get the index of the element
+            int index = -1;
+            for (int i = 0; i < itemsCopy.Count; i++)
+            {
+                if (itemsCopy[i].location == itemLocation)
+                {
+                    index = i;
+                    break;
+                }
+            }
+
             // TODO: implement window switch to item detail page
             MessageBox.Show("Navigating to map on Item Detail page...");
+
+            DetailPage AP = new DetailPage(itemsCopy.ToArray(), index, true);
+            this.NavigationService.Navigate(AP);
         }
 
         private void StartYear_GotFocus(object sender, RoutedEventArgs e)
