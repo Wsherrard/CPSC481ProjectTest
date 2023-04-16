@@ -59,7 +59,7 @@ namespace CPSC481ProjectTest
             new Item("images\\GoogleGlass.png", ItemType.Book, "Google Glass: A Retrospective on Design", new List<string>{"Hill, Hank"}, "2023", "Propane Publishing", "Google Glass, Design Theory", new HashSet<string>{"#google glass", "#design", "#hope the prof finds this funny"}, false, "G00G13", false)
         };
     }
-
+    
     public static class ItemSummaries
     {
         public static string[] summaries = new string[]
@@ -95,6 +95,5 @@ namespace CPSC481ProjectTest
         };
 
     }
-
 
 }
