@@ -5,32 +5,24 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:CPSC481ProjectTest"
       mc:Ignorable="d" 
-      d:DesignHeight="890" d:DesignWidth="1215"
+      d:DesignHeight="450" d:DesignWidth="800"
       Title="AccountPage">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="451*" />
-            <RowDefinition Height="339*"/>
-        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="220" />
-            <ColumnDefinition Width="4*" />
+            <ColumnDefinition Width = "150" />
+            <ColumnDefinition Width = "*" />
+            <ColumnDefinition Width = "*" />
+            <ColumnDefinition Width = "*" />
         </Grid.ColumnDefinitions>
 
-        <Border BorderBrush="Black" BorderThickness="1,1,1,1" HorizontalAlignment="Center" Height="816" VerticalAlignment="Top" Width="220" RenderTransformOrigin="0.5,0.5" Background="White" Margin="0,80,0,0" Grid.RowSpan="3">
-            <Border.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="-1"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Border.RenderTransform>
-        </Border>
+        <Grid.RowDefinitions>
+            <RowDefinition Height = "100" />
+            <RowDefinition Height = "350" />
 
-        <Border BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="113" Margin="0,-13,0,0" VerticalAlignment="Top" Width="1214" RenderTransformOrigin="0.5,0.5" Background="#E64848">
+        </Grid.RowDefinitions>
+
+        <Border BorderBrush="Black" BorderThickness="1,1,1,1" Grid.ColumnSpan="5" HorizontalAlignment="Center" Height="113" Margin="0,-13,0,0" VerticalAlignment="Top" Width="800" RenderTransformOrigin="0.5,0.5" Background="#E64848">
             <Border.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="-1"/>
@@ -43,51 +35,66 @@
 
 
         <Label Content="BIBLIOTECH" HorizontalAlignment="Left" Margin="50,25,0,25" FontSize="30" Width="198" Grid.ColumnSpan="2"/>
-        <Label Content="Jeremy Adam" HorizontalAlignment="Center" Margin="0,298,0,125"  Height="28" Width="90" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="1" FontWeight="Bold"/>
-        <Label Content="UCID: 123456" HorizontalAlignment="Center" VerticalAlignment="Top" Height="28" Width="90" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="1" Margin="0,197,0,0"/>
+        <Label Content="UCID: 123456" HorizontalAlignment="Center" VerticalAlignment="Top" Height="28" Width="90" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="1" Margin="0,225,0,0"/>
         <Button Content="Home"  Click="HomeButton" Height="32" Width="95" Margin="629,34,271,34" RenderTransformOrigin="0.5,0.5" Background="#FAEDCD" Grid.Column="1"/>
         <Image HorizontalAlignment="Center" Height="177" Margin="0,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="164" Source="/JeremyAdam.jpeg" />
         <Button Content="Log Out"  Click="LogoutButton" Height="32" Width="95" Margin="867,34,33,34" RenderTransformOrigin="0.5,0.5" Background="#FAEDCD" Grid.Column="1"/>
         <Button Content="My Account" Click="MyAccountButton" Margin="746,34,149,34"  Grid.Column="1" Height="32" Width="100" Background="#FAEDCD"/>
         <Grid Grid.Row="1" Grid.Column="1" Grid.RowSpan="2">
+        <Grid Grid.Row="1" Grid.Column="1" Grid.RowSpan="2">
 
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="25" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="150" />
-                    <ColumnDefinition Width="4*" />
-                </Grid.ColumnDefinitions>
-            </Grid>
+        <Grid Grid.ColumnSpan="4" Margin="149,0,0,0" Grid.Row="1">
             <TabControl>
-                <TabItem Header="Hold Items" Grid.Row="1" Width="300">
-                    <Grid x:Name="HoldGrid" Grid.Row="1" Grid.Column="1">
+                <TabItem Header="Books on Hold" Margin="0,0,-100,-1">
+                    <Grid Grid.ColumnSpan="4" Margin="0,0,0,0" Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height = "*" />
+                            <RowDefinition Height = "*" />
+                            <RowDefinition Height = "*" />
+                        </Grid.RowDefinitions>
+                        <Image HorizontalAlignment="Left" Height="102" Margin="10,0,0,0" VerticalAlignment="Center" Width="77" Source="/hci book1.jpg"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="93,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="10" Width="268" Foreground="#FF35599C" Height="12"><Run Text="The Phychology of Human-Computer Interaction"/><Run Language="en-ca" Text="o"/><Run Text="n"/></TextBlock>
+                        <TextBlock HorizontalAlignment="Left" Margin="94,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="10" FontStyle="Italic" Height="13" Width="84"><Run Text="Author: "/><Run Language="en-ca" Text="Stuart Card"/></TextBlock>
+                        <Image HorizontalAlignment="Left" Height="93" Margin="10,0,0,0" VerticalAlignment="Center" Width="68" Source="/hci book2.jpg" Grid.Row="1"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="93,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="10" Height="36" Width="299" Foreground="#FF35599C" Grid.Row="1"><Run Text="Interaction Design"/><Run Text=": Beyond H"/><Run Text="uman-Computer Interaction"/><LineBreak/><Run/></TextBlock>
+                        <TextBlock HorizontalAlignment="Left" Margin="94,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="10" FontStyle="Italic" Grid.Row="1" Height="13" Width="92"><Run Text="Author: "/><Run Language="en-ca" Text="Helen Sharpe"/></TextBlock>
+                        <ScrollBar HorizontalAlignment="Left" Margin="628,0,0,0" VerticalAlignment="Top" Height="306" Grid.RowSpan="4" Width="17"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="94,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="10" Grid.Row="2" Height="13" Width="67"><Run Language="en-ca" Text="#HCL #DESIGN"/></TextBlock>
+                        <TextBlock HorizontalAlignment="Left" Margin="94,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="10" Grid.Row="1" Height="13" Width="22"><Run Language="en-ca" Text="2013"/></TextBlock>
+                        <TextBlock HorizontalAlignment="Left" Margin="93,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="8" Height="10" Width="299" Grid.Row="1"><Run Text="Book"/><LineBreak/><Run/></TextBlock>
+                        <TextBlock HorizontalAlignment="Left" Margin="447,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="10" Grid.Row="1" Height="13" Width="96"><Run Language="en-ca" Text="Location: A454"/></TextBlock>
+                        <TextBlock HorizontalAlignment="Left" Margin="447,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="10" Height="36" Width="105" Foreground="#FF35599C" Grid.Row="1"><Run Text="Find Location on Map"/><LineBreak/><Run/></TextBlock>
+                        <TextBlock HorizontalAlignment="Left" Margin="447,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="10" Height="13" Width="96"><Run Language="en-ca" Text="Location: A454"/></TextBlock>
+                        <TextBlock HorizontalAlignment="Left" Margin="447,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="10" Height="31" Width="299" Foreground="#FF35599C"><Run Text="Find Location on Map"/><LineBreak/><Run/></TextBlock>
+                        <TextBlock HorizontalAlignment="Left" Margin="93,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="10" Height="13" Width="67"><Run Language="en-ca" Text="#HCL #DESIGN"/></TextBlock>
+                        <TextBlock HorizontalAlignment="Left" Margin="93,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="10" Height="13" Width="22"><Run Language="en-ca" Text="2013"/></TextBlock>
+                        <TextBlock HorizontalAlignment="Left" Margin="93,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="8" Height="10" Width="299"><Run Text="Book"/><LineBreak/><Run/></TextBlock>
+                        <TextBlock HorizontalAlignment="Left" Margin="94,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="10" Height="13" Width="66"><Run Language="en-ca" Text="Peer Reviewed"/></TextBlock>
+                        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="102" VerticalAlignment="Center" Width="628"/>
+                        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="102" VerticalAlignment="Top" Width="628" Margin="0,100,0,0" Grid.RowSpan="2"/>
+                        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="102" VerticalAlignment="Top" Width="628" Margin="0,100,0,0" Grid.RowSpan="2" Grid.Row="1"/>
+
+
+                    </Grid>
+                <TabItem Header="Saved Items" Grid.Row="1" Width="300">
+                    <Grid x:Name="SaveGrid" Grid.Row="1" Grid.Column="1">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="150" />
                             <ColumnDefinition Width="400" />
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
                     </Grid>
-                </TabItem>
-                <TabItem Header="Saved Items" Grid.Row="1" Width="300">
-                <Grid x:Name="SaveGrid" Grid.Row="1" Grid.Column="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="150" />
-                        <ColumnDefinition Width="400" />
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
                 </Grid>
-                </TabItem>
+                <TabItem Header="Saved Advanced Search" Grid.Row="1" Width="300">
+                    <Label Content="Any item containing Machine Learning, Practical Applicatios, Detect, and Emotion" FontWeight="Bold" FontStyle="Italic" Foreground="#FF362CAD"/>
+
+
                 <TabItem Header="Saved Advanced Search" Grid.Row="1" Width="300">
                 </TabItem>
             </TabControl>
-        </Grid>
+        <Button Grid.Column="1" Content="Button" HorizontalAlignment="Left" Margin="320,173,0,0" Grid.Row="1" VerticalAlignment="Top" Width="0"/>
+        <Label Content="Jeremy Adam" HorizontalAlignment="Center" Margin="0,258,0,165"  Height="28" Width="90" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="1" FontWeight="Bold"/>
+
         <Button Grid.Column="1" Content="Button" HorizontalAlignment="Left" Margin="320,173,0,0" Grid.Row="1" VerticalAlignment="Top" Width="0"/>
     </Grid>
 </Page>

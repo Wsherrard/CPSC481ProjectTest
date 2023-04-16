@@ -13,6 +13,8 @@
     <None Remove="images\Cryptography_Buchanan.jpg" />
     <None Remove="images\Cryptography_Rubinstein.jpg" />
     <None Remove="images\Cryptography_Stinson.jpg" />
+    <None Remove="images\expandImage.png" />
+    <None Remove="images\GoogleGlass.png" />
     <None Remove="images\hci book1.jpg" />
     <None Remove="images\hci book2.jpg" />
     <None Remove="images\hci book3.jpg" />
@@ -23,7 +25,12 @@
     <None Remove="images\icon_book.png" />
     <None Remove="images\JeremyAdam.jpeg" />
     <None Remove="images\Journal_DiscreteMathAndCrypto.png" />
+    <None Remove="images\MapView2.png" />
     <None Remove="images\minusicon.png" />
+    <None Remove="images\ML_1986.png" />
+    <None Remove="images\ML_Kearns.jpg" />
+    <None Remove="images\ML_Mitchell.jpg" />
+    <None Remove="images\ML_Zhou.jpg" />
     <None Remove="images\Post_quantum_cryptography.png" />
     <None Remove="images\questionicon.png" />
     <None Remove="images\searchbutton.jpg" />
@@ -37,6 +44,8 @@
     <Resource Include="images\Cryptography_Buchanan.jpg" />
     <Resource Include="images\Cryptography_Rubinstein.jpg" />
     <Resource Include="images\Cryptography_Stinson.jpg" />
+    <Resource Include="images\expandImage.png" />
+    <Resource Include="images\GoogleGlass.png" />
     <Resource Include="images\hci book1.jpg" />
     <Resource Include="images\hci book2.jpg" />
     <Resource Include="images\hci book3.jpg" />
@@ -47,7 +56,12 @@
     <Resource Include="images\icon_book.png" />
     <Resource Include="images\JeremyAdam.jpeg" />
     <Resource Include="images\Journal_DiscreteMathAndCrypto.png" />
+    <Resource Include="images\MapView2.png" />
     <Resource Include="images\minusicon.png" />
+    <Resource Include="images\ML_1986.png" />
+    <Resource Include="images\ML_Kearns.jpg" />
+    <Resource Include="images\ML_Mitchell.jpg" />
+    <Resource Include="images\ML_Zhou.jpg" />
     <Resource Include="images\Post_quantum_cryptography.png" />
     <Resource Include="images\questionicon.png" />
     <Resource Include="images\searchbutton.jpg" />

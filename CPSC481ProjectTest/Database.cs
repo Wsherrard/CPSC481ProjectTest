@@ -20,23 +20,17 @@ namespace CPSC481ProjectTest
         public string title;
         public List<string> author;
         public string yearOfPublication;
-        public string publisher;
-        public string subject;
-        public HashSet<string> tags;
         public bool isAvailable;
         public string location;
         public bool isPeerReviewed; // Will only display peer reviewed if true.
 
-        public Item(string imagePath, ItemType type, string title, List<string> author, string yearOfPublication, string publisher, string subject, HashSet<string> tags, bool isAvailable, string location, bool isPeerReviewed)
+        public Item(string imagePath, ItemType type, string title, List<string> author, string yearOfPublication, bool isAvailable, string location, bool isPeerReviewed)
         {
             this.imagePath = imagePath;
             this.type = type;
             this.title = title;
             this.author = author;
             this.yearOfPublication = yearOfPublication;
-            this.publisher = publisher;
-            this.subject = subject;
-            this.tags = tags;
             this.isAvailable = isAvailable;
             this.location = location;
             this.isPeerReviewed = isPeerReviewed;
@@ -71,7 +65,7 @@ namespace CPSC481ProjectTest
     {
         public static Item[] Saved = new Item[]
         {
-            new Item("images\\Post_quantum_cryptography.png", ItemType.Journal, "Journal of discrete mathematical sciences & cryptography", new List<string>{""}, "1998", "Taru Publications", "Cryptography, Discrete Math", new HashSet<string>{"#crypto", "#cryptography", "#math"}, true, "A103", true),
+            new Item("images\\Post_quantum_cryptography.png", ItemType.Article, "Post-quantum cryptography", new List <string>{ "Bernstein, D.J", "Lange, T" }, "2017", "Heidelberg", "Cryptography, Quantum Computing", new HashSet<string>{"#crypto", "#cryptography", "#quantum", "#computing"}, false, "A104", true),
         };
     }
 }

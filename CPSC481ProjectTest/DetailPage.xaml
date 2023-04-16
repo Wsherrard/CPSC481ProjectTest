@@ -5,7 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:CPSC481ProjectTest"
       mc:Ignorable="d" 
-      d:DesignHeight="800" d:DesignWidth="1000"
+      d:DesignHeight="890" d:DesignWidth="1215"
+      WindowHeight="890" WindowWidth="1215"
       Title="DetailPage">
     <Grid x:Name= "LayoutRoot">
         <!--Zoomed map image and buttons overlay-->
@@ -24,7 +25,7 @@
                 <ColumnDefinition Width=" 50"/>
             </Grid.ColumnDefinitions>
 
-            <Image x:Name="zoomedMap" Height=" 550" Source="/databaseImages/BookMap.png" Grid.Row="1" Grid.Column="1"/>
+            <Image x:Name="zoomedMap" Height=" 550" Source="\images/MapView2.png" Grid.Row="1" Grid.Column="1"/>
 
             <Grid Grid.Column="1" Grid.Row="1">
                 <Grid.RowDefinitions>
@@ -32,7 +33,7 @@
                     <RowDefinition Height="50"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="1" Margin="0,0,12,0">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="1" Margin="0,19,275,0">
                     <Button Content="Print Map" Padding="10,0,10,0" Click="PrintMapButtonClick"/>
                     <Button Content="Email Map" Padding=" 10, 0, 10, 0" Click="EmailMapButtonClick"/>
                     <Button Content="Close" Padding="10,0,10,0" Click="closeZoomedMapButtonClick"/>
@@ -111,9 +112,9 @@
                         </Grid.ColumnDefinitions>
 
                         <StackPanel Grid.Row="0" Grid.Column="0"  Orientation="Horizontal" Margin="0,0,10,0">
-                            <Image x:Name="coverImage" Height="200" Width="150" Source="/databaseImages/HCI_Maurtua.jpg"/>
+                            <Image x:Name="coverImage" Height="355" Width="266" Source="/images/HCI_Maurtua.jpg"/>
                             <StackPanel MinWidth="155" Width="237">
-                                <TextBlock x:Name="coverTitle" Text="Human-Computer Interaction"  TextWrapping="WrapWithOverflow" Padding="5,10,0,0"/>
+                                <TextBlock x:Name="coverTitle" Text="Human-Computer Interaction" TextWrapping="WrapWithOverflow" Padding="5,10,0,0"/>
                                 <TextBlock x:Name="coverAuthor" Text=" Maurtua, Inaki" TextWrapping="WrapWithOverflow" Padding="5,10,0,0"/>
                                 <TextBlock x:Name="coverDate" Text="2009"  TextWrapping="WrapWithOverflow" Padding="5,10,0,0"/>
                                 <TextBlock x:Name="coverPeerReviewed" Text="Peer Reviewed"  TextWrapping="WrapWithOverflow" Padding="5,10,0,0"/>
@@ -130,8 +131,8 @@
                             <StackPanel Margin="10, 0, 10, 0">
                                 <Label x:Name="itemLocation" Content="Location: A101" />
                                 <Label x:Name="itemAvailability" Content="Available" Foreground="Green"/>
-                                <Grid Height="120" Width="160">
-                                    <Image Source="/databaseImages/BookMap.png"/>
+                                <Grid Height="202" Width="269">
+                                    <Image Source="\images/MapView2.png"/>
                                     <Button Click="MapClick">
                                         <Button.BorderBrush>
                                             <SolidColorBrush Color="#FFFAEDCD" Opacity="0"/>
@@ -149,17 +150,20 @@
 
                                 <Grid>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="34*" />
+                                        <ColumnDefinition Width="73*" />
+                                        <ColumnDefinition Width="22*" />
+                                        <ColumnDefinition Width="68*" />
+                                        <ColumnDefinition Width="72*" />
                                     </Grid.ColumnDefinitions>
-                                    <Button Content="Print Map" Grid.Column="0" HorizontalAlignment="Stretch" Click="PrintMapButtonClick"/>
-                                    <Button Margin="0,0,0,10" Height ="19" Width="16" Background="#FFFAEDCD" BorderBrush="#FFFAEDCD" HorizontalAlignment="Stretch" Grid.Column="1">
+                                    <Button Content="Print Map" Click="PrintMapButtonClick" Grid.Column="1"/>
+                                    <Button Margin="0,0,0,10" Width="16" Background="#FFFAEDCD" BorderBrush="#FFFAEDCD" HorizontalAlignment="Left" Grid.Column="2" MouseEnter="help_MouseEnter"
+                                            ToolTip="Print a copy of the map to take with you">
                                         <Image Source="/images/questionicon.png"></Image>
                                     </Button>
-                                    <Button Content="Email Map" Margin="5,0,0,0"  Grid.Column="2" HorizontalAlignment="Stretch" Click="EmailMapButtonClick"/>
-                                    <Button Margin="0,0,0,10" HorizontalAlignment="Stretch" Height ="19" Width="16" Background="#FFFAEDCD" BorderBrush="#FFFAEDCD" Grid.Column="3">
+                                    <Button Content="Email Map"  Grid.Column="3" Click="EmailMapButtonClick"/>
+                                    <Button Margin="3,0,0,10" HorizontalAlignment="Left" Width="16" Background="#FFFAEDCD" BorderBrush="#FFFAEDCD" Grid.Column="4" MouseEnter="help_MouseEnter"
+                                            ToolTip="Send a copy of the map to your email">
                                         <Image Source="/images/questionicon.png"></Image>
                                     </Button>
                                 </Grid>
@@ -182,16 +186,20 @@
                                     <Button x:Name="saveItemButton" Content="Save for Later" HorizontalAlignment="Stretch" Margin="0,0,0,10" Grid.Column="0" Grid.Row="1" Click="SaveItemButtonClick"/>
                                     <Button x:Name="citedSearchButton" Content="Search Cited Works" Margin="0,0,0,10" Grid.Column="0" Grid.Row="2" Click="SearchCitedButtonClick"/>
                                     <Button x:Name="citingSearchButton" Content="Search Citing Works" Margin="0,0,0,10" Grid.Column="0" Grid.Row="3" Click ="SearchCitingButtonClick"/>
-                                    <Button Height="19" Width="16" Background="#FFFAEDCD" BorderBrush="#FFFAEDCD" Margin="0,0,0,10" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="0">
+                                    <Button Height="19" Width="16" Background="#FFFAEDCD" BorderBrush="#FFFAEDCD" Margin="0,0,0,10" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="0" MouseEnter="help_MouseEnter"
+                                            ToolTip="Place or remove a hold on this item">
                                         <Image Source="/images/questionicon.png"></Image>
                                     </Button>
-                                    <Button Height="19" Width="16" Background="#FFFAEDCD" BorderBrush="#FFFAEDCD" Margin="0,0,0,10" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="1">
+                                    <Button Height="19" Width="16" Background="#FFFAEDCD" BorderBrush="#FFFAEDCD" Margin="0,0,0,10" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="1" MouseEnter="help_MouseEnter"
+                                            ToolTip="Save this item to your account to find it again later">
                                         <Image Source="/images/questionicon.png"></Image>
                                     </Button>
-                                    <Button Height="19" Width="16" Background="#FFFAEDCD" BorderBrush="#FFFAEDCD" Margin="0,0,0,10" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="2">
+                                    <Button Height="19" Width="16" Background="#FFFAEDCD" BorderBrush="#FFFAEDCD" Margin="0,0,0,10" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="2" MouseEnter="help_MouseEnter"
+                                            ToolTip="Find works that this item cites">
                                         <Image Source="/images/questionicon.png"></Image>
                                     </Button>
-                                    <Button Height="19" Width="16" Background="#FFFAEDCD" BorderBrush="#FFFAEDCD" Margin="0,0,0,10" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="3">
+                                    <Button Height="19" Width="16" Background="#FFFAEDCD" BorderBrush="#FFFAEDCD" Margin="0,0,0,10" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="3"
+                                            ToolTip="Find works that cite this item">
                                         <Image Source="/images/questionicon.png"></Image>
                                     </Button>
                                 </Grid>

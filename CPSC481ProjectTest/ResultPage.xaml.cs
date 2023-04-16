@@ -38,6 +38,16 @@ namespace CPSC481ProjectTest
             AllItemsRadio.IsChecked = true;
         }
 
+        public ResultPage(Item[] items)
+        {
+            InitializeComponent();
+
+            DisplayResults(items);
+
+            // Auto check 'All Items' under availability
+            //AllItemsRadio.IsChecked = true;
+        }
+
         // This is looping through the database and displaying everything
         private void DisplayResults(Item[] items)
         {
@@ -260,6 +270,12 @@ namespace CPSC481ProjectTest
         private void TitleClick(object sender, MouseButtonEventArgs e)
         {
             // TODO: implement window switch to item detail page
+
+            TextBlock t = sender as TextBlock;
+
+            string itemTitle = t.Text;
+
+            MessageBox.Show($"You clicked: {itemTitle}");
             MessageBox.Show("Navigating to Item Detail page...");
         }
 
@@ -591,7 +607,11 @@ namespace CPSC481ProjectTest
         private void DisplaySearchQueryResults()
         {
             // Convert the search query to all lower case
-            string searchQuery = SearchBox.Text.ToLower().Trim().Replace(" ", "");
+            string searchQuery = SearchBox.Text.ToLower().Trim();
+            searchQuery = searchQuery.Replace("-", "");
+            searchQuery = searchQuery.Replace("--", "");
+            searchQuery = searchQuery.Replace(":", "");
+            searchQuery = searchQuery.Replace(" ", "");
             //MessageBox.Show($"Search query: {searchQuery}");
 
             if (string.IsNullOrWhiteSpace(searchQuery))
@@ -603,7 +623,7 @@ namespace CPSC481ProjectTest
             List<Item> results = new List<Item>();
             foreach (Item item in Database.items)
             {
-                string itemTitle = item.title.ToLower();
+                string itemTitle = item.title.ToLower().Trim();
                 itemTitle = itemTitle.Replace("-", "");
                 itemTitle = itemTitle.Replace("--", "");
                 itemTitle = itemTitle.Replace(":", "");
@@ -618,6 +638,29 @@ namespace CPSC481ProjectTest
             string resultCount = results.Count.ToString();
             string resultMessage = $"Total results: {resultCount}";
             MessageBox.Show(resultMessage);
+
+            // Sort items based on 'Sort By Drop Down'
+            ComboBoxItem selectedItem = SortBy.SelectedItem as ComboBoxItem;
+
+            if (selectedItem.Content.ToString() == "Title")
+            {
+                results.Sort((r1, r2) => string.Compare(r1.title, r2.title));
+            }
+
+            else if (selectedItem.Content.ToString() == "Author")
+            {
+                results.Sort((r1, r2) => string.Compare(r1.author.ElementAt(0), r2.author.ElementAt(0)));
+            }
+
+            else if (selectedItem.Content.ToString() == "Newest First")
+            {
+                results.Sort((r1, r2) => string.Compare(r2.yearOfPublication, r1.yearOfPublication));
+            }
+
+            else
+            {
+                results.Sort((r1, r2) => string.Compare(r1.yearOfPublication, r2.yearOfPublication));
+            }
 
             // Convert result list to an array in order to display them
             Item[] new_results = results.ToArray();
@@ -662,6 +705,11 @@ namespace CPSC481ProjectTest
         {
             LogInPage AP = new LogInPage();
             this.NavigationService.Navigate(AP);
+        }
+
+        private void SortBy_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DisplaySearchQueryResults();
         }
     }
 }
