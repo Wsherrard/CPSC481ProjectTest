@@ -9,12 +9,14 @@
 
   <ItemGroup>
     <None Remove="cancelicon.png" />
+    <None Remove="JeremyAdam.jpeg" />
     <None Remove="questionicon.png" />
     <None Remove="searchbutton.jpg" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="cancelicon.png" />
+    <Resource Include="JeremyAdam.jpeg" />
     <Resource Include="questionicon.png" />
     <Resource Include="searchbutton.jpg" />
   </ItemGroup>
