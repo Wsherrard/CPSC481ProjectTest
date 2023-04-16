@@ -38,6 +38,16 @@ namespace CPSC481ProjectTest
             AllItemsRadio.IsChecked = true;
         }
 
+        public ResultPage(Item[] items)
+        {
+            InitializeComponent();
+
+            DisplayResults(items);
+
+            // Auto check 'All Items' under availability
+            //AllItemsRadio.IsChecked = true;
+        }
+
         // This is looping through the database and displaying everything
         private void DisplayResults(Item[] items)
         {
@@ -585,6 +595,7 @@ namespace CPSC481ProjectTest
         {
             // Reset the filters when searching by a new search term
             ResetFilterButton_Click(null, null);
+            DisplaySearchQueryResults();
             DisplaySearchQueryResults();
         }
 

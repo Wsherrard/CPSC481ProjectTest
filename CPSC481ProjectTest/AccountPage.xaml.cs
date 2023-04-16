@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,7 +23,8 @@ namespace CPSC481ProjectTest
         public AccountPage()
         {
             InitializeComponent();
-            DisplayHold();
+            //DisplayHold();
+            DisplayResults(HoldDatabase.hold.ToArray());
         }
 
         private void ScrollBar_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -258,11 +259,9 @@ namespace CPSC481ProjectTest
                 itemTitle = itemTitle.Replace(" ", "");
             }
 
-          // Convert result list to an array in order to display them
+            // Convert result list to an array in order to display them
             Item[] new_results = results.ToArray();
             DisplayResults(new_results);
         }
     }
 }
-
-

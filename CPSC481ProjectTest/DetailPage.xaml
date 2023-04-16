@@ -155,11 +155,13 @@
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
                                     <Button Content="Print Map" Grid.Column="0" HorizontalAlignment="Stretch" Click="PrintMapButtonClick"/>
-                                    <Button Margin="0,0,0,10" Height ="19" Width="16" Background="#FFFAEDCD" BorderBrush="#FFFAEDCD" HorizontalAlignment="Stretch" Grid.Column="1">
+                                    <Button Margin="0,0,0,10" Height ="19" Width="16" Background="#FFFAEDCD" BorderBrush="#FFFAEDCD" HorizontalAlignment="Stretch" Grid.Column="1" MouseEnter="help_MouseEnter"
+                                            ToolTip="Print a copy of the map to take with you">
                                         <Image Source="/images/questionicon.png"></Image>
                                     </Button>
                                     <Button Content="Email Map" Margin="5,0,0,0"  Grid.Column="2" HorizontalAlignment="Stretch" Click="EmailMapButtonClick"/>
-                                    <Button Margin="0,0,0,10" HorizontalAlignment="Stretch" Height ="19" Width="16" Background="#FFFAEDCD" BorderBrush="#FFFAEDCD" Grid.Column="3">
+                                    <Button Margin="0,0,0,10" HorizontalAlignment="Stretch" Height ="19" Width="16" Background="#FFFAEDCD" BorderBrush="#FFFAEDCD" Grid.Column="3" MouseEnter="help_MouseEnter"
+                                            ToolTip="Send a copy of the map to your email">
                                         <Image Source="/images/questionicon.png"></Image>
                                     </Button>
                                 </Grid>
@@ -182,16 +184,20 @@
                                     <Button x:Name="saveItemButton" Content="Save for Later" HorizontalAlignment="Stretch" Margin="0,0,0,10" Grid.Column="0" Grid.Row="1" Click="SaveItemButtonClick"/>
                                     <Button x:Name="citedSearchButton" Content="Search Cited Works" Margin="0,0,0,10" Grid.Column="0" Grid.Row="2" Click="SearchCitedButtonClick"/>
                                     <Button x:Name="citingSearchButton" Content="Search Citing Works" Margin="0,0,0,10" Grid.Column="0" Grid.Row="3" Click ="SearchCitingButtonClick"/>
-                                    <Button Height="19" Width="16" Background="#FFFAEDCD" BorderBrush="#FFFAEDCD" Margin="0,0,0,10" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="0">
+                                    <Button Height="19" Width="16" Background="#FFFAEDCD" BorderBrush="#FFFAEDCD" Margin="0,0,0,10" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="0" MouseEnter="help_MouseEnter"
+                                            ToolTip="Place or remove a hold on this item">
                                         <Image Source="/images/questionicon.png"></Image>
                                     </Button>
-                                    <Button Height="19" Width="16" Background="#FFFAEDCD" BorderBrush="#FFFAEDCD" Margin="0,0,0,10" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="1">
+                                    <Button Height="19" Width="16" Background="#FFFAEDCD" BorderBrush="#FFFAEDCD" Margin="0,0,0,10" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="1" MouseEnter="help_MouseEnter"
+                                            ToolTip="Save this item to your account to find it again later">
                                         <Image Source="/images/questionicon.png"></Image>
                                     </Button>
-                                    <Button Height="19" Width="16" Background="#FFFAEDCD" BorderBrush="#FFFAEDCD" Margin="0,0,0,10" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="2">
+                                    <Button Height="19" Width="16" Background="#FFFAEDCD" BorderBrush="#FFFAEDCD" Margin="0,0,0,10" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="2" MouseEnter="help_MouseEnter"
+                                            ToolTip="Find works that this item cites">
                                         <Image Source="/images/questionicon.png"></Image>
                                     </Button>
-                                    <Button Height="19" Width="16" Background="#FFFAEDCD" BorderBrush="#FFFAEDCD" Margin="0,0,0,10" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="3">
+                                    <Button Height="19" Width="16" Background="#FFFAEDCD" BorderBrush="#FFFAEDCD" Margin="0,0,0,10" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="3"
+                                            ToolTip="Find works that cite this item">
                                         <Image Source="/images/questionicon.png"></Image>
                                     </Button>
                                 </Grid>
