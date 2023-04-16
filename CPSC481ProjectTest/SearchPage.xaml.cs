@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,6 +24,8 @@ namespace CPSC481ProjectTest
     /// </summary>
     public partial class SearchPage : Page
     {
+        public static string basicSearchQuery;
+
         public SearchPage()
         {
             InitializeComponent();
@@ -715,32 +718,6 @@ namespace CPSC481ProjectTest
                 textBox.Text = "";
             }
         }
-        private void EnhanceQuestion_MouseEnter(object sender, MouseEventArgs e)
-        {
-            EnhanceText.Visibility = Visibility.Visible;
-        }
-        private void EnhanceQuestion_MouseLeave(object sender, MouseEventArgs e)
-        {
-            EnhanceText.Visibility = Visibility.Hidden;
-        }
-
-        private void UnenhanceQuestion_MouseEnter(object sender, MouseEventArgs e)
-        {
-            UnenhanceText.Visibility = Visibility.Visible;
-        }
-        private void UnenhanceQuestion_MouseLeave(object sender, MouseEventArgs e)
-        {
-            UnenhanceText.Visibility = Visibility.Hidden;
-        }
-
-        private void SearchTerm_MouseEnter(object sender, MouseEventArgs e)
-        {
-            SearchTermQuestion.Visibility = Visibility.Visible;
-        }
-        private void SearchTerm_MouseLeave(object sender, MouseEventArgs e)
-        {
-            SearchTermQuestion.Visibility = Visibility.Hidden;
-        }
 
         private void GoToPage3_Click(object sender, RoutedEventArgs e)
         {
@@ -758,6 +735,28 @@ namespace CPSC481ProjectTest
         {
             AccountPage AP = new AccountPage();
             this.NavigationService.Navigate(AP);
+        }
+
+        private void BasicSearch_ButtonClick(object sender, RoutedEventArgs e)
+        {
+            basicSearchQuery = BasicSearchBox.Text;
+            if (basicSearchQuery == "Search by title or author..." || string.IsNullOrWhiteSpace(basicSearchQuery))
+            {
+                MessageBox.Show("Invalid search! Please enter a title or author.");
+                return;
+            }
+
+            GoToPage3_Click(null, null);
+        }
+
+        private void AdvancedSearchButtonClick(object sender, RoutedEventArgs e)
+        {
+            GoToPage3_Click(null, null);
+        }
+
+        private void SaveSearchButtonClick(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("The current search has been saved to your account.");
         }
     }
 

@@ -76,8 +76,8 @@
             <Button x:Name ="AdvancedButton" Content="Advanced search" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top" Click="AdvancedButton_Click" Margin="585,104,0,0" Background="#FAEDCD" Height="40" Width="340"/>
 
             <StackPanel x:Name="BasicStack" Margin="250,144,277,124" Background="#FAEDCD" Visibility="Collapsed">
-                <TextBox TextWrapping="Wrap" Text="Search by title or author..." GotFocus="SearchGotFocus" Background="White" Foreground="Gray" TextAlignment ="Center" VerticalContentAlignment="Center" Width="500" Height="50" Margin="20,100,0,0"/>
-                <Button VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,20,0,0" Content="Search" Width="100" Height="22" Click="GoToPage3_Click"/>
+                <TextBox x:Name="BasicSearchBox" TextWrapping="Wrap" Text="Search by title or author..." GotFocus="SearchGotFocus" Background="White" Foreground="Gray" TextAlignment ="Center" VerticalContentAlignment="Center" Width="500" Height="50" Margin="20,100,0,0"/>
+                <Button VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,20,0,0" Content="Search" Width="100" Height="22" Click="BasicSearch_ButtonClick"/>
             </StackPanel>
 
             <StackPanel x:Name="AdvancedStack" Margin="250,144,277,0" Background="#FAEDCD" Visibility="Visible">
@@ -100,7 +100,7 @@
                 <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="to" Margin="320,-18,0,0" Width="120"/>
                 <TextBox x:Name="EndYear" HorizontalAlignment="Left" Text="End year" GotFocus="EndYearGotFocus" Foreground="Gray" TextWrapping="Wrap" Margin="360,-18.5,0,0" Height="20" Width="120"/>
                 <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Search Terms:" Margin="20,20,0,0" Width="120" />
-                <Button HorizontalAlignment="Left" Margin="100,-13,0,0" VerticalAlignment="Top" Background="White" MouseEnter="SearchTerm_MouseEnter" MouseLeave="SearchTerm_MouseLeave">
+                <Button HorizontalAlignment="Left" Margin="100,-13,0,0" VerticalAlignment="Top" Background="White">
                     <Button.Template>
                         <ControlTemplate TargetType="{x:Type Button}">
                             <Grid>
@@ -110,7 +110,7 @@
                         </ControlTemplate>
                     </Button.Template>
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="images/questionicon.png" Width="12" Height="12"/>
+                    <Image Source="images/questionicon.png" Width="12" Height="12" ToolTip="User search terms to narrow down search results"/>
                     </StackPanel>
                 </Button>
                 <TextBox x:Name="SearchTermQuestion" TextWrapping="Wrap" Background="#749F82" Text="Use search terms to narrow down search results" Visibility="Hidden" HorizontalAlignment="Left" TextAlignment="Center" Height="40" Width="160" Margin="120,-50,0,0"/>
@@ -784,7 +784,7 @@
                 </Button>
 
 				<Button x:Name="EnhanceButton" HorizontalAlignment="Center" Margin="0,30,0,0" Content="Enhance your search" VerticalAlignment="Top" Width="160" Height="22" Click="EnhanceSearch"/>
-				<Button x:Name="EnhanceQuestion" HorizontalAlignment="Left" Margin="440,-19,0,0" VerticalAlignment="Top" Background="White" MouseEnter="EnhanceQuestion_MouseEnter" MouseLeave="EnhanceQuestion_MouseLeave">
+				<Button x:Name="EnhanceQuestion" HorizontalAlignment="Left" Margin="440,-19,0,0" VerticalAlignment="Top" Background="White">
 					<Button.Template>
 						<ControlTemplate TargetType="{x:Type Button}">
 							<Grid>
@@ -794,13 +794,13 @@
 						</ControlTemplate>
 					</Button.Template>
 					<StackPanel Orientation="Horizontal">
-						<Image Source="images/questionicon.png" Width="12" Height="12"/>
+                    <Image Source="images/questionicon.png" Width="12" Height="12" ToolTip="Automatically add the synonyms of your keywords to improve your search"/>
 					</StackPanel>
 				</Button>
 				<TextBox x:Name="EnhanceText" HorizontalAlignment="Left" TextWrapping="Wrap" Background="#749F82" Text="Automatically add the synonyms of your keywords to improve your search" Margin="460,-75,0,0" Height="50" Width="170" Visibility="Collapsed" TextAlignment="Center"/>
 
 				<Button x:Name="UnenhanceButton" Visibility="Collapsed" HorizontalAlignment="Center" Margin="0,30,0,0" Content="Undo enhance search" VerticalAlignment="Top" Width="160" Height="22" Click="UnenhanceSearch"/>
-				<Button x:Name="UnenhanceQuestion" Visibility="Collapsed" HorizontalAlignment="Left" Margin="440,-19,0,0" VerticalAlignment="Top" Background="White" MouseEnter="UnenhanceQuestion_MouseEnter" MouseLeave="UnenhanceQuestion_MouseLeave">
+				<Button x:Name="UnenhanceQuestion" Visibility="Collapsed" HorizontalAlignment="Left" Margin="440,-19,0,0" VerticalAlignment="Top" Background="White">
 					<Button.Template>
 						<ControlTemplate TargetType="{x:Type Button}">
 							<Grid>
@@ -815,8 +815,8 @@
 				</Button>
 				<TextBox x:Name="UnenhanceText" HorizontalAlignment="Left" TextWrapping="Wrap" Background="#749F82" Text="Remove all the automatically added search terms" Margin="460,-75,0,0" Height="50" Width="170" Visibility="Collapsed" TextAlignment="Center"/>
 
-				<Button VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="-125,50,0,0" Content="Save search" Width="100" Height="22"/>
-                <Button VerticalAlignment="Bottom" Click="GoToPage3_Click" HorizontalAlignment="Center" Margin="125,-25,0,0" Content="Search" Width="100" Height="22"/>
+				<Button VerticalAlignment="Bottom" Click="SaveSearchButtonClick" HorizontalAlignment="Center" Margin="-125,50,0,0" Content="Save search" Width="100" Height="22"/>
+                <Button VerticalAlignment="Bottom" Click="AdvancedSearchButtonClick" HorizontalAlignment="Center" Margin="125,-25,0,0" Content="Search" Width="100" Height="22"/>
         </StackPanel>
     </Grid>
     

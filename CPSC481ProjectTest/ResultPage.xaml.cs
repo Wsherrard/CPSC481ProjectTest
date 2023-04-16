@@ -21,7 +21,9 @@ namespace CPSC481ProjectTest
     /// </summary>
     public partial class ResultPage : Page
     {
+        List<Item> itemsCopy; // This will be used for navigating to the item details page
         Hashtable itemQuantities = new Hashtable();
+        string searchQuery = SearchPage.basicSearchQuery;
 
         public ResultPage()
         {
@@ -31,11 +33,12 @@ namespace CPSC481ProjectTest
             // Display the results. This currently displays everything in the database.
             //DisplayResults(Database.items);
 
-            SearchBox.Text = "CRyptoGrAPhy";
+            SearchBox.Text = searchQuery;
+            //SearchButtonClick(null, null);
             DisplaySearchQueryResults();
 
             // Auto check 'All Items' under availability
-            AllItemsRadio.IsChecked = true;
+            //AllItemsRadio.IsChecked = true;
         }
 
         public ResultPage(Item[] items)
@@ -269,20 +272,69 @@ namespace CPSC481ProjectTest
 
         private void TitleClick(object sender, MouseButtonEventArgs e)
         {
-            // TODO: implement window switch to item detail page
-
+            // Get the TextBlock element the user clicked on
             TextBlock t = sender as TextBlock;
 
+            // Grab the text in the TextBlock
             string itemTitle = t.Text;
 
-            MessageBox.Show($"You clicked: {itemTitle}");
+            // Get the parent StackPanel
+            StackPanel sp = (StackPanel)t.Parent;
+
+            TextBlock yearTextBlock = (TextBlock)sp.Children[3];
+            string itemYear = yearTextBlock.Text;
+
+            // Search the global List 'itemsCopy' to get the index of the element
+            int index = -1;
+            for (int i = 0; i < itemsCopy.Count; i++)
+            {
+                if (itemsCopy[i].title == itemTitle && itemsCopy[i].yearOfPublication == itemYear)
+                {
+                    index = i;
+                    break;
+                }
+            }
+
+            MessageBox.Show($"You clicked (index {index}): {itemTitle}");
             MessageBox.Show("Navigating to Item Detail page...");
+
+            DetailPage AP = new DetailPage(itemsCopy.ToArray(), index, false);
+            this.NavigationService.Navigate(AP);
         }
 
         private void MapClick(object sender, MouseButtonEventArgs e)
         {
+            // First get the 'Location on Map' TextBlock that was clicked on
+            TextBlock t = sender as TextBlock; 
+
+            // Get the parent StackPanel that contains this TextBlock
+            StackPanel sp = (StackPanel)t.Parent;
+
+            // Get the third TextBlock (this contains the textual item location)
+            TextBlock itemLocationTextBlock = (TextBlock)sp.Children[2];
+
+            // Get the item location text
+            string itemLocation = itemLocationTextBlock.Text;
+
+            // Note that itemLocation begins with the string "Location: ". So let's remove that part so we have just the location code
+            itemLocation = itemLocation.Replace("Location: ", "");
+
+            // Search the global List 'itemsCopy' to get the index of the element
+            int index = -1;
+            for (int i = 0; i < itemsCopy.Count; i++)
+            {
+                if (itemsCopy[i].location == itemLocation)
+                {
+                    index = i;
+                    break;
+                }
+            }
+
             // TODO: implement window switch to item detail page
             MessageBox.Show("Navigating to map on Item Detail page...");
+
+            DetailPage AP = new DetailPage(itemsCopy.ToArray(), index, true);
+            this.NavigationService.Navigate(AP);
         }
 
         private void StartYear_GotFocus(object sender, RoutedEventArgs e)
@@ -496,9 +548,18 @@ namespace CPSC481ProjectTest
 
             // Now base all these filters on what's in the search box
             string searchQuery = SearchBox.Text.ToLower().Trim();
+            searchQuery = searchQuery.Replace("-", "");
+            searchQuery = searchQuery.Replace("--", "");
+            searchQuery = searchQuery.Replace(":", "");
+            searchQuery = searchQuery.Replace(" ", "");
             for (int i = 0; i < filteredItems.Count; i++)
             {
-                if (!filteredItems[i].title.ToLower().Contains(searchQuery))
+                string s = filteredItems[i].title.ToLower();
+                s = s.Replace("-", "");
+                s = s.Replace("--", "");
+                s = s.Replace(":", "");
+                s = s.Replace(" ", "");
+                if (!s.Contains(searchQuery))
                 {
                     filteredItems.RemoveAt(i);
                     i--;
@@ -657,13 +718,24 @@ namespace CPSC481ProjectTest
                 results.Sort((r1, r2) => string.Compare(r2.yearOfPublication, r1.yearOfPublication));
             }
 
-            else
+            else if (selectedItem.Content.ToString() == "Oldest First")
             {
                 results.Sort((r1, r2) => string.Compare(r1.yearOfPublication, r2.yearOfPublication));
             }
 
+            // Sort by newest by default
+            else
+            {
+                results.Sort((r1, r2) => string.Compare(r2.yearOfPublication, r1.yearOfPublication));
+            }
+
             // Convert result list to an array in order to display them
             Item[] new_results = results.ToArray();
+
+            // Also copy this to the global variable list (used for item detail page)
+            itemsCopy = new_results.ToList();
+
+            // Display these results
             DisplayResults(new_results);
         }
 
@@ -672,25 +744,6 @@ namespace CPSC481ProjectTest
 
         }
 
-        private void SearchTermsQuestionIcon_MouseEnter(object sender, MouseEventArgs e)
-        {
-            SearchTermsHelp.Visibility = Visibility.Visible;
-        }
-
-        private void SearchTermsQuestionIcon_MouseLeave(object sender, MouseEventArgs e)
-        {
-            SearchTermsHelp.Visibility = Visibility.Collapsed;
-        }
-
-        private void EnhanceSearchQuestionIcon_MouseEnter(object sender, MouseEventArgs e)
-        {
-            EnhanceSearchHelp.Visibility = Visibility.Visible;
-        }
-
-        private void EnhanceSearchQuestionIcon_MouseLeave(object sender, MouseEventArgs e)
-        {
-            EnhanceSearchHelp.Visibility = Visibility.Collapsed;
-        }
         private void MyAccountButton(object sender, RoutedEventArgs e)
         {
             AccountPage AP = new AccountPage();
@@ -710,6 +763,11 @@ namespace CPSC481ProjectTest
         private void SortBy_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             DisplaySearchQueryResults();
+        }
+
+        public void getBasicSearchQuery()
+        {
+
         }
     }
 }
