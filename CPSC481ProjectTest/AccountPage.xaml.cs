@@ -24,24 +24,12 @@ namespace CPSC481ProjectTest
         {
             InitializeComponent();
             DisplayResults(HoldDatabase.hold.ToArray());
-            DisplaySaved(SavedDatabase.saved.ToArray());
+            DisplaySaved(SavedDatabase.Saved.ToArray());
         }
-
-        private void ScrollBar_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        private void Printsaved(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("Printing map...");
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void MyAccountButton(object sender, RoutedEventArgs e)
         {
             AccountPage AP = new AccountPage();
@@ -417,34 +405,34 @@ namespace CPSC481ProjectTest
             string itemTitle = t.Text;
             int index = 0;
 
-            if(HoldGrid.IsVisible) { 
+            /*           if(holdgrid.isvisible) {
 
-                for (int i =0; i< HoldDatabase.hold.Count-1;i++)
-                {
-                    if (HoldDatabase.hold[i].title.Equals(itemTitle))
-                    {
-                        index = i;
-                        
-                    }
-                }
-                DetailPage AP = new DetailPage(HoldDatabase.hold.ToArray(), index, false);
-                this.NavigationService.Navigate(AP);
-            }
-            else
-            {
-                for (int i = 0; i < SavedDatabase.saved.Count - 1; i++)
-                {
-                    if (SavedDatabase.saved[i].title.Equals(itemTitle))
-                    {
-                        index = i;
-                        
-                    }
-                }
-                DetailPage AP = new DetailPage(SavedDatabase.saved.ToArray(), index, false);
-                this.NavigationService.Navigate(AP);
-            }
+                           for (int i = 0; i < holddatabase.hold.count - 1; i++)
+                           {
+                               if (holddatabase.hold[i].title.equals(itemtitle))
+                               {
+                                   index = i;
+
+                               }
+                           }
+                           detailpage ap = new detailpage(holddatabase.hold.toarray(), index, false);
+                           this.navigationservice.navigate(ap);
+                       }
+                       else
+                       {
+                           for (int i = 0; i < saveddatabase.saved.count - 1; i++)
+                           {
+                               if (saveddatabase.saved[i].title.equals(itemtitle))
+                               {
+                                   index = i;
+
+                               }
+                           }
+                           DetailPage AP = new DetailPage(SavedDatabase.Saved.ToArray(), index, false);
+                           this.NavigationService.Navigate(AP);
+                       }*/
         }
-    
+
 
         private void MapClick(object sender, MouseButtonEventArgs e)
         {
@@ -453,50 +441,33 @@ namespace CPSC481ProjectTest
             string itemTitle = t.Text;
             int index = 0;
 
-            if (HoldGrid.IsVisible)
-            {
+            /*            if (HoldGrid.IsVisible)
+                        {
 
-                for (int i = 0; i < HoldDatabase.hold.Count - 1; i++)
-                {
-                    if (HoldDatabase.hold[i].title.Equals(itemTitle))
-                    {
-                        index = i;
-                        
-                    }
-                }
-                DetailPage AP = new DetailPage(HoldDatabase.hold.ToArray(), index, true);
-                this.NavigationService.Navigate(AP);
-            }
-            else
-            {
-                for (int i = 0; i < SavedDatabase.saved.Count - 1; i++)
-                {
-                    if (SavedDatabase.saved[i].title.Equals(itemTitle))
-                    {
-                        index = i;
-                        
-                    }
-                }
-                DetailPage AP = new DetailPage(SavedDatabase.saved.ToArray(), index, true);
-                this.NavigationService.Navigate(AP);
-            }
+                            for (int i = 0; i < HoldDatabase.hold.Count - 1; i++)
+                            {
+                                if (HoldDatabase.hold[i].title.Equals(itemTitle))
+                                {
+                                    index = i;
+
+                                }
+                            }
+                            DetailPage AP = new DetailPage(HoldDatabase.hold.ToArray(), index, true);
+                            this.NavigationService.Navigate(AP);
+                        }
+                        else
+                        {
+                            for (int i = 0; i < SavedDatabase.Saved.Count - 1; i++)
+                            {
+                                if (SavedDatabase.Saved[i].title.Equals(itemTitle))
+                                {
+                                    index = i;
+
+                                }
+                            }*/
+            DetailPage AP = new DetailPage(SavedDatabase.Saved.ToArray(), index, true);
+            this.NavigationService.Navigate(AP);
         }
-
-        //      private void DisplayHold()
-        //     {
-        //    List<Item> results = new List<Item>();
-        //  foreach (Item item in HoldDatabase.hold)
-        //     {
-        //        string itemTitle = item.title.ToLower();
-        //         itemTitle = itemTitle.Replace("-", "");
-        //         itemTitle = itemTitle.Replace("--", "");
-        //         itemTitle = itemTitle.Replace(":", "");
-        //         itemTitle = itemTitle.Replace(" ", "");
-        //      }
-
-        // Convert result list to an array in order to display them
-        //      Item[] new_results = results.ToArray();
-        //       DisplayResults(new_results);
-        //    }
     }
-}
+    }
+
