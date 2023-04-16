@@ -276,11 +276,17 @@ namespace CPSC481ProjectTest
             // Grab the text in the TextBlock
             string itemTitle = t.Text;
 
+            // Get the parent StackPanel
+            StackPanel sp = (StackPanel)t.Parent;
+
+            TextBlock yearTextBlock = (TextBlock)sp.Children[3];
+            string itemYear = yearTextBlock.Text;
+
             // Search the global List 'itemsCopy' to get the index of the element
             int index = -1;
             for (int i = 0; i < itemsCopy.Count; i++)
             {
-                if (itemsCopy[i].title == itemTitle)
+                if (itemsCopy[i].title == itemTitle && itemsCopy[i].yearOfPublication == itemYear)
                 {
                     index = i;
                     break;
