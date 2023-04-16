@@ -405,32 +405,32 @@ namespace CPSC481ProjectTest
             string itemTitle = t.Text;
             int index = 0;
 
-            /*           if(holdgrid.isvisible) {
+/*            if (HoldGrid.isvisible)
+            {
 
-                           for (int i = 0; i < holddatabase.hold.count - 1; i++)
-                           {
-                               if (holddatabase.hold[i].title.equals(itemtitle))
-                               {
-                                   index = i;
+                for (int i = 0; i < HoldDatabase.hold.count - 1; i++)
+                {
+                    if (HoldDatabase.hold[i].title.equals(itemtitle))
+                    {
+                        index = i;
 
-                               }
-                           }
-                           detailpage ap = new detailpage(holddatabase.hold.toarray(), index, false);
-                           this.navigationservice.navigate(ap);
-                       }
-                       else
-                       {
-                           for (int i = 0; i < saveddatabase.saved.count - 1; i++)
-                           {
-                               if (saveddatabase.saved[i].title.equals(itemtitle))
-                               {
-                                   index = i;
+                    }
+                }
+                DetailPage ap = new DetailPage(HoldDatabase.hold.toArray(), index, false);
+                this.navigationservice.navigate(ap);
+            }
+            else
+            {
+                for (int i = 0; i < SavedDatabase.Saved.Count - 1; i++)
+                {
+                    if (SavedDatabase.Saved[i].title.equals(itemtitle))
+                    {
+                        index = i;
 
-                               }
-                           }
-                           DetailPage AP = new DetailPage(SavedDatabase.Saved.ToArray(), index, false);
-                           this.NavigationService.Navigate(AP);
-                       }*/
+                    }
+                }
+                DetailPage AP = new DetailPage(SavedDatabase.Saved.ToArray(), index, false);
+            }*/
         }
 
 
