@@ -34,7 +34,7 @@ namespace CPSC481ProjectTest
             //DisplayResults(Database.items);
 
             SearchBox.Text = searchQuery;
-            DisplaySearchQueryResults();
+            SearchButtonClick(null, null);
 
             // Auto check 'All Items' under availability
             AllItemsRadio.IsChecked = true;
