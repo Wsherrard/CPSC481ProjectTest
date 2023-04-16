@@ -230,9 +230,6 @@ namespace CPSC481ProjectTest
                 MessageBox.Show("Hold placed on item");
                 isHeld = true;
                 holdItemButton.Content = "Remove Hold";
-
-                //save item to account somehow
-                //probably a global list or something
                 HoldDatabase.hold.Add(resultsList[currentIndex]);
 
             }
@@ -246,15 +243,14 @@ namespace CPSC481ProjectTest
                 MessageBox.Show("Item removed from your account");
                 isSaved = false;
                 saveItemButton.Content = "Save for Later";
+                SavedDatabase.saved.Remove(resultsList[currentIndex]);
             }
             else
             {
                 MessageBox.Show("Item saved to your account");
                 isSaved = true;
                 saveItemButton.Content = "Remove Item";
-
-                //save item to account somehow
-                //probably a global list or something
+                SavedDatabase.saved.Add(resultsList[currentIndex]);
             }
 
         }
