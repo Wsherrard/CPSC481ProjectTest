@@ -601,7 +601,11 @@ namespace CPSC481ProjectTest
         private void DisplaySearchQueryResults()
         {
             // Convert the search query to all lower case
-            string searchQuery = SearchBox.Text.ToLower().Trim().Replace(" ", "");
+            string searchQuery = SearchBox.Text.ToLower().Trim();
+            searchQuery = searchQuery.Replace("-", "");
+            searchQuery = searchQuery.Replace("--", "");
+            searchQuery = searchQuery.Replace(":", "");
+            searchQuery = searchQuery.Replace(" ", "");
             //MessageBox.Show($"Search query: {searchQuery}");
 
             if (string.IsNullOrWhiteSpace(searchQuery))
@@ -613,7 +617,7 @@ namespace CPSC481ProjectTest
             List<Item> results = new List<Item>();
             foreach (Item item in Database.items)
             {
-                string itemTitle = item.title.ToLower();
+                string itemTitle = item.title.ToLower().Trim();
                 itemTitle = itemTitle.Replace("-", "");
                 itemTitle = itemTitle.Replace("--", "");
                 itemTitle = itemTitle.Replace(":", "");
