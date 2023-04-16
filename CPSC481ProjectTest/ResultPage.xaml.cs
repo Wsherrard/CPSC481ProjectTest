@@ -663,5 +663,10 @@ namespace CPSC481ProjectTest
             LogInPage AP = new LogInPage();
             this.NavigationService.Navigate(AP);
         }
+
+        private void SortBy_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
