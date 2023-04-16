@@ -814,7 +814,7 @@
 				</Button>
 				<TextBox x:Name="UnenhanceText" HorizontalAlignment="Left" TextWrapping="Wrap" Background="#749F82" Text="Remove all the automatically added search terms" Margin="460,-75,0,0" Height="50" Width="170" Visibility="Collapsed" TextAlignment="Center"/>
 
-				<Button VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="-125,50,0,0" Content="Save search" Width="100" Height="22"/>
+				<Button VerticalAlignment="Bottom" Click="SaveSearchButtonClick" HorizontalAlignment="Center" Margin="-125,50,0,0" Content="Save search" Width="100" Height="22"/>
                 <Button VerticalAlignment="Bottom" Click="AdvancedSearchButtonClick" HorizontalAlignment="Center" Margin="125,-25,0,0" Content="Search" Width="100" Height="22"/>
         </StackPanel>
     </Grid>

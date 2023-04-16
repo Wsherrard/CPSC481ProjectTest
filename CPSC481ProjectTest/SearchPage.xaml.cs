@@ -753,6 +753,11 @@ namespace CPSC481ProjectTest
         {
             GoToPage3_Click(null, null);
         }
+
+        private void SaveSearchButtonClick(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("The current search has been saved to your account.");
+        }
     }
 
 }
