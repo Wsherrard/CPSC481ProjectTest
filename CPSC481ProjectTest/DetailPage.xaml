@@ -24,7 +24,7 @@
                 <ColumnDefinition Width=" 50"/>
             </Grid.ColumnDefinitions>
 
-            <Image x:Name="zoomedMap" Height=" 550" Source="/databaseImages/BookMap.png" Grid.Row="1" Grid.Column="1"/>
+            <Image x:Name="zoomedMap" Height=" 550" Source="\images/MapView2.png" Grid.Row="1" Grid.Column="1"/>
 
             <Grid Grid.Column="1" Grid.Row="1">
                 <Grid.RowDefinitions>
@@ -32,7 +32,7 @@
                     <RowDefinition Height="50"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="1" Margin="0,0,12,0">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="1" Margin="0,0,175,0">
                     <Button Content="Print Map" Padding="10,0,10,0" Click="PrintMapButtonClick"/>
                     <Button Content="Email Map" Padding=" 10, 0, 10, 0" Click="EmailMapButtonClick"/>
                     <Button Content="Close" Padding="10,0,10,0" Click="closeZoomedMapButtonClick"/>
@@ -131,7 +131,7 @@
                                 <Label x:Name="itemLocation" Content="Location: A101" />
                                 <Label x:Name="itemAvailability" Content="Available" Foreground="Green"/>
                                 <Grid Height="120" Width="160">
-                                    <Image Source="/databaseImages/BookMap.png"/>
+                                    <Image Source="\images/MapView2.png"/>
                                     <Button Click="MapClick">
                                         <Button.BorderBrush>
                                             <SolidColorBrush Color="#FFFAEDCD" Opacity="0"/>
