@@ -62,4 +62,12 @@ namespace CPSC481ProjectTest
             new Item("images\\ML_Kearns.jpg", ItemType.Paper, "The computional complexity of machine learning", new List<String>{ "Kearns, Michael J." }, "1990", "MIT Press", "Machine Learning", new HashSet<string>{"#machinelearning", "#ai", "#algorithms"}, true, "B263", false)
         };
     }
+
+    public static class HoldDatabase
+    {
+        public static Item[] hold = new Item[]
+        {
+            new Item("databaseImages\\Cryptography_Buchanan.jpg", ItemType.Book, "Cryptography" , new List<string>{ "Buchanan, William" }, "2017", true, "A100", false),
+        };
+    }
 }
