@@ -241,8 +241,8 @@ namespace CPSC481ProjectTest
                 ResultGrid.Children.Add(stackPanel2);
             }
 
-            string rowCount = ResultGrid.RowDefinitions.Count.ToString();
-            MessageBox.Show($"Number of rows: {rowCount}");
+            //string rowCount = ResultGrid.RowDefinitions.Count.ToString();
+            //MessageBox.Show($"Number of rows: {rowCount}");
         }
 
         // This is for displaying the quantity of items of each type
@@ -311,8 +311,8 @@ namespace CPSC481ProjectTest
                 }
             }
 
-            MessageBox.Show($"You clicked (index {index}): {itemTitle}");
-            MessageBox.Show("Navigating to Item Detail page...");
+            //MessageBox.Show($"You clicked (index {index}): {itemTitle}");
+            //MessageBox.Show("Navigating to Item Detail page...");
 
             DetailPage AP = new DetailPage(itemsCopy.ToArray(), index, false);
             this.NavigationService.Navigate(AP);
@@ -347,7 +347,7 @@ namespace CPSC481ProjectTest
             }
 
             // TODO: implement window switch to item detail page
-            MessageBox.Show("Navigating to map on Item Detail page...");
+            //MessageBox.Show("Navigating to map on Item Detail page...");
 
             DetailPage AP = new DetailPage(itemsCopy.ToArray(), index, true);
             this.NavigationService.Navigate(AP);
@@ -437,7 +437,7 @@ namespace CPSC481ProjectTest
                     else
                         s += "Article, ";
                 }
-                MessageBox.Show($"All Item Types: {s}"); // DEBUG LINE (REMOVE LATER)
+                //MessageBox.Show($"All Item Types: {s}"); // DEBUG LINE (REMOVE LATER)
             }
 
             // Error check user input for 'Start Year' and 'End Year'
@@ -712,9 +712,9 @@ namespace CPSC481ProjectTest
             }
 
             // DEBUG MESSAGE (REMOVE LATER)
-            string resultCount = results.Count.ToString();
-            string resultMessage = $"Total results: {resultCount}";
-            MessageBox.Show(resultMessage);
+            //string resultCount = results.Count.ToString();
+            //string resultMessage = $"Total results: {resultCount}";
+            //MessageBox.Show(resultMessage);
 
             // Sort items based on 'Sort By Drop Down'
             ComboBoxItem selectedItem = SortBy.SelectedItem as ComboBoxItem;
