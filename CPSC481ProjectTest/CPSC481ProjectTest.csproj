@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <None Remove="cancelicon.png" />
+    <None Remove="images\AI_Cambridge_Handbook.jpg" />
     <None Remove="images\cancelicon.png" />
     <None Remove="images\Cryptography_Buchanan.jpg" />
     <None Remove="images\Cryptography_Rubinstein.jpg" />
@@ -43,6 +44,7 @@
 
   <ItemGroup>
     <Resource Include="cancelicon.png" />
+    <Resource Include="images\AI_Cambridge_Handbook.jpg" />
     <Resource Include="images\cancelicon.png" />
     <Resource Include="images\Cryptography_Buchanan.jpg" />
     <Resource Include="images\Cryptography_Rubinstein.jpg" />
