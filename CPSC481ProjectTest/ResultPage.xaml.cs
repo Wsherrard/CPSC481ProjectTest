@@ -45,6 +45,7 @@ namespace CPSC481ProjectTest
         {
             InitializeComponent();
 
+            // These are hardcoded to show what an advanced search would look like
             itemsCopy = items.ToList();
             BooksCheckbox.IsChecked = true;
             JournalsCheckbox.IsChecked = true;
@@ -52,6 +53,13 @@ namespace CPSC481ProjectTest
             ArticlesCheckbox.IsChecked = true;
             AllItemsRadio.IsChecked = true;
             StartYear.Text = "1980";
+            SearchTerm2.Visibility = Visibility.Visible;
+            SearchTerm3.Visibility = Visibility.Visible;
+            KeywordBox0.Text = "machine learning";
+            KeywordBox1.Text = "practical application";
+            KeywordBox2.Text = "detect";
+            KeywordBox3.Text = "emotion";
+
 
             DisplayResults(items);
 
