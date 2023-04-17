@@ -26,7 +26,7 @@
                         </Grid>
                     </ControlTemplate>
                 </Button.Template>
-                <Image Source="C:\Users\thao3\source\repos\481\481\questionicon.png" Width="12" Height="10"/>
+                <Image Source="images/questionicon.png" Width="12" Height="10"/>
             </Button>
             <TextBox x:Name="Help" Visibility="Hidden" Background="#749F82" HorizontalAlignment="Center" Margin="480, -130, 0, 0" TextWrapping="Wrap" FontSize="10" Text="Your existing UCalgary email and password, the same as when you log in to D2L" Width="168" Height="45"/>
             <TextBox x:Name="UCID" Margin="0,50,0,0" TextChanged="UCID_TextChanged" Text="UCalgary email" GotFocus="EmailGotFocus" Background="White" Foreground="Gray" FontSize ="20" Height="30" Width="400"/>
