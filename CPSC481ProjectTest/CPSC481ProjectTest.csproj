@@ -28,6 +28,7 @@
     <None Remove="images\MapView2.png" />
     <None Remove="images\minusicon.png" />
     <None Remove="images\ML_1986.png" />
+    <None Remove="images\ML_Emotion.jpg" />
     <None Remove="images\ML_Kearns.jpg" />
     <None Remove="images\ML_Mitchell.jpg" />
     <None Remove="images\ML_Zhou.jpg" />
@@ -60,6 +61,7 @@
     <Resource Include="images\MapView2.png" />
     <Resource Include="images\minusicon.png" />
     <Resource Include="images\ML_1986.png" />
+    <Resource Include="images\ML_Emotion.jpg" />
     <Resource Include="images\ML_Kearns.jpg" />
     <Resource Include="images\ML_Mitchell.jpg" />
     <Resource Include="images\ML_Zhou.jpg" />

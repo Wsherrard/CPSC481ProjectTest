@@ -56,7 +56,11 @@ namespace CPSC481ProjectTest
             new Item("images\\HCI_Preece.jpg", ItemType.Book, "Human-computer Interaction", new List<string>{ "Preece, Jenny" }, "1994", "Wokingham", "Human Computer Interaction", new HashSet<string>{"#hci", "#human"}, true, "B201", false),
             new Item("images\\icon_book.png", ItemType.Book, "Human Computer Interaction", new List<string>{ "Pavlidis, Ioannis" }, "2008", "IntechOpen", "Human Computer Interaction", new HashSet<string>{"#hci", "#human"}, false, "B201", false),
             new Item("images\\HCI_INTERACT.jpg", ItemType.Journal, "Human-computer interaction--INTERACT", new List<string>{ "IFIP Conference on Human-Computer Interaction." }, "1984-1987", "Amsterdam; North-Holland", "Human Computer Interaction", new HashSet<string>{"#hci", "#human"}, true, "B202", false),
-            new Item("images\\GoogleGlass.png", ItemType.Book, "Google Glass: A Retrospective on Design", new List<string>{"Hill, Hank"}, "2023", "Propane Publishing", "Google Glass, Design Theory", new HashSet<string>{"#google glass", "#design", "#hope the prof finds this funny"}, false, "G00G13", false)
+            new Item("images\\GoogleGlass.png", ItemType.Book, "Google Glass: A Retrospective on Design", new List<string>{"Hill, Hank"}, "2023", "Propane Publishing", "Google Glass, Design Theory", new HashSet<string>{"#google glass", "#design", "#hope the prof finds this funny"}, false, "G00G13", false),
+            new Item("images\\ML_1986.png", ItemType.Journal, "Machine learning", new List<string>{""}, "1986", "Kluwer Academic Publishers", "Machine Learning", new HashSet<string>{"#ml", "#machinelearning"}, true, "C100", true),
+            new Item("images\\ML_Zhou.jpg", ItemType.Book, "Machine learning", new List<string>{"Zhou, Zhi-Hua"}, "2021", "Springer", "Machine Learning", new HashSet<string>{"#ml", "#machinelearning"}, false, "C101", false),
+            new Item("images\\ML_Mitchell.jpg", ItemType.Book, "Machine Learning", new List<string>{"Mitchell, Tom M."}, "1997", "McGraw-Hill", "Machine Learning, Computer Algorithms", new HashSet<string>{"#ml", "#machinelearning", "algorithms"}, true, "C102", false),
+            new Item("images\\ML_Emotion.jpg", ItemType.Book, "Machine learning for face, emotion, and pain recognition", new List<string>{"Anbarjafari, Gholamreza"}, "2018", "SPIE", "Machine Learning, Facial Recognition", new HashSet<string>{"#ml", "#machinelearning", "face", "recognition", "emotion"}, true, "C103", false),
         };
     }
     public static class ItemSummaries
