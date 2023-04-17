@@ -751,7 +751,17 @@ namespace CPSC481ProjectTest
 
         private void AdvancedSearchButtonClick(object sender, RoutedEventArgs e)
         {
-            GoToPage3_Click(null, null);
+            //GoToPage3_Click(null, null);
+
+            // Hardcoded items
+            List<Item> tempItems = new List<Item>();
+            for (int i = 10; i < Database.items.Length; i++)
+                tempItems.Add(Database.items[i]);
+
+            Item[] advancedSearchItems = tempItems.ToArray();
+
+            ResultPage AP = new ResultPage(advancedSearchItems);
+            this.NavigationService.Navigate(AP);
         }
 
         private void SaveSearchButtonClick(object sender, RoutedEventArgs e)

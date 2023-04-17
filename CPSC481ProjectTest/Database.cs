@@ -47,7 +47,7 @@ namespace CPSC481ProjectTest
     {
         public static Item[] items = new Item[]
         {
-          new Item("images\\Cryptography_Buchanan.jpg", ItemType.Book, "Cryptography" , new List<string>{ "Buchanan, William" }, "2017", "River Publishers", "Cryptography", new HashSet<string>{"#crypto", "#cryptography", "#cryptanalysis", "#cryptology"}, true, "A100", false),
+            new Item("images\\Cryptography_Buchanan.jpg", ItemType.Book, "Cryptography" , new List<string>{ "Buchanan, William" }, "2017", "River Publishers", "Cryptography", new HashSet<string>{"#crypto", "#cryptography", "#cryptanalysis", "#cryptology"}, true, "A100", false),
             new Item("images\\Cryptography_Rubinstein.jpg", ItemType.Book, "Cryptography", new List<string>{ "Rubinstein-Salzedo, Simon" }, "2018", "Springer", "Cryptography, Number Theory", new HashSet<string>{"#crypto", "#cryptography",  "#numbertheory"}, true, "A101", false),
             new Item("images\\Cryptography_Stinson.jpg", ItemType.Book, "Cryptography : Theory and Practice", new List <string> { "Stinson, Douglas Robert" },"2018", "Boca Raton", "Cryptography, Coding Theory", new HashSet<string>{"#crypto", "#cryptography", "#coding"}, true, "A102", false),
             new Item("images\\Post_quantum_cryptography.png", ItemType.Journal, "Journal of discrete mathematical sciences & cryptography", new List<string>{""}, "1998", "Taru Publications", "Cryptography, Discrete Math", new HashSet<string>{"#crypto", "#cryptography", "#math"}, true, "A103", true),
