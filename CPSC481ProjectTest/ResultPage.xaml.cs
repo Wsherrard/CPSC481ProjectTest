@@ -469,82 +469,82 @@ namespace CPSC481ProjectTest
                 }
             }
 
-            // FILTER BY SEARCH TERMS
-            // First get all the StackPanels consisting of the search term parts
-            List<StackPanel> terms = new List<StackPanel>();
-            int numSearchTerms = SearchTerms.Children.Count;
-            string temp = "";
-            for (int i = 0; i < numSearchTerms; i++)
-            {
-                terms.Add((StackPanel)SearchTerms.Children[i]);
-            }
+            //// FILTER BY SEARCH TERMS
+            //// First get all the StackPanels consisting of the search term parts
+            //List<StackPanel> terms = new List<StackPanel>();
+            //int numSearchTerms = SearchTerms.Children.Count;
+            //string temp = "";
+            //for (int i = 0; i < numSearchTerms; i++)
+            //{
+            //    terms.Add((StackPanel)SearchTerms.Children[i]);
+            //}
 
-            // Then get the selected dropdown options and keyword input from each search term
-            // For now, we're storing them in separate lists. Might change this to be a single 2D structure.
-            List<string> logicalOperators = new List<string>();
-            List<string> fields = new List<string>();
-            List<string> patterns = new List<string>();
-            List<string> keywords = new List<string>();
-            string str = ""; // FOR DEBUGGING (REMOVE LATER)
-            for (int i = 0; i < terms.Count; i++)
-            {
-                // Only grab the search terms from the visible search terms (ignoring any collapsed StackPanels)
-                if (terms[i].Visibility == Visibility.Visible)
-                {
-                    // The TextBox is the last element of the StackPanel
-                    TextBox keywordTextBox = (TextBox)terms[i].Children[terms[i].Children.Count - 1];
-                    keywords.Add(keywordTextBox.Text);
+            //// Then get the selected dropdown options and keyword input from each search term
+            //// For now, we're storing them in separate lists. Might change this to be a single 2D structure.
+            //List<string> logicalOperators = new List<string>();
+            //List<string> fields = new List<string>();
+            //List<string> patterns = new List<string>();
+            //List<string> keywords = new List<string>();
+            //string str = ""; // FOR DEBUGGING (REMOVE LATER)
+            //for (int i = 0; i < terms.Count; i++)
+            //{
+            //    // Only grab the search terms from the visible search terms (ignoring any collapsed StackPanels)
+            //    if (terms[i].Visibility == Visibility.Visible)
+            //    {
+            //        // The TextBox is the last element of the StackPanel
+            //        TextBox keywordTextBox = (TextBox)terms[i].Children[terms[i].Children.Count - 1];
+            //        keywords.Add(keywordTextBox.Text);
 
-                    // The wrap panel consists of the ComboBox elements
-                    WrapPanel wp = (WrapPanel)terms[i].Children[0];
+            //        // The wrap panel consists of the ComboBox elements
+            //        WrapPanel wp = (WrapPanel)terms[i].Children[0];
 
-                    // The first search term doesn't have a logical operator dropdown
-                    if (i == 0)
-                    {
-                        // Get the combo boxes, which are children of the WrapPanel we retrieved above
-                        ComboBox fieldComboBox = (ComboBox)wp.Children[wp.Children.Count - 2];
-                        ComboBox patternComboBox = (ComboBox)wp.Children[wp.Children.Count - 1];
+            //        // The first search term doesn't have a logical operator dropdown
+            //        if (i == 0)
+            //        {
+            //            // Get the combo boxes, which are children of the WrapPanel we retrieved above
+            //            ComboBox fieldComboBox = (ComboBox)wp.Children[wp.Children.Count - 2];
+            //            ComboBox patternComboBox = (ComboBox)wp.Children[wp.Children.Count - 1];
 
-                        // Get the selected combo box items
-                        ComboBoxItem fieldOption = fieldComboBox.SelectedItem as ComboBoxItem;
-                        ComboBoxItem patternOption = patternComboBox.SelectedItem as ComboBoxItem;
+            //            // Get the selected combo box items
+            //            ComboBoxItem fieldOption = fieldComboBox.SelectedItem as ComboBoxItem;
+            //            ComboBoxItem patternOption = patternComboBox.SelectedItem as ComboBoxItem;
 
-                        // Extract the selected ComboBoxItems as a string
-                        string selectedField = fieldOption.Content.ToString();
-                        fields.Add(selectedField);
-                        string selectedPattern = patternOption.Content.ToString();
-                        patterns.Add(selectedPattern);
+            //            // Extract the selected ComboBoxItems as a string
+            //            string selectedField = fieldOption.Content.ToString();
+            //            fields.Add(selectedField);
+            //            string selectedPattern = patternOption.Content.ToString();
+            //            patterns.Add(selectedPattern);
 
-                        // DEBUG LINE (REMOVE LATER)
-                        str += "(" + selectedField + ", " + selectedPattern + ", " + keywordTextBox.Text + ")\n";
-                    }
-                    else
-                    {
-                        // Get the combo boxes, which are children of the WrapPanel we retrieved above
-                        ComboBox logicalOperatorComboBox = (ComboBox)wp.Children[wp.Children.Count - 3];
-                        ComboBox fieldComboBox = (ComboBox)wp.Children[wp.Children.Count - 2];
-                        ComboBox patternComboBox = (ComboBox)wp.Children[wp.Children.Count - 1];
+            //            // DEBUG LINE (REMOVE LATER)
+            //            str += "(" + selectedField + ", " + selectedPattern + ", " + keywordTextBox.Text + ")\n";
+            //        }
+            //        else
+            //        {
+            //            // Get the combo boxes, which are children of the WrapPanel we retrieved above
+            //            ComboBox logicalOperatorComboBox = (ComboBox)wp.Children[wp.Children.Count - 3];
+            //            ComboBox fieldComboBox = (ComboBox)wp.Children[wp.Children.Count - 2];
+            //            ComboBox patternComboBox = (ComboBox)wp.Children[wp.Children.Count - 1];
 
-                        // Get the selected combo box items
-                        ComboBoxItem logicalOperatorOption = logicalOperatorComboBox.SelectedItem as ComboBoxItem;
-                        ComboBoxItem fieldOption = fieldComboBox.SelectedItem as ComboBoxItem;
-                        ComboBoxItem patternOption = patternComboBox.SelectedItem as ComboBoxItem;
+            //            // Get the selected combo box items
+            //            ComboBoxItem logicalOperatorOption = logicalOperatorComboBox.SelectedItem as ComboBoxItem;
+            //            ComboBoxItem fieldOption = fieldComboBox.SelectedItem as ComboBoxItem;
+            //            ComboBoxItem patternOption = patternComboBox.SelectedItem as ComboBoxItem;
 
-                        // Extract the selected ComboBoxItems as a string
-                        string selectedLogicalOperator = logicalOperatorOption.Content.ToString();
-                        logicalOperators.Add(selectedLogicalOperator);
-                        string selectedField = fieldOption.Content.ToString();
-                        fields.Add(selectedField);
-                        string selectedPattern = patternOption.Content.ToString();
-                        patterns.Add(selectedPattern);
+            //            // Extract the selected ComboBoxItems as a string
+            //            string selectedLogicalOperator = logicalOperatorOption.Content.ToString();
+            //            logicalOperators.Add(selectedLogicalOperator);
+            //            string selectedField = fieldOption.Content.ToString();
+            //            fields.Add(selectedField);
+            //            string selectedPattern = patternOption.Content.ToString();
+            //            patterns.Add(selectedPattern);
 
-                        // DEBUG LINE (REMOVE LATER)
-                        str += "(" + selectedLogicalOperator + ", " + selectedField + ", " + selectedPattern + ", " + keywordTextBox.Text + ")\n";
-                    }
-                }
-            }
-            // DEBUG LINE (REMOVE LATER)
-            MessageBox.Show($"Search Terms:\n{str}");
+            //            // DEBUG LINE (REMOVE LATER)
+            //            str += "(" + selectedLogicalOperator + ", " + selectedField + ", " + selectedPattern + ", " + keywordTextBox.Text + ")\n";
+            //        }
+            //    }
+            //}
+            //// DEBUG LINE (REMOVE LATER)
+            //MessageBox.Show($"Search Terms:\n{str}");
 
             // Now base all these filters on what's in the search box
             string searchQuery = SearchBox.Text.ToLower().Trim();
