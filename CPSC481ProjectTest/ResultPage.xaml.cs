@@ -45,6 +45,14 @@ namespace CPSC481ProjectTest
         {
             InitializeComponent();
 
+            itemsCopy = items.ToList();
+            BooksCheckbox.IsChecked = true;
+            JournalsCheckbox.IsChecked = true;
+            PapersCheckbox.IsChecked = true;
+            ArticlesCheckbox.IsChecked = true;
+            AllItemsRadio.IsChecked = true;
+            StartYear.Text = "1980";
+
             DisplayResults(items);
 
             // Auto check 'All Items' under availability
