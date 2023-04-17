@@ -82,7 +82,7 @@ namespace CPSC481ProjectTest
 
     public static class HoldDatabase
     {
-        public static Item[] hold = new Item[]
+        public static List<Item> hold = new List<Item>
         {
             new Item("images\\Cryptography_Buchanan.jpg", ItemType.Book, "Cryptography" , new List<string>{ "Buchanan, William" }, "2017", "River Publishers", "Cryptography", new HashSet<string>{"#crypto", "#cryptography", "#cryptanalysis", "#cryptology"}, true, "A100", false),
         };
@@ -90,7 +90,7 @@ namespace CPSC481ProjectTest
 
     public static class SavedDatabase
     {
-        public static Item[] Saved = new Item[]
+        public static List<Item> Saved = new List<Item>
         {
             new Item("images\\Post_quantum_cryptography.png", ItemType.Article, "Post-quantum cryptography", new List <string>{ "Bernstein, D.J", "Lange, T" }, "2017", "Heidelberg", "Cryptography, Quantum Computing", new HashSet<string>{"#crypto", "#cryptography", "#quantum", "#computing"}, false, "A104", true),
         };
