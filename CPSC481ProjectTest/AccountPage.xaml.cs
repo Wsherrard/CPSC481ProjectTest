@@ -221,8 +221,8 @@ namespace CPSC481ProjectTest
                 SaveGrid.Children.Add(stackPanel2);
             }
 
-            string rowCount = SaveGrid.RowDefinitions.Count.ToString();
-            MessageBox.Show($"Number of rows: {rowCount}");
+            //string rowCount = SaveGrid.RowDefinitions.Count.ToString();
+           // MessageBox.Show($"Number of rows: {rowCount}");
         }
         private void DisplayResults(Item[] items)
         {
@@ -395,8 +395,8 @@ namespace CPSC481ProjectTest
                 HoldGrid.Children.Add(stackPanel2);
             }
 
-            string rowCount = HoldGrid.RowDefinitions.Count.ToString();
-            MessageBox.Show($"Number of rows: {rowCount}");
+         //   string rowCount = HoldGrid.RowDefinitions.Count.ToString();
+         //   MessageBox.Show($"Number of rows: {rowCount}");
         }
         private void TitleClick(object sender, MouseButtonEventArgs e)
         {
