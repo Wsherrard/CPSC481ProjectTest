@@ -176,7 +176,7 @@
                                 <ComboBoxItem>Starts with</ComboBoxItem>
                             </ComboBox>
                         </WrapPanel>
-                        <TextBox Margin="25,5,0,10" FontStyle="Italic" Foreground="#FFB5AEAE" Width="147" GotFocus="Keyword_GotFocus" LostFocus="FilterApplied" Text="Your keyword" HorizontalAlignment="Left"></TextBox>
+                        <TextBox x:Name="KeywordBox1" Margin="25,5,0,10" FontStyle="Italic" Foreground="#FFB5AEAE" Width="147" GotFocus="Keyword_GotFocus" LostFocus="FilterApplied" Text="Your keyword" HorizontalAlignment="Left"></TextBox>
                     </StackPanel>
 
                     <StackPanel x:Name="SearchTerm2" Visibility="Collapsed">
@@ -226,7 +226,7 @@
                                 <ComboBoxItem>Starts with</ComboBoxItem>
                             </ComboBox>
                         </WrapPanel>
-                        <TextBox Margin="25,5,0,10" FontStyle="Italic" Foreground="#FFB5AEAE" Width="147" GotFocus="Keyword_GotFocus" LostFocus="FilterApplied" Text="Your keyword" HorizontalAlignment="Left"></TextBox>
+                        <TextBox x:Name="KeywordBox2" Margin="25,5,0,10" FontStyle="Italic" Foreground="#FFB5AEAE" Width="147" GotFocus="Keyword_GotFocus" LostFocus="FilterApplied" Text="Your keyword" HorizontalAlignment="Left"></TextBox>
                     </StackPanel>
 
                     <StackPanel x:Name="SearchTerm3" Visibility="Collapsed">
@@ -276,7 +276,7 @@
                                 <ComboBoxItem>Starts with</ComboBoxItem>
                             </ComboBox>
                         </WrapPanel>
-                        <TextBox Margin="25,5,0,10" FontStyle="Italic" Foreground="#FFB5AEAE" Width="147" GotFocus="Keyword_GotFocus" LostFocus="FilterApplied" Text="Your keyword" HorizontalAlignment="Left"></TextBox>
+                        <TextBox x:Name="KeywordBox3" Margin="25,5,0,10" FontStyle="Italic" Foreground="#FFB5AEAE" Width="147" GotFocus="Keyword_GotFocus" LostFocus="FilterApplied" Text="Your keyword" HorizontalAlignment="Left"></TextBox>
                     </StackPanel>
 
                 </StackPanel>
