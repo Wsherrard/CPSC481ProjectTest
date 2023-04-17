@@ -10,17 +10,17 @@ Team Members:
 Implemented functions walkthrough:
 1. Enter any email and password combination 
 2. Click "Submit"
-3. Click "Basic Search"
-4. Type "Human-computer interaction" into search bar
-5. Click search
-6. Click "Books" checkbox
-7. Click first result's instance of "Find location on map"
-8. Click "Email Map"
-9. Close Popup
-10. Click "Print Map"
-11. Close Popup
-12. Click "Close"
-13. Click "Home"
+3. Type "Human-computer interaction" into search bar
+4. Click search
+5. Click "Books" checkbox
+6. Click first result's instance of "Find location on map"
+7. Click "Email Map"
+8. Close Popup
+9. Click "Print Map"
+10. Close Popup
+11. Click "Close"
+12. Click "Home"
+13. Click "Advanced search"
 14. Click "Books" and "Journals" checkboxes
 15. Click "Only available items" radio button
 16. Type "2020" into "Start year" input field
