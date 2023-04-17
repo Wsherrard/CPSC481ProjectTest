@@ -76,7 +76,7 @@
                 </TabItem>
                 <TabItem Header="Saved Advanced Search" Grid.Row="1" Width="340">
                     <Grid>
-                        <Label Content="Any item containing Machine Learning, Deep Learning, Practical Applications, Practicality, Utilization, Detect, Identify, Distinguish, Emotion, Feeling, Reaction" HorizontalAlignment="Left"  Height="28" Width="951" Margin="30,17,0,717" FontWeight="Bold" Foreground="#FF010656"/>
+                        <Label Content="Any item containing Machine Learning, Practical Applications, Detect, Emotion" HorizontalAlignment="Left"  Height="28" Width="951" Margin="30,17,0,717" FontWeight="Bold" Foreground="#FF010656"/>
                         <Label Content="2023/04/10" HorizontalAlignment="Left"  Height="28" Width="615"  Grid.Row="1" Margin="30,-650,0,0" Foreground="#FF010656"/>
                     </Grid>
                 </TabItem>
