@@ -45,6 +45,7 @@ namespace CPSC481ProjectTest
         {
             InitializeComponent();
 
+            itemsCopy = items.ToList();
             DisplayResults(items);
 
             // Auto check 'All Items' under availability
