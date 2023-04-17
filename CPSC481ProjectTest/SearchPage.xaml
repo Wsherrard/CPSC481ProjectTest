@@ -72,15 +72,15 @@
         <Button Content="Logout" Click="GoToLogIn_Click" FontWeight="Bold" HorizontalAlignment="Left" Margin="1016,16,0,0" VerticalAlignment="Top" Height="36" Width="167" Background="#FAEDCD"/>
         <Button Content="My Account" Click="GoToAccount_Click" FontWeight="Bold" HorizontalAlignment="Left" Margin="849,16,0,0" VerticalAlignment="Top" Height="36" Width="167" Background="#FAEDCD"/>
 
-            <Button x:Name = "BasicButton" Content="Basic search" FontSize="15"  HorizontalAlignment="Left" VerticalAlignment="Top" Click="BasicButton_Click" Margin="250,104,0,0" Background="#E4DCCF" Height="40" Width="335"/>
-            <Button x:Name ="AdvancedButton" Content="Advanced search" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top" Click="AdvancedButton_Click" Margin="585,104,0,0" Background="#FAEDCD" Height="40" Width="340"/>
+            <Button x:Name = "BasicButton" Content="Basic search" FontSize="15"  HorizontalAlignment="Left" VerticalAlignment="Top" Click="BasicButton_Click" Margin="250,104,0,0" Background="#FAEDCD" Height="40" Width="335"/>
+            <Button x:Name ="AdvancedButton" Content="Advanced search" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top" Click="AdvancedButton_Click" Margin="585,104,0,0" Background="#E4DCCF" Height="40" Width="340"/>
 
-            <StackPanel x:Name="BasicStack" Margin="250,144,277,124" Background="#FAEDCD" Visibility="Collapsed">
+            <StackPanel x:Name="BasicStack" Margin="250,144,277,124" Background="#FAEDCD" Visibility="Visible">
                 <TextBox x:Name="BasicSearchBox" TextWrapping="Wrap" Text="Search by title or author..." GotFocus="SearchGotFocus" Background="White" Foreground="Gray" TextAlignment ="Center" VerticalContentAlignment="Center" Width="500" Height="50" Margin="20,100,0,0"/>
                 <Button VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,20,0,0" Content="Search" Width="100" Height="22" Click="BasicSearch_ButtonClick"/>
             </StackPanel>
 
-            <StackPanel x:Name="AdvancedStack" Margin="250,144,277,0" Background="#FAEDCD" Visibility="Visible">
+            <StackPanel x:Name="AdvancedStack" Margin="250,144,277,0" Background="#FAEDCD" Visibility="Collapsed">
                 <Button HorizontalAlignment="Left" Margin="525,10,10,0" Width="140" Height="22" Background="#E21818" Click="DeleteAll">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="images/cancelicon.png" Width="20" Height="20" HorizontalAlignment="Left" Margin="-20"/>
