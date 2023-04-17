@@ -61,6 +61,7 @@ namespace CPSC481ProjectTest
             new Item("images\\ML_Zhou.jpg", ItemType.Book, "Machine learning", new List<string>{"Zhou, Zhi-Hua"}, "2021", "Springer", "Machine Learning", new HashSet<string>{"#ml", "#machinelearning"}, false, "C101", false),
             new Item("images\\ML_Mitchell.jpg", ItemType.Book, "Machine Learning", new List<string>{"Mitchell, Tom M."}, "1997", "McGraw-Hill", "Machine Learning, Computer Algorithms", new HashSet<string>{"#ml", "#machinelearning", "algorithms"}, true, "C102", false),
             new Item("images\\ML_Emotion.jpg", ItemType.Book, "Machine learning for face, emotion, and pain recognition", new List<string>{"Anbarjafari, Gholamreza"}, "2018", "SPIE", "Machine Learning, Facial Recognition", new HashSet<string>{"#ml", "#machinelearning", "face", "recognition", "emotion"}, true, "C103", false),
+            new Item("images\\ML_Emotion_Article.png", ItemType.Article, "A machine learning model for emotion recognition", new List<string>{"Dominguez-Jimenez, J.A", "Campo-Landines, K.C"}, "2020", "Elsevier Ltd", "Machine Learning, Facial Recognition", new HashSet<string>{"#ml", "#machinelearning", "face", "recognition", "emotion", "physocology"}, true, "C104", true)
         };
     }
     public static class ItemSummaries
